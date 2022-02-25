@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,7 +25,7 @@ public class exameDTO implements Serializable {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY )
 	@Column(name = "idexame")
-	private int idexame; 
+	private int idexame;
 	
 	@OneToOne(cascade = CascadeType.REMOVE) 
 	@JoinColumn(name = "idtipoexame", referencedColumnName="idtipoexame")
@@ -35,11 +34,17 @@ public class exameDTO implements Serializable {
 	@Column(name = "idprestador")
 	private int idprestador; 
 	
-	@Column(name = "idatasolicitacao")
-	private Date idatasolicitacao; 
+	@Column(name = "idbenef")
+	private int idbenef;
+	
+	@Column(name = "datasolicitacao")
+	private Date datasolicitacao; 
 	
 	@Column(name = "dataconsulta")
 	private Date dataconsulta;
+	
+	@Column(name = "statusexame")
+	private int statusexame;
 
 	
 }
