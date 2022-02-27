@@ -10,5 +10,5 @@ public interface exameRepository extends JpaRepository<exameDTO,Integer> {
 
 	exameDTO findByidtipoexame(int id);
 	exameDTO save(int id);
-	
+
 }
