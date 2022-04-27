@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.clinica.dto.exameDTO;
 import com.clinica.service.exameService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 //import io.swagger.annotations.Api;
 //import io.swagger.annotations.ApiOperation;
 
-//@Api(value = "Exame", description = "Exame medicas", tags = {"Exame Medico EndPoint"})
+@Api(value = "Exame", description = "Exame medicas", tags = {"Exame Medico EndPoint"})
 @RestController
 @RequestMapping(value = "api-exame")
 public class exameController {
@@ -26,27 +29,27 @@ public class exameController {
 	@Autowired
 	private exameService proxyExame;
 	
-	//@ApiOperation(value = "Busca todos exames")
+	@ApiOperation(value = "Busca todos exames")
 	@GetMapping(value = "/exame")
 	public ResponseEntity<?> findAllExame() throws Exception{
 		List<exameDTO> exame = proxyExame.findAll_Exame();
 		return new ResponseEntity<>(exame,HttpStatus.OK);
 	}
 
-	//@ApiOperation(value = "Busca exame por id")
+	@ApiOperation(value = "Busca exame por id")
 	@GetMapping(value = "/exame-id/{id}")
 	public ResponseEntity<?> findIDExame(@PathVariable int id) throws Exception{
 		exameDTO exame = proxyExame.find_Exame_id(id);
 		return new ResponseEntity<>(exame,HttpStatus.OK);
 	}
 	
-	//@ApiOperation(value = "inserir exame")
+	@ApiOperation(value = "inserir exame")
 	@PostMapping(value = "/exame")
 	public ResponseEntity<?> InsertExame(@RequestBody exameDTO dto)throws Exception{
 		return new  ResponseEntity<>(proxyExame.InsertExame(dto),HttpStatus.CREATED);
 	}
 	
-	//@ApiOperation(value = "alterar exame")
+	@ApiOperation(value = "alterar exame")
 	@PutMapping(value = "/exame")
 	public  ResponseEntity<?> Updateconsulta(@RequestBody exameDTO dto) throws Exception{
 		return new ResponseEntity<>(proxyExame.UpdateExame(dto),HttpStatus.OK);
