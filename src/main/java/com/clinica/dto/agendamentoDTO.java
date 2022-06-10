@@ -2,11 +2,14 @@ package com.clinica.dto;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -21,8 +24,9 @@ public class agendamentoDTO {
 	@Column(name = "idagendamento")
 	private int idagendamento;
 	
-	@Column(name = "idtipoagendamento")
-	private int idtipoagendamento;
+	@OneToOne(cascade = CascadeType.REMOVE) 
+	@JoinColumn(name = "idtipoagendamento", referencedColumnName="idtipoagendamento")
+	private tipoagendamentoDTO idtipoagendamento;
 	
 	@Column(name = "idprestador")
 	private int idprestador;

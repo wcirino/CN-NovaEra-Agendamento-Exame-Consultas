@@ -21,14 +21,14 @@ import io.swagger.annotations.ApiOperation;
 
 @Api(value = "Agendamento", description = "agendamentos medicos", tags = {"Agendamentos Medicos EndPoint"})
 @RestController
-@RequestMapping(value ="api-agendamento")
+@RequestMapping(value ="/api-agendamento")
 public class agendamentoController {
 
 	@Autowired
 	private agendamentoService agendamentoProxy;
 	
 	@ApiOperation(value = "Busca todos agendamento")
-	@GetMapping(value = "/agendamento")
+	@GetMapping(value = "/agendamento-all")
 	public ResponseEntity<?> findAllExame() throws Exception{
 		List<agendamentoDTO> agendamento = agendamentoProxy.findAll_agendamento();
 		return new ResponseEntity<>(agendamento,HttpStatus.OK);
