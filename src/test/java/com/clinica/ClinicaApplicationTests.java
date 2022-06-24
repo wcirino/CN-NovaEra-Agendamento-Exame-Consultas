@@ -44,15 +44,4 @@ class ClinicaApplicationTests {
 	}
 
 	
-	@Test
-	public void BuscaConsultaHTTP200Test2() {
-		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-		given()
-		.accept(ContentType.JSON)
-		.when()
-		.get("/agendamento3")
-		.then()
-		.statusCode(HttpStatus.OK.value());
-	}
-
 }
