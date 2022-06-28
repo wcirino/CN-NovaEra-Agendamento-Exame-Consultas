@@ -27,7 +27,10 @@ public class exameService {
 	}
 	
 	public exameDTO find_Exame_id(int id) throws Exception{
-		Optional<exameDTO> obj = Optional.ofNullable(proxyExame.findByidtipoexame(id));
+		if(id <= 0) {
+			throw new Exception();
+		}
+		Optional<exameDTO> obj = Optional.ofNullable(proxyExame.findByidexame(id));
 		return obj.orElseThrow(() -> new Exception());
 	}
 	

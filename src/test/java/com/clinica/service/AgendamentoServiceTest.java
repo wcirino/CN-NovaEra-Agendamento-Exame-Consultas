@@ -6,11 +6,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.junit.Before;
 
 import com.clinica.dto.agendamentoDTO;
+import com.clinica.repository.AgendamentoRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -29,11 +29,15 @@ public class AgendamentoServiceTest {
 	@Mock
 	agendamentoService service;
 	
+	@Mock
+	AgendamentoRepository repository;
+	
 	String nome;
 	
 	List<agendamentoDTO> listAgendamento;
 	
 	agendamentoDTO agendamento;
+	agendamentoDTO agendamento2;
 	
 	@Before
 	public void setUp() {
@@ -87,25 +91,72 @@ public class AgendamentoServiceTest {
 		assertThat(agenda.isPresent()).isTrue();
 	}
 	
-	//@Test
-	public void devePesquisarporIdLancarException() throws Exception{
-		int id = 1;
-		this.agendamento = this.criandoObjeto();
-		when(service.find_Agendamento_id(id)).thenReturn(agendamento);
-		Optional<agendamentoDTO> agenda = Optional.of(service.find_Agendamento_id(id));
-		
-		 //execucao
-        Throwable exception = catchThrowable(() -> service.findAll_agendamento());
+	@Test
+	public void deveInserirAgendamentoSucesso() throws Exception {
+		agendamentoDTO agenda = agendamentoDTO.builder().idagendamento(99)
+														.idbenef(9)
+														.idprestador(9)
+														.idtipoagendamento(null)
+														.dataconsulta(null)
+														.datasolicitacao(null)
+														.statusAgendamento("novo")
+														.build();
 
-        //verificacoes
-        //assertThat(exception)
-          //      .isInstanceOf(Exception.class)
-          //      .hasMessage("Isbn já cadastrado.");
-        
-       // verify(null)
+		when(service.Insertagendamento(agenda)).thenReturn(agendamentoDTO.builder().idagendamento(99)
+				.idbenef(9)
+				.idprestador(9)
+				.idtipoagendamento(null)
+				.dataconsulta(null)
+				.datasolicitacao(null)
+				.statusAgendamento("novo")
+				.build());
+		
+		agendamentoDTO agenda2 = service.Insertagendamento(agenda);
+		assertThat(agenda.getIdagendamento()).isEqualTo(99);
+	}
+	
+	@Test
+	public void naoDeveInserirAgendamento() throws Exception{
+		int id = 1;
+		
+		this.agendamento = this.criandoObjetoNull();
+		this.agendamento2 = this.criandoObjetoIdNull();
+		
+		when(service.Insertagendamento(agendamento)).thenReturn(agendamento);
+		
+        //execucao
+        Throwable exception = catchThrowable(() -> service.Insertagendamento(agendamento));
+
+        verify(repository,never()).save(agendamento);
 	}
 	
 	
+	@Test
+	public void naoDeveAtualizaragendamento() throws Exception{
+
+		this.agendamento = this.criandoObjetoNull();
+		when(service.Updategendamento(agendamento)).thenReturn(agendamento);
+		
+        //execucao
+        Throwable exception = catchThrowable(() -> service.Updategendamento(agendamento));
+
+        verify(repository,never()).save(agendamento);
+	}
+	
+	@Test
+	public void deveAtualizarAgendamento() throws Exception{
+
+		agendamentoDTO agenda;
+		this.agendamento = this.criandoObjetoParametro(1,1,1,"1");
+		when(service.Updategendamento(agendamento)).thenReturn(agendamento);
+		
+		agenda = service.Updategendamento(agendamento);
+		
+		assertThat(agenda.getIdagendamento()).isEqualTo(1);
+		assertThat(agenda.getIdbenef()).isEqualTo(1);
+		
+	}
+
 	
 	/*
 	 * public agendamentoDTO Insertagendamento(agendamentoDTO dto) throws Exception{
@@ -131,6 +182,29 @@ public class AgendamentoServiceTest {
 				.build();
 	}
 	
+	private agendamentoDTO criandoObjetoIdNull() {
+		return agendamentoDTO.builder()
+				.idbenef(1)
+				.idprestador(1)
+				.idtipoagendamento(null)
+				.dataconsulta(null)
+				.datasolicitacao(null)
+				.statusAgendamento("1")
+				.build();
+	}
+	
+	private agendamentoDTO criandoObjetoParametro(int idagen,int idbenef,int idprestador,String status) {
+		return agendamentoDTO.builder()
+				.idagendamento(idagen)
+				.idbenef(idbenef)
+				.idprestador(idprestador)
+				.idtipoagendamento(null)
+				.dataconsulta(null)
+				.datasolicitacao(null)
+				.statusAgendamento(status)
+				.build();
+	}
+	
 	private agendamentoDTO criandoObjetoNull() {
 		return null;
 	}
@@ -144,7 +218,7 @@ public class AgendamentoServiceTest {
 				agendamentoDTO.builder().idagendamento(3).idbenef(3).idprestador(3).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
 				 agendamentoDTO.builder().idagendamento(4).idbenef(4).idprestador(4).idtipoagendamento(null)
-				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),//---------------------
+				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
 				agendamentoDTO.builder().idagendamento(5).idbenef(5).idprestador(5).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
 				 agendamentoDTO.builder().idagendamento(6).idbenef(6).idprestador(6).idtipoagendamento(null)

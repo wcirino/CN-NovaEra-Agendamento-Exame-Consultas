@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -23,7 +24,7 @@ class ClinicaApplicationTests {
 		assertFalse(Boolean.FALSE);
 	}
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 	  //RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
@@ -37,10 +38,22 @@ class ClinicaApplicationTests {
 		given()
 		.accept(ContentType.JSON)
 		.when()
-		.get("/agendamento-id/1")
+		.get("/agendamento-id/2")
 		.then()
-		.statusCode(HttpStatus.NOT_FOUND.value());
+		.statusCode(HttpStatus.OK.value());
 		//5466546
+	}
+
+	
+	@Test
+	public void BuscaConsultaHTTP200Test2() {
+		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+		given()
+		.accept(ContentType.JSON)
+		.when()
+		.get("/agendamento-all")
+		.then()
+		.statusCode(HttpStatus.OK.value());
 	}
 
 	

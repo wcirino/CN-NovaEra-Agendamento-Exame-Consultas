@@ -8,7 +8,7 @@ import com.clinica.dto.exameDTO;
 @Repository
 public interface exameRepository extends JpaRepository<exameDTO,Integer> {
 
-	exameDTO findByidtipoexame(int id);
+	exameDTO findByidexame(int id);
 	exameDTO save(int id);
 
 }
