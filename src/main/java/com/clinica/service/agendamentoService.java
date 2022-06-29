@@ -50,6 +50,17 @@ public class agendamentoService {
 		}
 	}
 	
+	public agendamentoDTO Updategendamento2(agendamentoDTO dto) throws Exception{
+			agendamentoDTO obj = agendamentoproxy.save(dto);
+			return obj;
+
+	}
+	
+	public agendamentoDTO Insertagendamento2(agendamentoDTO dto) throws Exception{
+			agendamentoDTO obj = agendamentoproxy.save(dto);
+			return obj;
+	}
+	
 //	private agenda AgendamentomodelMapperOne(agendamentoDTO dto) {
 //		exame obj = modalMapper.modelMapper().map(dto, exame.class);
 //		return obj;

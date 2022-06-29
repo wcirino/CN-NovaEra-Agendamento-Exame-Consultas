@@ -31,7 +31,7 @@ public class exameDTO implements Serializable {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY )
 	@Column(name = "idexame")
-	private int idexame;
+	private Integer idexame;
 	
 	@OneToOne(cascade = CascadeType.REMOVE) 
 	@JoinColumn(name = "idtipoexame", referencedColumnName="idtipoexame")
@@ -50,7 +50,7 @@ public class exameDTO implements Serializable {
 	private Date dataconsulta;
 	
 	@Column(name = "statusexame")
-	private int statusexame;
+	private Integer statusexame;
 
 	
 }

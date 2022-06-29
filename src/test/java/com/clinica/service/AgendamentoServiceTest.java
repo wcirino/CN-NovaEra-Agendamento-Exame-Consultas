@@ -17,6 +17,8 @@ import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.*;
 import static java.util.Arrays.asList;
 
@@ -93,7 +95,7 @@ public class AgendamentoServiceTest {
 	
 	@Test
 	public void deveInserirAgendamentoSucesso() throws Exception {
-		agendamentoDTO agenda = agendamentoDTO.builder().idagendamento(99)
+		agendamentoDTO agenda = agendamentoDTO.builder().idagendamento(0)
 														.idbenef(9)
 														.idprestador(9)
 														.idtipoagendamento(null)
@@ -102,6 +104,15 @@ public class AgendamentoServiceTest {
 														.statusAgendamento("novo")
 														.build();
 
+		when(repository.save(agenda)).thenReturn(agendamentoDTO.builder().idagendamento(99)
+				.idbenef(9)
+				.idprestador(9)
+				.idtipoagendamento(null)
+				.dataconsulta(null)
+				.datasolicitacao(null)
+				.statusAgendamento("novo")
+				.build());
+		
 		when(service.Insertagendamento(agenda)).thenReturn(agendamentoDTO.builder().idagendamento(99)
 				.idbenef(9)
 				.idprestador(9)
@@ -112,7 +123,7 @@ public class AgendamentoServiceTest {
 				.build());
 		
 		agendamentoDTO agenda2 = service.Insertagendamento(agenda);
-		assertThat(agenda.getIdagendamento()).isEqualTo(99);
+		assertNotEquals(agenda2,agenda);
 	}
 	
 	@Test
@@ -146,16 +157,63 @@ public class AgendamentoServiceTest {
 	@Test
 	public void deveAtualizarAgendamento() throws Exception{
 
-		agendamentoDTO agenda;
-		this.agendamento = this.criandoObjetoParametro(1,1,1,"1");
-		when(service.Updategendamento(agendamento)).thenReturn(agendamento);
+		//cenario
+		int id = 1;
+		agendamentoDTO agenda = agendamentoDTO.builder().idagendamento(id).build();
 		
-		agenda = service.Updategendamento(agendamento);
+		//simulação
+		agendamentoDTO agenda4 = this.criandoObjeto();
+		//when(repository.save(agenda)).thenReturn(agenda4);
 		
-		assertThat(agenda.getIdagendamento()).isEqualTo(1);
-		assertThat(agenda.getIdbenef()).isEqualTo(1);
+		//ação
+		when(service.Updategendamento(agenda)).thenReturn(agenda4);
+		
+		agendamentoDTO agenda5 = service.Updategendamento(agenda);
+		
+		assertEquals(agenda.getIdagendamento(),agenda4.getIdagendamento());
 		
 	}
+
+	/*
+	 //cenário
+    long id = 1l;
+
+    //livro a atualizar
+    Book updatingBook = Book.builder().id(id).build();
+
+    //simulacao
+    Book updatedBook = createValidBook();
+    updatedBook.setId(id);
+    when(repository.save(updatingBook)).thenReturn(updatedBook);
+
+    //exeucao
+    Book book = service.update(updatingBook);
+
+    //verificacoes
+    assertThat(book.getId()).isEqualTo(updatedBook.getId());
+    assertThat(book.getTitle()).isEqualTo(updatedBook.getTitle());
+    assertThat(book.getIsbn()).isEqualTo(updatedBook.getIsbn());
+    assertThat(book.getAuthor()).isEqualTo(updatedBook.getAuthor());
+	
+   /* //cenário
+    long id = 1l;
+
+    //livro a atualizar
+    Book updatingBook = Book.builder().id(id).build();
+
+    //simulacao
+    Book updatedBook = createValidBook();
+    updatedBook.setId(id);
+    when(repository.save(updatingBook)).thenReturn(updatedBook);
+
+    //exeucao
+    Book book = service.update(updatingBook);
+
+    //verificacoes
+    assertThat(book.getId()).isEqualTo(updatedBook.getId());
+    assertThat(book.getTitle()).isEqualTo(updatedBook.getTitle());
+    assertThat(book.getIsbn()).isEqualTo(updatedBook.getIsbn());
+    assertThat(book.getAuthor()).isEqualTo(updatedBook.getAuthor());*/
 
 	
 	/*
