@@ -39,8 +39,8 @@ class ClinicaApplicationTests {
 	}
 
 	@Test
-	public void deveBuscaConsultaAgendamentoHTTP200_ALL() {
-		given().accept(ContentType.JSON).when().get("/agendamento-all").then().statusCode(HttpStatus.OK.value());
+	public void BuscaConsultaAgendamentoHTTP200_ALL() {
+		given().accept(ContentType.JSON).when().get("/agendamento-all2").then().statusCode(HttpStatus.NOT_FOUND.value());
 	}
 	 
 }
