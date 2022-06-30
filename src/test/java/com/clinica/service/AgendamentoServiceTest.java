@@ -49,10 +49,6 @@ public class AgendamentoServiceTest {
 		this.listAgendamento = this.criandoListObjeto();
 	}
 	   
-	@Test
-	public void novoteste() {
-		assertTrue(!(this.nome == "Willyan fernando"));
-	}
 	
 	@Test
 	public void devePesquisarTodosAgendamento() throws Exception{

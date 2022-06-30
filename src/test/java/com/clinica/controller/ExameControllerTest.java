@@ -15,28 +15,34 @@ import io.restassured.http.ContentType;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ExameControllerTest {
 
-	/*
-	 * @LocalServerPort private int port;
-	 * 
-	 * @Test void contextLoads() { assertFalse(Boolean.FALSE); }
-	 * 
-	 * @BeforeEach public void setUp() {
-	 * RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-	 * //RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-	 * RestAssured.port = port; RestAssured.basePath = "/api-exame"; }
-	 */
 	
-	/*
-	 * @Test public void BuscaExameHTTP200Test() {
-	 * RestAssured.enableLoggingOfRequestAndResponseIfValidationFails(); given()
-	 * .accept(ContentType.JSON) .when() .get("/exame-id/2") .then()
-	 * .statusCode(HttpStatus.OK.value()); //5466546 }
-	 * 
-	 * 
-	 * @Test public void BuscaExameHTTP200Test2() {
-	 * RestAssured.enableLoggingOfRequestAndResponseIfValidationFails(); given()
-	 * .accept(ContentType.JSON) .when() .get("/exame") .then()
-	 * .statusCode(HttpStatus.OK.value()); }
-	 */
+	@LocalServerPort
+	private int port;
+
+	@Test
+	void contextLoads() {
+		assertFalse(Boolean.FALSE);
+	}
+
+	@BeforeEach
+	public void setUp() {
+		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+		// RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+		RestAssured.port = port;
+		RestAssured.basePath = "/api-exame";
+	}
+
+	@Test
+	public void BuscaExameHTTP200Test() {
+		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+		given().accept(ContentType.JSON).when().get("/exame-id/2").then().statusCode(HttpStatus.OK.value());
+	}
+
+	@Test
+	public void BuscaExameHTTP200Test2() {
+		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+		given().accept(ContentType.JSON).when().get("/exame").then().statusCode(HttpStatus.OK.value());
+	}
+	 
 	
 }
