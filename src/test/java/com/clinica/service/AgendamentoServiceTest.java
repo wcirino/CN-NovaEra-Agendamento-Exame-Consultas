@@ -170,59 +170,7 @@ public class AgendamentoServiceTest {
 		
 	}
 
-	/*
-	 //cenário
-    long id = 1l;
 
-    //livro a atualizar
-    Book updatingBook = Book.builder().id(id).build();
-
-    //simulacao
-    Book updatedBook = createValidBook();
-    updatedBook.setId(id);
-    when(repository.save(updatingBook)).thenReturn(updatedBook);
-
-    //exeucao
-    Book book = service.update(updatingBook);
-
-    //verificacoes
-    assertThat(book.getId()).isEqualTo(updatedBook.getId());
-    assertThat(book.getTitle()).isEqualTo(updatedBook.getTitle());
-    assertThat(book.getIsbn()).isEqualTo(updatedBook.getIsbn());
-    assertThat(book.getAuthor()).isEqualTo(updatedBook.getAuthor());
-	
-   /* //cenário
-    long id = 1l;
-
-    //livro a atualizar
-    Book updatingBook = Book.builder().id(id).build();
-
-    //simulacao
-    Book updatedBook = createValidBook();
-    updatedBook.setId(id);
-    when(repository.save(updatingBook)).thenReturn(updatedBook);
-
-    //exeucao
-    Book book = service.update(updatingBook);
-
-    //verificacoes
-    assertThat(book.getId()).isEqualTo(updatedBook.getId());
-    assertThat(book.getTitle()).isEqualTo(updatedBook.getTitle());
-    assertThat(book.getIsbn()).isEqualTo(updatedBook.getIsbn());
-    assertThat(book.getAuthor()).isEqualTo(updatedBook.getAuthor());*/
-
-	
-	/*
-	 * public agendamentoDTO Insertagendamento(agendamentoDTO dto) throws Exception{
-	 * if(!agendamentoproxy.existsById(dto.getIdagendamento())) { agendamentoDTO obj
-	 * = agendamentoproxy.save(dto); return obj; } else { throw new
-	 * Exception("O agendamento  possui Id"); } }
-	 * 
-	 * public agendamentoDTO Updategendamento(agendamentoDTO dto) throws Exception{
-	 * if(agendamentoproxy.existsById(dto.getIdagendamento())) { agendamentoDTO obj
-	 * = agendamentoproxy.save(dto); return obj; } else { throw new
-	 * Exception("O agendamento não possui Id"); } }
-	 */
 	
 	private agendamentoDTO criandoObjeto() {
 		return agendamentoDTO.builder()

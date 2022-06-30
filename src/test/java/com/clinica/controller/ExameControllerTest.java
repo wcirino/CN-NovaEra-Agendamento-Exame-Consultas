@@ -33,13 +33,13 @@ public class ExameControllerTest {
 	}
 
 	@Test
-	public void BuscaExameHTTP200Test() {
+	public void BuscaExameHTTP200ID() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		given().accept(ContentType.JSON).when().get("/exame-id/2").then().statusCode(HttpStatus.OK.value());
 	}
 
 	@Test
-	public void BuscaExameHTTP200Test2() {
+	public void BuscaExameHTTP200ALL() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		given().accept(ContentType.JSON).when().get("/exame").then().statusCode(HttpStatus.OK.value());
 	}

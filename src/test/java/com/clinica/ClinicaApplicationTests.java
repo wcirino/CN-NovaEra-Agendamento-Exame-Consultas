@@ -28,20 +28,19 @@ class ClinicaApplicationTests {
 	@BeforeEach
 	public void setUp() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-		// RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.port = port;
 		RestAssured.basePath = "/api-agendamento";
 	}
 
 	
-	@Test public void BuscaConsultasHTTP200Test() {
+	@Test public void BuscaConsultasExamesHTTP200_ID() {
 	  RestAssured.enableLoggingOfRequestAndResponseIfValidationFails(); given()
 	  .accept(ContentType.JSON) .when() .get("/agendamento-id/2") .then()
 	  .statusCode(HttpStatus.OK.value());
-	  } //5466546 }
+	  } 
 
 	@Test
-	public void BuscaConsultaHTTP200Test2() {
+	public void BuscaConsultaExameHTTP200Test2_ALL() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		given().accept(ContentType.JSON).when().get("/agendamento-all").then().statusCode(HttpStatus.OK.value());
 	}
