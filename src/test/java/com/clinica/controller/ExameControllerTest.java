@@ -27,20 +27,17 @@ public class ExameControllerTest {
 	@BeforeEach
 	public void setUp() {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-		// RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.port = port;
 		RestAssured.basePath = "/api-exame";
 	}
 
 	@Test
-	public void BuscaExameHTTP200ID() {
-		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+	public void deveBuscarExameSucesso() {
 		given().accept(ContentType.JSON).when().get("/exame-id/2").then().statusCode(HttpStatus.OK.value());
 	}
 
 	@Test
-	public void BuscaExameHTTP200ALL() {
-		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+	public void deveBuscarTodosOsExamesSucess() {
 		given().accept(ContentType.JSON).when().get("/exame").then().statusCode(HttpStatus.OK.value());
 	}
 	 

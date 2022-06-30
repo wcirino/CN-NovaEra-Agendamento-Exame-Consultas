@@ -33,15 +33,13 @@ class ClinicaApplicationTests {
 	}
 
 	
-	@Test public void BuscaConsultasExamesHTTP200_ID() {
-	  RestAssured.enableLoggingOfRequestAndResponseIfValidationFails(); given()
-	  .accept(ContentType.JSON) .when() .get("/agendamento-id/2") .then()
-	  .statusCode(HttpStatus.OK.value());
-	  } 
+	@Test
+	public void deveBuscarConsultasAgendamentoHTTP200_ID() {
+		given().accept(ContentType.JSON).when().get("/agendamento-id/2").then().statusCode(HttpStatus.OK.value());
+	}
 
 	@Test
-	public void BuscaConsultaExameHTTP200Test2_ALL() {
-		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+	public void deveBuscaConsultaAgendamentoHTTP200_ALL() {
 		given().accept(ContentType.JSON).when().get("/agendamento-all").then().statusCode(HttpStatus.OK.value());
 	}
 	 
