@@ -15,14 +15,11 @@ import io.restassured.http.ContentType;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ExameControllerTest {
 
-	
-	@LocalServerPort
-	private int port;
-
-	@Test
-	void contextLoads() {
-		assertFalse(Boolean.FALSE);
-	}
+	/*
+	 * @LocalServerPort private int port;
+	 * 
+	 * @Test void contextLoads() { assertFalse(Boolean.FALSE); }
+	 */
 
 	/*
 	 * @BeforeEach public void setUp() {
