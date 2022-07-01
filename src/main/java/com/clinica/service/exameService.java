@@ -45,7 +45,7 @@ public class exameService {
 	}
 	
 	public exameDTO UpdateExame(exameDTO dto) throws Exception{
-		if(proxyExame.existsById(dto.getIdexame())) {
+		if(dto.getIdexame() > 0) {
 			exameDTO obj = proxyExame.save(dto);
 			return obj;
 		}
