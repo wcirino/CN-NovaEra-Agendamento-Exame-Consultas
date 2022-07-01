@@ -35,23 +35,23 @@ public class exameService {
 	}
 	
 	public exameDTO InsertExame(exameDTO dto) throws Exception{
-		if(!proxyExame.existsById(dto.getIdexame())) {
-			exameDTO obj = proxyExame.save(dto);
-			return obj;
+		if(dto == null || dto.getIdexame() != null){
+			throw new Exception("A Consulta possui Id");
 		}
 		else {
-			throw new Exception("A Consulta possui Id");
+			exameDTO obj = proxyExame.save(dto);
+			return obj;
 		}
 	}
 	
 	public exameDTO UpdateExame(exameDTO dto) throws Exception{
-		if(dto.getIdexame() > 0) {
-			exameDTO obj = proxyExame.save(dto);
-			return obj;
-		}
-		else {
+		if(dto == null || dto.getIdexame() == null){
 			throw new Exception(""
 					+ "A consulta não possui Id");
+		}
+		else {
+			exameDTO obj = proxyExame.save(dto);
+			return obj;
 		}
 	}
 	

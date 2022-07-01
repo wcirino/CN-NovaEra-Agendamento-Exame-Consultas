@@ -26,7 +26,7 @@ public class tipoagendamentoService {
 	}
 	
 	public tipoagendamentoDTO InsertTipoAgendamento(tipoagendamentoDTO dto) throws Exception{
-		if(!tipoagendamentoproxy.existsById(dto.getIdtipoagendamento())) {
+		if(dto == null || dto.getIdtipoagendamento() != null) {
 			tipoagendamentoDTO obj = tipoagendamentoproxy.save(dto);
 			return obj;
 		}
@@ -36,13 +36,14 @@ public class tipoagendamentoService {
 	}
 	
 	public tipoagendamentoDTO UpdateTipoAgendamento(tipoagendamentoDTO dto) throws Exception{
-		if(tipoagendamentoproxy.existsById(dto.getIdtipoagendamento())) {
-			tipoagendamentoDTO obj = tipoagendamentoproxy.save(dto);
-			return obj;
-		}
-		else {
+		// if(book == null || book.getId() == null){
+		if(dto == null || dto.getIdtipoagendamento() == null) {
 			throw new Exception(""
 					+ "A consulta não possui Id");
+		}
+		else {
+			tipoagendamentoDTO obj = tipoagendamentoproxy.save(dto);
+			return obj;
 		}
 	}
 	

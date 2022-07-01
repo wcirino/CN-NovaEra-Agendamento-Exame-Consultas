@@ -25,7 +25,7 @@ public class tipoagendamentoDTO {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY )
 	@Column(name = "idtipoagendamento")
-	private int idtipoagendamento; 
+	private Integer idtipoagendamento; 
 	
 	@Column(name = "nomeagendamento")
 	private String nomeagendamento;

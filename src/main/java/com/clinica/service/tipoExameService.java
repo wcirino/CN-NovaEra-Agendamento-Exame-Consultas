@@ -28,23 +28,23 @@ public class tipoExameService {
 	}
 	
 	public tipoExameDTO InsertExame(tipoExameDTO dto) throws Exception{
-		if(!proxytipExame.existsById(dto.getIdtipoexame())) {
-			tipoExameDTO obj = proxytipExame.save(dto);
-			return obj;
+		if(dto == null || dto.getIdtipoexame() != null) {
+			throw new Exception("A Consulta possui Id");
 		}
 		else {
-			throw new Exception("A Consulta possui Id");
+			tipoExameDTO obj = proxytipExame.save(dto);
+			return obj;
 		}
 	}
 	
 	public tipoExameDTO UpdateExame(tipoExameDTO dto) throws Exception{
-		if(proxytipExame.existsById(dto.getIdtipoexame())) {
-			tipoExameDTO obj = proxytipExame.save(dto);
-			return obj;
-		}
-		else {
+		if(dto == null || dto.getIdtipoexame() == null) {
 			throw new Exception(""
 					+ "A consulta não possui Id");
+		}
+		else {
+			tipoExameDTO obj = proxytipExame.save(dto);
+			return obj;
 		}
 	}
 	

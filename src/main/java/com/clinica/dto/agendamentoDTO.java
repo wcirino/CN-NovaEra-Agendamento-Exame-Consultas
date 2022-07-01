@@ -28,7 +28,7 @@ public class agendamentoDTO {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY )
 	@Column(name = "idagendamento")
-	private int idagendamento;
+	private Integer idagendamento;
 	
 	@OneToOne(cascade = CascadeType.REMOVE) 
 	@JoinColumn(name = "idtipoagendamento", referencedColumnName="idtipoagendamento")

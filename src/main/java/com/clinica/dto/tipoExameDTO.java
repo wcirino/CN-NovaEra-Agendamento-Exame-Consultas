@@ -10,11 +10,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Table(name = "tipoexame")
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class tipoExameDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -22,7 +28,7 @@ public class tipoExameDTO implements Serializable{
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY )
 	@Column(name = "idtipoexame")
-	private int idtipoexame; 
+	private Integer idtipoexame; 
 	
 	@Column(name = "nome_exame")
 	private String nome_exame;

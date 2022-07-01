@@ -2,6 +2,7 @@ package com.clinica.service;
 
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.catchThrowable;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -75,7 +76,20 @@ public class ExameServiceTest {
 		
 		assertEquals(exame3,this.exame);
 	}
-			
+		
+	@Test
+	public void devePesquisarComSucessoExameIDZero() throws Exception
+	{
+		int id = 0;
+		exameDTO exame3;
+		this.exame = this.criandoObjeto();
+		
+		when(repository.findByidexame(id)).thenReturn(this.exame);
+		Throwable exception = catchThrowable(() -> service.find_Exame_id(id));
+		
+		verify(repository,never()).findByidexame(id);
+	}
+	
 	@Test
 	public void deveInserirExameComSucesso() throws Exception{
 		exameDTO exame3;
@@ -84,12 +98,30 @@ public class ExameServiceTest {
 		this.exame = this.criandoObjeto();
 		exame4 = this.criandoObjeto();
 		
-		
+		this.exame.setIdexame(null);
 		when(repository.save(exame)).thenReturn(exame4);
 		exame3 = service.InsertExame(exame);
 		
-		assertEquals(exame3,exame);
+		assertNotNull(exame3);
 	}
+	
+	@Test
+	public void deveInserirExameErro() throws Exception{
+		exameDTO exame3;
+		exameDTO exame4;
+		
+		this.exame = this.criandoObjeto2();
+		exame4 = this.criandoObjeto2();
+		
+		
+		when(repository.save(exame)).thenReturn(exame4);
+		
+		exame.setIdexame(1);
+		Throwable exception = catchThrowable(() -> service.InsertExame(exame));
+		
+		verify(repository,never()).save(exame);
+	}
+	
 		
 	/*
 	 * @Test public void deveInserirExameComSucessoNever() throws Exception{
@@ -103,6 +135,7 @@ public class ExameServiceTest {
 	 * 
 	 * verify(repository,never()).save(exame); }
 	 */
+	
 	@Test
 	public void deveAtualizarExameComSucesso() throws Exception{
 		exameDTO exame3;
@@ -129,7 +162,7 @@ public class ExameServiceTest {
 		this.exame = this.criandoObjeto2();
 		exame4 = this.criandoObjeto2();
 		
-		
+		this.exame.setIdexame(null);
 		when(repository.save(exame)).thenReturn(exame4);		
 		Throwable exception = catchThrowable(() ->service.UpdateExame(exame));
 		
