@@ -41,7 +41,7 @@ public class agendamentoService {
 	}
 	
 	public agendamentoDTO Updategendamento(agendamentoDTO dto) throws Exception{
-		if(agendamentoproxy.existsById(dto.getIdagendamento())) {
+		if(dto.getIdagendamento() > 0) {
 			agendamentoDTO obj = agendamentoproxy.save(dto);
 			return obj;
 		}
