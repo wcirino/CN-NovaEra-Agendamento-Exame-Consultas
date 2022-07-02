@@ -31,34 +31,23 @@ public class agendamentoService {
 	}
 	
 	public agendamentoDTO Insertagendamento(agendamentoDTO dto) throws Exception{
-		if(!agendamentoproxy.existsById(dto.getIdagendamento())) {
-			agendamentoDTO obj = agendamentoproxy.save(dto);
-			return obj;
+		if(dto == null || dto.getIdagendamento() != null){
+			throw new Exception("O agendamento  possui Id");
 		}
 		else {
-			throw new Exception("O agendamento  possui Id");
+			agendamentoDTO obj = agendamentoproxy.save(dto);
+			return obj;
 		}
 	}
 	
 	public agendamentoDTO Updategendamento(agendamentoDTO dto) throws Exception{
-		if(dto.getIdagendamento() > 0) {
-			agendamentoDTO obj = agendamentoproxy.save(dto);
-			return obj;
-		}
-		else {
+		if(dto == null || dto.getIdagendamento() == null){
 			throw new Exception("O agendamento não possui Id");
 		}
-	}
-	
-	public agendamentoDTO Updategendamento2(agendamentoDTO dto) throws Exception{
+		else {
 			agendamentoDTO obj = agendamentoproxy.save(dto);
 			return obj;
-
-	}
-	
-	public agendamentoDTO Insertagendamento2(agendamentoDTO dto) throws Exception{
-			agendamentoDTO obj = agendamentoproxy.save(dto);
-			return obj;
+		}
 	}
 	
 //	private agenda AgendamentomodelMapperOne(agendamentoDTO dto) {

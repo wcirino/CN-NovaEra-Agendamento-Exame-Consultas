@@ -11,6 +11,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.junit.Before;
 
 import com.clinica.dto.agendamentoDTO;
+import com.clinica.dto.exameDTO;
 import com.clinica.repository.AgendamentoRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -73,27 +74,9 @@ public class AgendamentoServiceTest {
 		assertEquals(this.agendamento,agendaDTO);
 	}
 	
-	/*
-	 * @Test public void devePesquisarporIdRetornaNull() throws Exception{ int id =
-	 * 0; agendamentoDTO dto = this.criandoObjetoNull();
-	 * when(repository.findByidagendamento(id)).thenReturn(dto); agendamentoDTO dto2
-	 * = service.find_Agendamento_id(id); assertNull(dto2); }
-	 * 
-	 * @Test public void devePesquisarporIdRetornaNullException() throws Exception{
-	 * int id = 0; when(service.find_Agendamento_id(id)).thenReturn(agendamento);
-	 * assertNull(this.criandoObjetoNull()); }
-	 * 
-	 * @Test public void devePesquisarporIdsucessoNovoteste() throws Exception{ int
-	 * id = 1; this.agendamento = this.criandoObjeto();
-	 * when(service.find_Agendamento_id(id)).thenReturn(agendamento);
-	 * Optional<agendamentoDTO> agenda =
-	 * Optional.of(service.find_Agendamento_id(id)); agendamentoDTO agenda2 =
-	 * service.find_Agendamento_id(id); assertThat(agenda.isPresent()).isTrue(); }
-	 */
-	
 	@Test
 	public void deveInserirAgendamentoSucesso() throws Exception {
-		agendamentoDTO agenda = agendamentoDTO.builder().idagendamento(99)
+		agendamentoDTO agenda = agendamentoDTO.builder().idagendamento(null)
 														.idbenef(9)
 														.idprestador(9)
 														.idtipoagendamento(null)
@@ -102,7 +85,7 @@ public class AgendamentoServiceTest {
 														.statusAgendamento("novo")
 														.build();
 
-		when(repository.save(agenda)).thenReturn(agendamentoDTO.builder().idagendamento(99)
+		when(repository.save(agenda)).thenReturn(agendamentoDTO.builder().idagendamento(null)
 				.idbenef(9)
 				.idprestador(9)
 				.idtipoagendamento(null)
@@ -116,33 +99,7 @@ public class AgendamentoServiceTest {
 		agendamentoDTO agenda2 = service.Insertagendamento(agenda);
 		assertEquals(agenda2,agenda);
 	}
-	
-	/*
-	 * @Test public void naoDeveInserirAgendamento() throws Exception{ int id = 1;
-	 * 
-	 * this.agendamento = this.criandoObjetoNull(); this.agendamento2 =
-	 * this.criandoObjetoIdNull();
-	 * 
-	 * when(repository.save(agendamento)).thenReturn(agendamento);
-	 * 
-	 * //execucao Throwable exception = catchThrowable(() ->
-	 * service.Insertagendamento(agendamento));
-	 * 
-	 * verify(repository,never()).save(agendamento); }
-	 */
-	
-	/*
-	 * @Test public void naoDeveAtualizaragendamento() throws Exception{
-	 * 
-	 * this.agendamento = this.criandoObjetoNull();
-	 * when(service.Updategendamento(agendamento)).thenReturn(agendamento);
-	 * 
-	 * //execucao Throwable exception = catchThrowable(() ->
-	 * service.Updategendamento(agendamento));
-	 * 
-	 * verify(repository,never()).save(agendamento); }
-	 */
-	
+		
 	@Test
 	public void deveAtualizarAgendamento() throws Exception{
 
@@ -162,12 +119,56 @@ public class AgendamentoServiceTest {
 		assertEquals(agenda.getIdagendamento(),agenda4.getIdagendamento());
 		
 	}
-
-
+	
+	@Test
+	public void deveInserirAgendamentoErro() throws Exception{
+		agendamentoDTO agenda3;
+		agendamentoDTO agenda4;
+		
+		this.agendamento = this.criandoObjeto2();
+		agenda4 = this.criandoObjeto2();
+		
+		
+		when(repository.save(agendamento)).thenReturn(agenda4);
+		
+		agendamento.setIdagendamento(1);
+		Throwable exception = catchThrowable(() -> service.Insertagendamento(agendamento));
+		
+		verify(repository,never()).save(agendamento);
+	}
+	
+	@Test
+	public void deveUpdateAgendamentoErro() throws Exception{
+		agendamentoDTO agenda3;
+		agendamentoDTO agenda4;
+		
+		this.agendamento = this.criandoObjeto2();
+		agenda4 = this.criandoObjeto2();
+		
+		
+		when(repository.save(agendamento)).thenReturn(agenda4);
+		
+		//agendamento.setIdagendamento(1);
+		Throwable exception = catchThrowable(() -> service.Updategendamento(agendamento));
+		
+		verify(repository,never()).save(agendamento);
+	}
 	
 	private agendamentoDTO criandoObjeto() {
 		return agendamentoDTO.builder()
 				.idagendamento(1)
+				.idbenef(1)
+				.idprestador(1)
+				.idtipoagendamento(null)
+				.dataconsulta(null)
+				.datasolicitacao(null)
+				.statusAgendamento("1")
+				.build();
+	}
+	
+	private agendamentoDTO criandoObjeto2() {
+		return agendamentoDTO.builder()
+				.idagendamento(null)
 				.idbenef(1)
 				.idprestador(1)
 				.idtipoagendamento(null)
