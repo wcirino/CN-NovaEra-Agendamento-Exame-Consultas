@@ -138,12 +138,47 @@ public class AgendamentoServiceTest {
 	}
 	
 	@Test
+	public void deveInserirAgendamentoErroDtoNull() throws Exception{
+		agendamentoDTO agenda3;
+		agendamentoDTO agenda4;
+		
+		this.agendamento = this.criandoObjetoNull();
+		agenda4 = this.criandoObjetoNull();
+		
+		
+		when(repository.save(agendamento)).thenReturn(agenda4);
+		
+//		agendamento.setIdagendamento(1);
+		Throwable exception = catchThrowable(() -> service.Insertagendamento(agendamento));
+		
+		verify(repository,never()).save(agendamento);
+	}
+	
+	@Test
 	public void deveUpdateAgendamentoErro() throws Exception{
 		agendamentoDTO agenda3;
 		agendamentoDTO agenda4;
 		
 		this.agendamento = this.criandoObjeto2();
 		agenda4 = this.criandoObjeto2();
+		
+		
+		when(repository.save(agendamento)).thenReturn(agenda4);
+		
+		//agendamento.setIdagendamento(1);
+		Throwable exception = catchThrowable(() -> service.Updategendamento(agendamento));
+		
+		verify(repository,never()).save(agendamento);
+	}
+	
+	
+	@Test
+	public void deveUpdateAgendamentoErroDtoNull() throws Exception{
+		agendamentoDTO agenda3;
+		agendamentoDTO agenda4;
+		
+		this.agendamento = this.criandoObjetoNull();
+		agenda4 = this.criandoObjetoNull();
 		
 		
 		when(repository.save(agendamento)).thenReturn(agenda4);
