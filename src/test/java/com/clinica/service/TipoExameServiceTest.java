@@ -115,7 +115,7 @@ public class TipoExameServiceTest {
 		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
 
 		tipoagenda2.setIdtipoexame(12);
-		Throwable exception = catchThrowable(() -> service.InsertExame(tipoagenda2));
+		Throwable exception = catchThrowable(() -> service.UpdateExame(tipoagenda2));
 
 		verify(repository, never()).save(tipoagenda2);
 	}
@@ -131,7 +131,7 @@ public class TipoExameServiceTest {
 		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
 
 //		tipoagenda2.setIdtipoexame(12);
-		Throwable exception = catchThrowable(() -> service.InsertExame(tipoagenda2));
+		Throwable exception = catchThrowable(() -> service.UpdateExame(tipoagenda2));
 
 		verify(repository, never()).save(tipoagenda2);
 	}

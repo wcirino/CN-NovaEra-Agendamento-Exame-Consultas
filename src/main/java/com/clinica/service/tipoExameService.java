@@ -40,7 +40,7 @@ public class tipoExameService {
 	public tipoExameDTO UpdateExame(tipoExameDTO dto) throws Exception{
 		if(dto == null || dto.getIdtipoexame() == null) {
 			throw new Exception(""
-					+ "A consulta não possui Id");
+					+ "A consulta não possui Id Update");
 		}
 		else {
 			tipoExameDTO obj = proxytipExame.save(dto);
