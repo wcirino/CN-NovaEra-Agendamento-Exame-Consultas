@@ -19,7 +19,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.clinica.dto.agendamentoDTO;
-import com.clinica.dto.exameDTO;
 import com.clinica.dto.tipoagendamentoDTO;
 import com.clinica.repository.tipoagendamentorepository;
 
@@ -73,9 +72,10 @@ public class TipoagendamentoServiceTest {
 		tipoagenda2 = this.criandoObjeto();
 		tipoagenda = this.criandoObjeto();
 		
-		
+		tipoagenda.setIdtipoagendamento(null);
 		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
-		tipoagendamentoDTO tipoagenda3 = service.InsertTipoAgendamento(tipoagenda2);
+		
+		tipoagendamentoDTO tipoagenda3 = service.InsertTipoAgendamento(tipoagenda);
 		
 		assertEquals(tipoagenda3,tipoagenda2);
 	}
@@ -91,7 +91,7 @@ public class TipoagendamentoServiceTest {
 
 		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
 
-		tipoagenda2.setIdtipoagendamento(null);
+		tipoagenda2.setIdtipoagendamento(1);
 		Throwable exception = catchThrowable(() -> service.InsertTipoAgendamento(tipoagenda2));
 
 		verify(repository, never()).save(tipoagenda2);
@@ -124,6 +124,37 @@ public class TipoagendamentoServiceTest {
 		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
 
 		tipoagenda2.setIdtipoagendamento(null);
+		Throwable exception = catchThrowable(() -> service.UpdateTipoAgendamento(tipoagenda2));
+
+		verify(repository, never()).save(tipoagenda2);
+	}
+	
+	@Test
+	public void deveUpdateErroDtoNull() throws Exception {
+		tipoagendamentoDTO tipoagenda;
+		tipoagendamentoDTO tipoagenda2;
+
+		tipoagenda2 = this.criandoObjetoNull();
+		tipoagenda = this.criandoObjetoNull();
+
+		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
+
+//		tipoagenda2.setIdtipoagendamento(null);
+		Throwable exception = catchThrowable(() -> service.UpdateTipoAgendamento(tipoagenda2));
+
+		verify(repository, never()).save(tipoagenda2);
+	}
+	
+	@Test
+	public void deveInserirExameErroDtoNull() throws Exception {
+		tipoagendamentoDTO tipoagenda;
+		tipoagendamentoDTO tipoagenda2;
+
+		tipoagenda2 = this.criandoObjetoNull();
+		tipoagenda = this.criandoObjetoNull();
+
+		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
+
 		Throwable exception = catchThrowable(() -> service.InsertTipoAgendamento(tipoagenda2));
 
 		verify(repository, never()).save(tipoagenda2);

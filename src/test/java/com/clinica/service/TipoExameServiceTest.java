@@ -120,6 +120,37 @@ public class TipoExameServiceTest {
 		verify(repository, never()).save(tipoagenda2);
 	}
 	
+	@Test
+	public void deveUpdateErroDtoNull() throws Exception {
+		tipoExameDTO tipoagenda;
+		tipoExameDTO tipoagenda2;
+
+		tipoagenda2 = this.criandoObjetoNull();
+		tipoagenda = this.criandoObjetoNull();
+
+		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
+
+//		tipoagenda2.setIdtipoexame(12);
+		Throwable exception = catchThrowable(() -> service.InsertExame(tipoagenda2));
+
+		verify(repository, never()).save(tipoagenda2);
+	}
+	
+	@Test
+	public void deveInserirExameErroDtoNull() throws Exception {
+		tipoExameDTO tipoagenda;
+		tipoExameDTO tipoagenda2;
+
+		tipoagenda2 = this.criandoObjetoNull();
+		tipoagenda = this.criandoObjetoNull();
+
+		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
+
+		Throwable exception = catchThrowable(() -> service.InsertExame(tipoagenda2));
+
+		verify(repository, never()).save(tipoagenda2);
+	}
+	
 	private tipoExameDTO criandoObjeto() {
 		return tipoExameDTO.builder()
 				.idtipoexame(1)

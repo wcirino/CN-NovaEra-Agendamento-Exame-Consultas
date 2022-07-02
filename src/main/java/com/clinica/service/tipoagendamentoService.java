@@ -27,11 +27,11 @@ public class tipoagendamentoService {
 	
 	public tipoagendamentoDTO InsertTipoAgendamento(tipoagendamentoDTO dto) throws Exception{
 		if(dto == null || dto.getIdtipoagendamento() != null) {
-			tipoagendamentoDTO obj = tipoagendamentoproxy.save(dto);
-			return obj;
+			throw new Exception("A Consulta possui Id");
 		}
 		else {
-			throw new Exception("A Consulta possui Id");
+			tipoagendamentoDTO obj = tipoagendamentoproxy.save(dto);
+			return obj;
 		}
 	}
 	

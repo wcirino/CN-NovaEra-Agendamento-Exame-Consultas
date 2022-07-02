@@ -122,19 +122,22 @@ public class ExameServiceTest {
 		verify(repository,never()).save(exame);
 	}
 	
+	@Test
+	public void deveInserirExameErroDtoNull() throws Exception{
+		exameDTO exame3;
+		exameDTO exame4;
 		
-	/*
-	 * @Test public void deveInserirExameComSucessoNever() throws Exception{
-	 * exameDTO exame3; exameDTO exame4;
-	 * 
-	 * this.exame = this.criandoObjetoNull(); exame4 = this.criandoObjetoNull();
-	 * 
-	 * 
-	 * when(service.InsertExame(exame)).thenReturn(exame4); exame3 =
-	 * service.InsertExame(exame);
-	 * 
-	 * verify(repository,never()).save(exame); }
-	 */
+		this.exame = this.criandoObjetoNull();
+		exame4 = this.criandoObjetoNull();
+		
+		
+		when(repository.save(exame)).thenReturn(exame4);
+		
+		Throwable exception = catchThrowable(() -> service.InsertExame(exame));
+		
+		verify(repository,never()).save(exame);
+	}
+	
 	
 	@Test
 	public void deveAtualizarExameComSucesso() throws Exception{
@@ -165,6 +168,22 @@ public class ExameServiceTest {
 		this.exame.setIdexame(null);
 		when(repository.save(exame)).thenReturn(exame4);		
 		Throwable exception = catchThrowable(() ->service.UpdateExame(exame));
+		
+		verify(repository,never()).save(exame);
+	}
+	
+	@Test
+	public void deveUpdateExameErroDtoNull() throws Exception{
+		exameDTO exame3;
+		exameDTO exame4;
+		
+		this.exame = this.criandoObjetoNull();
+		exame4 = this.criandoObjetoNull();
+		
+		
+		when(repository.save(exame)).thenReturn(exame4);
+		
+		Throwable exception = catchThrowable(() -> service.UpdateExame(exame));
 		
 		verify(repository,never()).save(exame);
 	}
