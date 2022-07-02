@@ -17,7 +17,7 @@ import com.clinica.dto.tipoExameDTO;
 import com.clinica.service.tipoExameService;
 
 @RestController
-@RequestMapping(value = "api-tipoExame")
+@RequestMapping(value = "/api-tipoExame")
 public class tipoExameController {
 
 	@Autowired

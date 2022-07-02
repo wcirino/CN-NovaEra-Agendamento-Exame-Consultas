@@ -24,7 +24,7 @@ import com.clinica.dto.tipoagendamentoDTO;
 import com.clinica.repository.tipoagendamentorepository;
 
 @ExtendWith(SpringExtension.class)
-public class TipoagendamentoTest {
+public class TipoagendamentoServiceTest {
 
 	
 	@InjectMocks

@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiOperation;
 
 @Api(value = "Exame", description = "Exame medicas", tags = {"Exame Medico EndPoint"})
 @RestController
-@RequestMapping(value = "api-exame")
+@RequestMapping(value = "/api-exame")
 public class exameController {
 
 	@Autowired

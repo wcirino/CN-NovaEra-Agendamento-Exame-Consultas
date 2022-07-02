@@ -1,7 +1,6 @@
 package com.clinica.controller;
 
 import static java.util.Arrays.asList;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.List;
@@ -19,38 +18,33 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.anyLong;
-
 import com.clinica.dto.agendamentoDTO;
-import com.clinica.dto.exameDTO;
-import com.clinica.service.exameService;
+import com.clinica.service.agendamentoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = exameController.class)
+@WebMvcTest(controllers = agendamentoController.class)
 @AutoConfigureMockMvc
-public class ExameControllerTest {
+public class AgendamentoControllerTest {
 
-    static String root_api = "/api-exame";
+    static String root_api = "/api-agendamento";
 
 	@Autowired
 	MockMvc mvc;
 
 	@MockBean
-	exameService service;
-
+	agendamentoService service;
+	
 	@Test
 	public void findAllExame() throws Exception {
 		
-			exameDTO dto = this.criandoObjeto();
-			List<exameDTO> reponseExame =  this.criandoListObjeto();
-	        BDDMockito.given(service.findAll_Exame()).willReturn(reponseExame);
+			agendamentoDTO dto = this.criandoObjeto();
+			List<agendamentoDTO> reponseExame =  this.criandoListObjeto();
+	        BDDMockito.given(service.findAll_agendamento()).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
 	        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-	                .get(root_api+"/exame")
+	                .get(root_api+"/agendamento-all")
 	                .contentType(MediaType.APPLICATION_JSON)
 	                .accept(MediaType.APPLICATION_JSON)
 	                .content(json);
@@ -66,14 +60,14 @@ public class ExameControllerTest {
 		
 			//cenario
 			int id = 1;
-			exameDTO dto = this.criandoObjeto();
-			exameDTO reponseExame =  this.criandoObjeto();
-	        BDDMockito.given(service.find_Exame_id(id)).willReturn(reponseExame);
+			agendamentoDTO dto = this.criandoObjeto();
+			agendamentoDTO reponseExame =  this.criandoObjeto();
+	        BDDMockito.given(service.find_Agendamento_id(id)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(id);
 
 	        //ação - execução
 	        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-	                .get(root_api+"/exame-id/1")
+	                .get(root_api+"/agendamento-id/1")
 	                .contentType(MediaType.APPLICATION_JSON)
 	                .accept(MediaType.APPLICATION_JSON)
 	                .content(json);
@@ -88,14 +82,14 @@ public class ExameControllerTest {
 	public void InsertExame() throws Exception {
 		
 			//cenario
-			exameDTO dto = this.criandoObjeto2();
-			exameDTO reponseExame =  this.criandoObjeto2();
-	        BDDMockito.given(service.InsertExame(dto)).willReturn(reponseExame);
+			agendamentoDTO dto = this.criandoObjeto2();
+			agendamentoDTO reponseExame =  this.criandoObjeto2();
+	        BDDMockito.given(service.Insertagendamento(dto)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
 	        //ação - execução
 	        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-	                .post(root_api+"/exame")
+	                .post(root_api+"/agendamento")
 	                .contentType(MediaType.APPLICATION_JSON)
 	                .accept(MediaType.APPLICATION_JSON)
 	                .content(json);
@@ -110,14 +104,14 @@ public class ExameControllerTest {
 	public void UpdateExame() throws Exception {
 		
 			//cenario
-			exameDTO dto = this.criandoObjeto();
-			exameDTO reponseExame =  this.criandoObjeto();
-	        BDDMockito.given(service.UpdateExame(dto)).willReturn(reponseExame);
+			agendamentoDTO dto = this.criandoObjeto();
+			agendamentoDTO reponseExame =  this.criandoObjeto();
+	        BDDMockito.given(service.Updategendamento(dto)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
 	        //ação - execução
 	        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-	                .put(root_api+"/exame")
+	                .put(root_api+"/agendamento")
 	                .contentType(MediaType.APPLICATION_JSON)
 	                .accept(MediaType.APPLICATION_JSON)
 	                .content(json);
@@ -128,32 +122,10 @@ public class ExameControllerTest {
 		
 	}
 	
-	private exameDTO criandoObjeto() {
-		return exameDTO.builder()
-				.idexame(1)
-				.idtipoexame(null)
-				.idprestador(1)
-				.idbenef(1)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusexame(0)
-				.build();
-	}
-	
-	private exameDTO criandoObjeto2() {
-		return exameDTO.builder()
-				.idexame(null)
-				.idtipoexame(null)
-				.idprestador(1)
-				.idbenef(1)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusexame(0)
-				.build();
-	}
-	
-	private agendamentoDTO criandoObjetoIdNull() {
+	private agendamentoDTO criandoObjeto() {
 		return agendamentoDTO.builder()
+				.idagendamento(1)
+				.idbenef(1)
 				.idprestador(1)
 				.idtipoagendamento(null)
 				.dataconsulta(null)
@@ -162,55 +134,59 @@ public class ExameControllerTest {
 				.build();
 	}
 	
-	private exameDTO criandoObjetoParametro(int idagen,int idbenef,int idprestador,int status) {
-		return exameDTO.builder()
-				.idexame(idagen)
-				.idtipoexame(null)
-				.idprestador(idprestador)
-				.idbenef(idbenef)
+	private agendamentoDTO criandoObjeto2() {
+		return agendamentoDTO.builder()
+				.idagendamento(null)
+				.idbenef(1)
+				.idprestador(1)
+				.idtipoagendamento(null)
 				.dataconsulta(null)
 				.datasolicitacao(null)
-				.statusexame(status)
+				.statusAgendamento("1")
 				.build();
 	}
 	
-	private exameDTO criandoObjetoNull() {
+	private agendamentoDTO criandoObjetoIdNull() {
+		return agendamentoDTO.builder()
+				.idbenef(1)
+				.idprestador(1)
+				.idtipoagendamento(null)
+				.dataconsulta(null)
+				.datasolicitacao(null)
+				.statusAgendamento("1")
+				.build();
+	}
+	
+	private agendamentoDTO criandoObjetoParametro(int idagen,int idbenef,int idprestador,String status) {
+		return agendamentoDTO.builder()
+				.idagendamento(idagen)
+				.idbenef(idbenef)
+				.idprestador(idprestador)
+				.idtipoagendamento(null)
+				.dataconsulta(null)
+				.datasolicitacao(null)
+				.statusAgendamento(status)
+				.build();
+	}
+	
+	private agendamentoDTO criandoObjetoNull() {
 		return null;
 	}
 	
 	
-	private List<exameDTO> criandoListObjeto() {
-		return asList(
-				exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build(),
-				exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build(),
-						exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build(),
-						exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build(),
-						exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build());
+	private List<agendamentoDTO> criandoListObjeto() {
+		return asList(agendamentoDTO.builder().idagendamento(1).idbenef(1).idprestador(1).idtipoagendamento(null)
+				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
+				 agendamentoDTO.builder().idagendamento(2).idbenef(2).idprestador(2).idtipoagendamento(null)
+				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
+				agendamentoDTO.builder().idagendamento(3).idbenef(3).idprestador(3).idtipoagendamento(null)
+				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
+				 agendamentoDTO.builder().idagendamento(4).idbenef(4).idprestador(4).idtipoagendamento(null)
+				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
+				agendamentoDTO.builder().idagendamento(5).idbenef(5).idprestador(5).idtipoagendamento(null)
+				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
+				 agendamentoDTO.builder().idagendamento(6).idbenef(6).idprestador(6).idtipoagendamento(null)
+				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build());
 	}
 	
-	/*
-	 * @LocalServerPort private int port;
-	 * 
-	 * @Test void contextLoads() { assertFalse(Boolean.FALSE); }
-	 */
-
-	/*
-	 * @BeforeEach public void setUp() {
-	 * RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-	 * RestAssured.port = port; RestAssured.basePath = "/api-exame"; }
-	 * 
-	 * @Test public void deveBuscarExameSucesso() {
-	 * given().accept(ContentType.JSON).when().get("/exame-id/2").then().statusCode(
-	 * HttpStatus.OK.value()); }
-	 * 
-	 * @Test public void deveBuscarTodosOsExamesSucess() {
-	 * given().accept(ContentType.JSON).when().get("/exame").then().statusCode(
-	 * HttpStatus.OK.value()); }
-	 * 
-	 */
 }

@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiOperation;
 
 @Api(value = "TipoAgendamento", description = "TipoAgendamentos medicos", tags = {"Tipo Agendamentos Medicos EndPoint"})
 @RestController
-@RequestMapping(value = "api-tipoagendamento")
+@RequestMapping(value = "/api-tipoagendamento")
 public class tipoagendamentoController {
 	
 	@Autowired

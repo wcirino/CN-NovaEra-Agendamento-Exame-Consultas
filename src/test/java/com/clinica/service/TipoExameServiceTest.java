@@ -21,7 +21,7 @@ import com.clinica.dto.tipoExameDTO;
 import com.clinica.repository.tipoExameRespository;
 
 @ExtendWith(SpringExtension.class)
-public class TipoExameTest {
+public class TipoExameServiceTest {
 
 	@InjectMocks
 	tipoExameService service;
