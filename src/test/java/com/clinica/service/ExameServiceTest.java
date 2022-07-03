@@ -11,6 +11,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.clinica.dto.agendamentoDTO;
 import com.clinica.dto.exameDTO;
+import com.clinica.entity.exame;
 import com.clinica.repository.exameRepository;
 
 
@@ -187,7 +189,7 @@ public class ExameServiceTest {
 		
 		verify(repository,never()).save(exame);
 	}
-	
+			
 	private exameDTO criandoObjeto() {
 		return exameDTO.builder()
 				.idexame(1)

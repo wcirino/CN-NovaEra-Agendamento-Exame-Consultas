@@ -1,0 +1,333 @@
+2022-07-03 15:14:36.248  INFO 14512 --- [restartedMain] com.clinica.ClinicaApplication           : Starting ClinicaApplication using Java 16.0.1 on NBRJ023BHZK-GS with PID 14512 (C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica\target\classes started by wcirino in C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica)
+2022-07-03 15:14:36.249 DEBUG 14512 --- [restartedMain] com.clinica.ClinicaApplication           : Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-07-03 15:14:36.250  INFO 14512 --- [restartedMain] com.clinica.ClinicaApplication           : No active profile set, falling back to default profiles: default
+2022-07-03 15:14:36.686  INFO 14512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-07-03 15:14:36.687  INFO 14512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-07-03 15:14:37.585  INFO 14512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-03 15:14:37.654  INFO 14512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 4 JPA repository interfaces.
+2022-07-03 15:14:38.322  INFO 14512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8054 (http)
+2022-07-03 15:14:38.336  INFO 14512 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-03 15:14:38.337  INFO 14512 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-07-03 15:14:38.457  INFO 14512 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-03 15:14:38.457  INFO 14512 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1770 ms
+2022-07-03 15:14:39.129  INFO 14512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-03 15:14:39.561  INFO 14512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-03 15:14:40.489  INFO 14512 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-03 15:14:41.277  WARN 14512 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-03 15:14:41.368 DEBUG 14512 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2022-07-03 15:14:41.484  INFO 14512 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-03 15:14:41.627  INFO 14512 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-07-03 15:14:41.633 DEBUG 14512 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-07-03 15:14:41.689 DEBUG 14512 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-07-03 15:14:41.696 DEBUG 14512 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-07-03 15:14:41.835  INFO 14512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8054 (http) with context path ''
+2022-07-03 15:14:41.836  INFO 14512 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-03 15:14:41.868  INFO 14512 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-03 15:14:41.914  INFO 14512 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-03 15:14:42.121  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: InsertExameUsingPOST_1
+2022-07-03 15:14:42.125  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: UpdateconsultaUsingPUT_1
+2022-07-03 15:14:42.129  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllExameUsingGET_1
+2022-07-03 15:14:42.133  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findIDExameUsingGET_1
+2022-07-03 15:14:42.140  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: InsertExameUsingPOST_2
+2022-07-03 15:14:42.143  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: UpdateconsultaUsingPUT_2
+2022-07-03 15:14:42.146  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllExameUsingGET_2
+2022-07-03 15:14:42.149  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findIDExameUsingGET_2
+2022-07-03 15:14:42.153  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllExameUsingGET_3
+2022-07-03 15:14:42.158  INFO 14512 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findIDExameUsingGET_3
+2022-07-03 15:14:42.180  INFO 14512 --- [restartedMain] com.clinica.ClinicaApplication           : Started ClinicaApplication in 6.664 seconds (JVM running for 7.837)
+2022-07-03 15:15:59.069  INFO 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-03 15:15:59.069  INFO 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-03 15:15:59.070 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2022-07-03 15:15:59.070 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2022-07-03 15:15:59.070 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2022-07-03 15:15:59.071 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6578fc19
+2022-07-03 15:15:59.071 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@36534ecb
+2022-07-03 15:15:59.072 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='true': request parameters and headers will be shown which may lead to unsafe logging of potentially sensitive data
+2022-07-03 15:15:59.072  INFO 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-07-03 15:15:59.081 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui.html", parameters={}
+2022-07-03 15:15:59.091 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-07-03 15:15:59.109 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.171 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/springfox.css?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:15:59.171 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:15:59.173 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:15:59.173 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:15:59.178 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.185 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.193 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:15:59.194 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:15:59.203 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:15:59.204 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:15:59.223 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.250 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.253 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/springfox.js?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:15:59.254 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:15:59.261 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.539 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/ui", parameters={}
+2022-07-03 15:15:59.539 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:15:59.540 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:15:59.541 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#uiConfiguration()
+2022-07-03 15:15:59.544 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.615 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:15:59.617 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.UiConfiguration@1b3ce21c]
+2022-07-03 15:15:59.633 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.648 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/security", parameters={}
+2022-07-03 15:15:59.648 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#securityConfiguration()
+2022-07-03 15:15:59.654 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:15:59.654 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.SecurityConfiguration@7a8dab05]
+2022-07-03 15:15:59.655 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.673 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources", parameters={}
+2022-07-03 15:15:59.673 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#swaggerResources()
+2022-07-03 15:15:59.676 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:15:59.676 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@4b230bb3]]
+2022-07-03 15:15:59.678 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.760 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v2/api-docs", parameters={}
+2022-07-03 15:15:59.768 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2022-07-03 15:15:59.770 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-07-03 15:15:59.771 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-07-03 15:15:59.772 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-07-03 15:15:59.775 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2", parameters={}
+2022-07-03 15:15:59.777 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:15:59.785 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2022-07-03 15:15:59.787 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:15:59.788 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2022-07-03 15:15:59.800 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:15:59.801 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sun Jul 03 15:15:59 BRT 2022, status=404, error=Not Found, message=No message available,  (truncated)...]
+2022-07-03 15:15:59.812 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2022-07-03 15:15:59.838 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/csrf", parameters={}
+2022-07-03 15:15:59.839 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-07-03 15:15:59.844 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-07-03 15:15:59.845 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-07-03 15:15:59.847 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2022-07-03 15:15:59.849 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2022-07-03 15:15:59.852 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:15:59.853 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sun Jul 03 15:15:59 BRT 2022, status=404, error=Not Found, message=No message available,  (truncated)...]
+2022-07-03 15:15:59.855 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2022-07-03 15:15:59.959 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:15:59.960 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@76035946]
+2022-07-03 15:15:59.961 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:16:00.059 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2", parameters={}
+2022-07-03 15:16:00.060 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2", parameters={}
+2022-07-03 15:16:00.060 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2", parameters={}
+2022-07-03 15:16:00.060 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:16:00.060 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:16:00.060 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:16:00.064 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:16:00.064 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:16:00.064 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:16:01.321 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2", parameters={}
+2022-07-03 15:16:01.322 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:16:01.328 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:16:03.913 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2", parameters={}
+2022-07-03 15:16:03.914 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:16:03.916 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:16:09.825 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api-agendamento/agendamento-id/10", parameters={}
+2022-07-03 15:16:09.826 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.clinica.controller.agendamentoController#findIDExame(int)
+2022-07-03 15:16:10.039 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:16:10.040 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [agendamentoDTO(idagendamento=10, idtipoagendamento=tipoagendamentoDTO(idtipoagendamento=6, nomeagend (truncated)...]
+2022-07-03 15:16:10.043 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:16:10.089 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2", parameters={}
+2022-07-03 15:16:10.092 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:16:10.097 DEBUG 14512 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:09.304  INFO 14512 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-03 15:24:09.308  INFO 14512 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-03 15:24:09.325  INFO 14512 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-03 15:24:09.442  INFO 14512 --- [restartedMain] com.clinica.ClinicaApplication           : Starting ClinicaApplication using Java 16.0.1 on NBRJ023BHZK-GS with PID 14512 (C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica\target\classes started by wcirino in C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica)
+2022-07-03 15:24:09.442 DEBUG 14512 --- [restartedMain] com.clinica.ClinicaApplication           : Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-07-03 15:24:09.443  INFO 14512 --- [restartedMain] com.clinica.ClinicaApplication           : No active profile set, falling back to default profiles: default
+2022-07-03 15:24:09.767  INFO 14512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-03 15:24:09.785  INFO 14512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
+2022-07-03 15:24:09.910  INFO 14512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8054 (http)
+2022-07-03 15:24:09.911  INFO 14512 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-03 15:24:09.911  INFO 14512 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-07-03 15:24:09.929  INFO 14512 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-03 15:24:09.929  INFO 14512 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 484 ms
+2022-07-03 15:24:09.977  INFO 14512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-07-03 15:24:10.003  INFO 14512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-07-03 15:24:10.111  INFO 14512 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-03 15:24:14.285  INFO 15376 --- [restartedMain] com.clinica.ClinicaApplication           : Starting ClinicaApplication using Java 16.0.1 on NBRJ023BHZK-GS with PID 15376 (C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica\target\classes started by wcirino in C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica)
+2022-07-03 15:24:14.286 DEBUG 15376 --- [restartedMain] com.clinica.ClinicaApplication           : Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-07-03 15:24:14.286  INFO 15376 --- [restartedMain] com.clinica.ClinicaApplication           : No active profile set, falling back to default profiles: default
+2022-07-03 15:24:14.559  INFO 15376 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-07-03 15:24:14.559  INFO 15376 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-07-03 15:24:15.394  INFO 15376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-03 15:24:15.461  INFO 15376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 4 JPA repository interfaces.
+2022-07-03 15:24:16.161  INFO 15376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8054 (http)
+2022-07-03 15:24:16.177  INFO 15376 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-03 15:24:16.177  INFO 15376 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-07-03 15:24:16.271  INFO 15376 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-03 15:24:16.272  INFO 15376 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1712 ms
+2022-07-03 15:24:16.870  INFO 15376 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-03 15:24:17.290  INFO 15376 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-03 15:24:18.076  INFO 15376 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-03 15:24:18.869  WARN 15376 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-03 15:24:18.957 DEBUG 15376 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2022-07-03 15:24:19.056  INFO 15376 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-03 15:24:19.192  INFO 15376 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-07-03 15:24:19.199 DEBUG 15376 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-07-03 15:24:19.257 DEBUG 15376 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-07-03 15:24:19.267 DEBUG 15376 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-07-03 15:24:19.391  INFO 15376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8054 (http) with context path ''
+2022-07-03 15:24:19.392  INFO 15376 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-03 15:24:19.420  INFO 15376 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-03 15:24:19.455  INFO 15376 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-03 15:24:19.662  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: UpdateconsultaUsingPUT_1
+2022-07-03 15:24:19.674  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: InsertExameUsingPOST_1
+2022-07-03 15:24:19.676  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: UpdateconsultaUsingPUT_2
+2022-07-03 15:24:19.678  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllExameUsingGET_1
+2022-07-03 15:24:19.681  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findIDExameUsingGET_1
+2022-07-03 15:24:19.685  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllExameUsingGET_2
+2022-07-03 15:24:19.689  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findIDExameUsingGET_2
+2022-07-03 15:24:19.707  INFO 15376 --- [restartedMain] com.clinica.ClinicaApplication           : Started ClinicaApplication in 5.833 seconds (JVM running for 6.982)
+2022-07-03 15:24:24.439  INFO 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-03 15:24:24.440  INFO 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-03 15:24:24.440 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2022-07-03 15:24:24.440 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2022-07-03 15:24:24.440 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2022-07-03 15:24:24.441 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@16cf5186
+2022-07-03 15:24:24.441 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3d9e4403
+2022-07-03 15:24:24.442 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='true': request parameters and headers will be shown which may lead to unsafe logging of potentially sensitive data
+2022-07-03 15:24:24.442  INFO 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-07-03 15:24:24.454 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui.html", parameters={}
+2022-07-03 15:24:24.466 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-07-03 15:24:24.482 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:24.537 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/springfox.css?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:24:24.538 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:24:24.542 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:24.543 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:24.547 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:24.556 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:24.561 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:24:24.562 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:24.571 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:24:24.573 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:24.585 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:24.604 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:24.616 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/springfox.js?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:24:24.618 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:24.624 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:24.929 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/ui", parameters={}
+2022-07-03 15:24:24.931 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#uiConfiguration()
+2022-07-03 15:24:24.936 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2", parameters={v:[2.9.2]}
+2022-07-03 15:24:24.938 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:24.941 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:25.010 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:24:25.010 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.UiConfiguration@1e6056e3]
+2022-07-03 15:24:25.029 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:25.051 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/security", parameters={}
+2022-07-03 15:24:25.051 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#securityConfiguration()
+2022-07-03 15:24:25.058 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:24:25.059 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.SecurityConfiguration@37533f80]
+2022-07-03 15:24:25.059 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:25.082 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources", parameters={}
+2022-07-03 15:24:25.084 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#swaggerResources()
+2022-07-03 15:24:25.089 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:24:25.089 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@6f0884]]
+2022-07-03 15:24:25.092 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:25.160 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2022-07-03 15:24:25.160 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v2/api-docs", parameters={}
+2022-07-03 15:24:25.161 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-07-03 15:24:25.162 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-07-03 15:24:25.162 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-07-03 15:24:25.171 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2", parameters={}
+2022-07-03 15:24:25.172 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2022-07-03 15:24:25.172 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:25.174 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2022-07-03 15:24:25.176 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:25.188 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:24:25.188 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sun Jul 03 15:24:25 BRT 2022, status=404, error=Not Found, message=No message available,  (truncated)...]
+2022-07-03 15:24:25.197 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2022-07-03 15:24:25.232 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/csrf", parameters={}
+2022-07-03 15:24:25.234 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-07-03 15:24:25.238 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-07-03 15:24:25.238 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-07-03 15:24:25.239 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2022-07-03 15:24:25.239 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2022-07-03 15:24:25.240 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:24:25.241 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sun Jul 03 15:24:25 BRT 2022, status=404, error=Not Found, message=No message available,  (truncated)...]
+2022-07-03 15:24:25.242 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-5] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2022-07-03 15:24:25.320 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:24:25.321 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@46edab93]
+2022-07-03 15:24:25.322 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:25.398 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2", parameters={}
+2022-07-03 15:24:25.398 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2", parameters={}
+2022-07-03 15:24:25.398 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2", parameters={}
+2022-07-03 15:24:25.399 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:25.399 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:25.399 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:25.401 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:25.401 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:25.401 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:26.867 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2", parameters={}
+2022-07-03 15:24:26.868 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:26.877 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:28.867 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2", parameters={}
+2022-07-03 15:24:28.868 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:28.875 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:40.073 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api-agendamento/agendamento-id/6", parameters={}
+2022-07-03 15:24:40.074 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.clinica.controller.agendamentoController#findIDAgendamento(int)
+2022-07-03 15:24:40.076  INFO 15376 --- [http-nio-127.0.0.1-8054-exec-10] c.c.controller.agendamentoController     : Iniciando  controller agendamento Metodo: 
+2022-07-03 15:24:40.268  INFO 15376 --- [http-nio-127.0.0.1-8054-exec-10] c.c.controller.agendamentoController     : Iniciando  controller agendamento Metodo: 
+2022-07-03 15:24:40.271 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:24:40.272 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [agendamentoDTO(idagendamento=6, idtipoagendamento=tipoagendamentoDTO(idtipoagendamento=2, nomeagenda (truncated)...]
+2022-07-03 15:24:40.276 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:40.324 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2", parameters={}
+2022-07-03 15:24:40.325 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-07-03 15:24:40.332 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:24:41.367 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api-agendamento/agendamento-id/6", parameters={}
+2022-07-03 15:24:41.368 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.clinica.controller.agendamentoController#findIDAgendamento(int)
+2022-07-03 15:24:41.369  INFO 15376 --- [http-nio-127.0.0.1-8054-exec-2] c.c.controller.agendamentoController     : Iniciando  controller agendamento Metodo: 
+2022-07-03 15:24:41.377  INFO 15376 --- [http-nio-127.0.0.1-8054-exec-2] c.c.controller.agendamentoController     : Iniciando  controller agendamento Metodo: 
+2022-07-03 15:24:41.377 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:24:41.378 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [agendamentoDTO(idagendamento=6, idtipoagendamento=tipoagendamentoDTO(idtipoagendamento=2, nomeagenda (truncated)...]
+2022-07-03 15:24:41.380 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:25:02.736 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api-agendamento/agendamento-id/6", parameters={}
+2022-07-03 15:25:02.736 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.clinica.controller.agendamentoController#findIDAgendamento(int)
+2022-07-03 15:25:02.737  INFO 15376 --- [http-nio-127.0.0.1-8054-exec-7] c.c.controller.agendamentoController     : Iniciando  controller agendamento Metodo: 
+2022-07-03 15:25:02.745  INFO 15376 --- [http-nio-127.0.0.1-8054-exec-7] c.c.controller.agendamentoController     : Iniciando  controller agendamento Metodo: 
+2022-07-03 15:25:02.745 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-07-03 15:25:02.745 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [agendamentoDTO(idagendamento=6, idtipoagendamento=tipoagendamentoDTO(idtipoagendamento=2, nomeagenda (truncated)...]
+2022-07-03 15:25:02.747 DEBUG 15376 --- [http-nio-127.0.0.1-8054-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-07-03 15:25:46.318  INFO 15376 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-03 15:25:46.321  INFO 15376 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-03 15:25:46.333  INFO 15376 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-03 15:25:46.463  INFO 15376 --- [restartedMain] com.clinica.ClinicaApplication           : Starting ClinicaApplication using Java 16.0.1 on NBRJ023BHZK-GS with PID 15376 (C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica\target\classes started by wcirino in C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica)
+2022-07-03 15:25:46.463 DEBUG 15376 --- [restartedMain] com.clinica.ClinicaApplication           : Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-07-03 15:25:46.464  INFO 15376 --- [restartedMain] com.clinica.ClinicaApplication           : No active profile set, falling back to default profiles: default
+2022-07-03 15:25:46.837  INFO 15376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-03 15:25:46.857  INFO 15376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 4 JPA repository interfaces.
+2022-07-03 15:25:47.011  INFO 15376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8054 (http)
+2022-07-03 15:25:47.013  INFO 15376 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-03 15:25:47.013  INFO 15376 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-07-03 15:25:47.037  INFO 15376 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-03 15:25:47.037  INFO 15376 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 570 ms
+2022-07-03 15:25:47.098  INFO 15376 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-07-03 15:25:47.131  INFO 15376 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-07-03 15:25:47.262  INFO 15376 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-03 15:25:47.678  WARN 15376 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-03 15:25:47.701 DEBUG 15376 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 19 mappings in 'requestMappingHandlerMapping'
+2022-07-03 15:25:47.735  INFO 15376 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-07-03 15:25:47.785  INFO 15376 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-07-03 15:25:47.788 DEBUG 15376 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-07-03 15:25:47.802 DEBUG 15376 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-07-03 15:25:47.809 DEBUG 15376 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-07-03 15:25:47.847  INFO 15376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8054 (http) with context path ''
+2022-07-03 15:25:47.849  INFO 15376 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-07-03 15:25:47.850  INFO 15376 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-07-03 15:25:47.860  INFO 15376 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-07-03 15:25:47.944  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: UpdateconsultaUsingPUT_1
+2022-07-03 15:25:47.955  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: InsertExameUsingPOST_1
+2022-07-03 15:25:47.958  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: UpdateconsultaUsingPUT_2
+2022-07-03 15:25:47.961  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllExameUsingGET_1
+2022-07-03 15:25:47.964  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findIDExameUsingGET_1
+2022-07-03 15:25:47.969  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllExameUsingGET_2
+2022-07-03 15:25:47.974  INFO 15376 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findIDExameUsingGET_2
+2022-07-03 15:25:47.979  INFO 15376 --- [restartedMain] com.clinica.ClinicaApplication           : Started ClinicaApplication in 1.57 seconds (JVM running for 95.255)
+2022-07-03 15:25:47.983  INFO 15376 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-07-03 17:51:12.185  INFO 15376 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-03 17:51:12.224  INFO 15376 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-07-03 17:51:12.236  INFO 15376 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2022-07-03 17:51:12.695  INFO 15376 --- [restartedMain] com.clinica.ClinicaApplication           : Starting ClinicaApplication using Java 16.0.1 on NBRJ023BHZK-GS with PID 15376 (C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica\target\classes started by wcirino in C:\WorkSpaceJavaEstudo\workSpaceClinicas\Clinica)
+2022-07-03 17:51:12.696 DEBUG 15376 --- [restartedMain] com.clinica.ClinicaApplication           : Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-07-03 17:51:12.696  INFO 15376 --- [restartedMain] com.clinica.ClinicaApplication           : No active profile set, falling back to default profiles: default
+2022-07-03 17:51:13.130  INFO 15376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-03 17:51:13.160  INFO 15376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 4 JPA repository interfaces.
