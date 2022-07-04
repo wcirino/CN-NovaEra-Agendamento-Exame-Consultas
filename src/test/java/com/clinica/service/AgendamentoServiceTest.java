@@ -8,24 +8,19 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.junit.Before;
 
 import com.clinica.dto.agendamentoDTO;
-import com.clinica.dto.exameDTO;
 import com.clinica.repository.AgendamentoRepository;
 
-import static org.assertj.core.api.Assertions.assertThat;
+
 import static org.assertj.core.api.Assertions.catchThrowable;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.*;
 import static java.util.Arrays.asList;
 
 import java.util.List;
-import java.util.Optional;
 
 @ExtendWith(SpringExtension.class)
 public class AgendamentoServiceTest {
@@ -54,7 +49,6 @@ public class AgendamentoServiceTest {
 	
 	@Test
 	public void devePesquisarTodosAgendamento() throws Exception{
-		List<agendamentoDTO> listAgendamento2 = this.criandoListObjeto();
 		
 		when(repository.findAll()).thenReturn(this.listAgendamento);
 		List<agendamentoDTO> listAgendamento3 =  service.findAll_agendamento();
@@ -114,7 +108,6 @@ public class AgendamentoServiceTest {
 		
 		//ação
 		when(repository.save(agenda4)).thenReturn(agenda6);
-		agendamentoDTO agenda5 = service.Updategendamento(agenda4);
 		
 		assertEquals(agenda.getIdagendamento(),agenda4.getIdagendamento());
 		

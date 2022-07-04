@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//import com.clinica.config.ModelMapperConfig;
 import com.clinica.dto.agendamentoDTO;
 import com.clinica.repository.AgendamentoRepository;
 
@@ -17,10 +16,6 @@ public class agendamentoService {
 
 	@Autowired
 	private AgendamentoRepository agendamentoproxy;
-	
-	/*
-	 * @Autowired private ModelMapperConfig modalMapper;
-	 */
 	
 	private static final Logger LOG = LoggerFactory.getLogger(agendamentoService.class);
 	
@@ -62,15 +57,5 @@ public class agendamentoService {
 			LOG.info("Iniciando Service Agendamento: agendamentoproxy.save");
 			return obj;
 		}
-	}
-	
-//	private agenda AgendamentomodelMapperOne(agendamentoDTO dto) {
-//		exame obj = modalMapper.modelMapper().map(dto, exame.class);
-//		return obj;
-//	}
-//	
-//	private List<exame> AgendamentoModelMapperList(List<exameDTO> dto){	
-//		  return dto.stream().map(obj -> PrestadormodelMapperOne(obj)).collect(Collectors.toList());
-//	}
-	
+	}	
 }

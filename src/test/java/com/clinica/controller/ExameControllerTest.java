@@ -1,7 +1,6 @@
 package com.clinica.controller;
 
 import static java.util.Arrays.asList;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.List;
@@ -19,10 +18,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.anyLong;
-
-import com.clinica.dto.agendamentoDTO;
 import com.clinica.dto.exameDTO;
 import com.clinica.service.exameService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -66,7 +61,6 @@ public class ExameControllerTest {
 		
 			//cenario
 			int id = 1;
-			exameDTO dto = this.criandoObjeto();
 			exameDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.find_Exame_id(id)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(id);
@@ -152,31 +146,19 @@ public class ExameControllerTest {
 				.build();
 	}
 	
-	private agendamentoDTO criandoObjetoIdNull() {
-		return agendamentoDTO.builder()
-				.idprestador(1)
-				.idtipoagendamento(null)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusAgendamento("1")
-				.build();
-	}
-	
-	private exameDTO criandoObjetoParametro(int idagen,int idbenef,int idprestador,int status) {
-		return exameDTO.builder()
-				.idexame(idagen)
-				.idtipoexame(null)
-				.idprestador(idprestador)
-				.idbenef(idbenef)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusexame(status)
-				.build();
-	}
-	
-	private exameDTO criandoObjetoNull() {
-		return null;
-	}
+	/*
+	 * private agendamentoDTO criandoObjetoIdNull() { return
+	 * agendamentoDTO.builder() .idprestador(1) .idtipoagendamento(null)
+	 * .dataconsulta(null) .datasolicitacao(null) .statusAgendamento("1") .build();
+	 * }
+	 * 
+	 * private exameDTO criandoObjetoParametro(int idagen,int idbenef,int
+	 * idprestador,int status) { return exameDTO.builder() .idexame(idagen)
+	 * .idtipoexame(null) .idprestador(idprestador) .idbenef(idbenef)
+	 * .dataconsulta(null) .datasolicitacao(null) .statusexame(status) .build(); }
+	 * 
+	 * private exameDTO criandoObjetoNull() { return null; }
+	 */
 	
 	
 	private List<exameDTO> criandoListObjeto() {

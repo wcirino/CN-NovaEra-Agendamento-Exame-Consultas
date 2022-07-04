@@ -60,7 +60,6 @@ public class AgendamentoControllerTest {
 		
 			//cenario
 			int id = 1;
-			agendamentoDTO dto = this.criandoObjeto();
 			agendamentoDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.find_Agendamento_id(id)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(id);
@@ -146,32 +145,22 @@ public class AgendamentoControllerTest {
 				.build();
 	}
 	
-	private agendamentoDTO criandoObjetoIdNull() {
-		return agendamentoDTO.builder()
-				.idbenef(1)
-				.idprestador(1)
-				.idtipoagendamento(null)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusAgendamento("1")
-				.build();
-	}
+	/*
+	 * private agendamentoDTO criandoObjetoIdNull() { return
+	 * agendamentoDTO.builder() .idbenef(1) .idprestador(1) .idtipoagendamento(null)
+	 * .dataconsulta(null) .datasolicitacao(null) .statusAgendamento("1") .build();
+	 * }
+	 */
 	
-	private agendamentoDTO criandoObjetoParametro(int idagen,int idbenef,int idprestador,String status) {
-		return agendamentoDTO.builder()
-				.idagendamento(idagen)
-				.idbenef(idbenef)
-				.idprestador(idprestador)
-				.idtipoagendamento(null)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusAgendamento(status)
-				.build();
-	}
-	
-	private agendamentoDTO criandoObjetoNull() {
-		return null;
-	}
+	/*
+	 * private agendamentoDTO criandoObjetoParametro(int idagen,int idbenef,int
+	 * idprestador,String status) { return agendamentoDTO.builder()
+	 * .idagendamento(idagen) .idbenef(idbenef) .idprestador(idprestador)
+	 * .idtipoagendamento(null) .dataconsulta(null) .datasolicitacao(null)
+	 * .statusAgendamento(status) .build(); }
+	 * 
+	 * private agendamentoDTO criandoObjetoNull() { return null; }
+	 */
 	
 	
 	private List<agendamentoDTO> criandoListObjeto() {

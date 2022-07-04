@@ -20,10 +20,6 @@ public class exameService {
 	@Autowired
 	private exameRepository proxyExame;
 	
-	/*
-	 * @Autowired private ModelMapperConfig modalMapper;
-	 */
-	
 	private static final Logger LOG = LoggerFactory.getLogger(exameService.class);
 	
 	public List<exameDTO> findAll_Exame() throws Exception{
@@ -69,15 +65,6 @@ public class exameService {
 			LOG.info("Fim service ExameService : proxyExame.save()");
 			return obj;
 		}
-	}
-	
-	/*
-	 * private exame PrestadormodelMapperOne(exameDTO dto) { exame obj =
-	 * modalMapper.modelMapper().map(dto, exame.class); return obj; }
-	 * 
-	 * private List<exame> PrestadorModelMapperList(List<exameDTO> dto){ return
-	 * dto.stream().map(obj ->
-	 * PrestadormodelMapperOne(obj)).collect(Collectors.toList()); }
-	 */
+	} 
 	
 }

@@ -1,6 +1,5 @@
 package com.clinica.repository;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,7 +40,6 @@ public class AgendamentoRepositoryTest {
 	@Before
 	    public void setUp() {
 		   MockitoAnnotations.openMocks(this);
-		   String nome = "Willyan Fernando";
 		   agDto = this.criandoObjeto();
 	       // this.service = new BookServiceImpl(repository);
 	    }

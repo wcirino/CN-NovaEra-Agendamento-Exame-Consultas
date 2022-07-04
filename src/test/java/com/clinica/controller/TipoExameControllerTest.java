@@ -60,7 +60,6 @@ public class TipoExameControllerTest {
 		
 			//cenario
 			int id = 1;
-			tipoExameDTO dto = this.criandoObjeto();
 			tipoExameDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.find_tipoExame_id(id)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(id);
@@ -140,18 +139,13 @@ public class TipoExameControllerTest {
 				.build();
 	}
 	
-	private tipoExameDTO criandoObjetoIdNull() {
-		return tipoExameDTO.builder()
-				.idtipoexame(null)
-				.nome_exame("vacina")
-				.valor(300)
-				.datainsert(null)
-				.build();
-	}
-		
-	private tipoExameDTO criandoObjetoNull() {
-		return null;
-	}
+	/*
+	 * private tipoExameDTO criandoObjetoIdNull() { return tipoExameDTO.builder()
+	 * .idtipoexame(null) .nome_exame("vacina") .valor(300) .datainsert(null)
+	 * .build(); }
+	 * 
+	 * private tipoExameDTO criandoObjetoNull() { return null; }
+	 */
 	
 	
 	private List<tipoExameDTO> criandoListObjeto() {
