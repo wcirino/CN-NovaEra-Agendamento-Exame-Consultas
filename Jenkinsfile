@@ -1,7 +1,7 @@
 pipeline{
     agent   any
     stages  {
-        stage(Início){
+        stage('Início'){
             steps{
                 bat 'echo inicio'
             }
