@@ -18,6 +18,7 @@ pipeline{
                 sleep(5)
                 bat 'echo meio'
                 bat 'echo meio novamente'
+                bat 'echo meio novamente'
             }
         }
     }
