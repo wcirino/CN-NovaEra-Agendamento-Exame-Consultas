@@ -3,7 +3,7 @@ pipeline{
     stages  {
         stage('Build backend'){
             steps{
-                bat 'echo build aplicacao'
+                bat 'mvn clean package -DskipTests=true'
             }
         }
         stage('Junit Test'){
@@ -27,6 +27,11 @@ pipeline{
                 timeout(time: 1, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
+            }
+        }
+		stage ('Deploy Backend') {
+            steps {
+                deploy adapters: [tomcat8(credentialsId: 'tomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'Clinica-0.0.1-SNAPSHOT', war: 'target/Clinica-0.0.1-SNAPSHOT.war'
             }
         }
     }
