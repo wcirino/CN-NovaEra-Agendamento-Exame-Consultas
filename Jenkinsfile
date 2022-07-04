@@ -18,7 +18,13 @@ pipeline{
                 sleep(5)
                 bat 'echo meio'
                 bat 'echo meio novamente'
-                bat 'echo meio novamente'
+                bat 'echo final'
+            }
+        }
+		 stage('Concluido'){
+            steps{
+                sleep(5)
+                bat 'echo arquivo concluido'
             }
         }
     }
