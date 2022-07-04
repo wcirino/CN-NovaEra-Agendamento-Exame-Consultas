@@ -21,13 +21,7 @@ pipeline{
                 }
             }
         }
-		 stage('Concluido'){
-            steps{
-                sleep(5)
-                bat 'echo arquivo concluido'
-            }
-        }
-		        stage ('Quality Gate') {
+		stage ('Quality Gate') {
             steps {
                 sleep(5)
                 timeout(time: 1, unit: 'MINUTES') {
