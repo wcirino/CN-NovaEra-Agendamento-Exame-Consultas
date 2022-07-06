@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.clinica</groupId>
-	<artifactId>Clinica</artifactId>
+	<artifactId>cn-agendamento-exame-consulta</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Clinica</name>
+	<name>cn-agendamento-exame-consulta2</name>
 	<packaging>war</packaging>
 	<description>Api para exames e resultados medicos</description>
 	<properties>
