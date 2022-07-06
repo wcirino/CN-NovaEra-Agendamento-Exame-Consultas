@@ -15,22 +15,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.clinica.dto.tipoExameDTO;
-import com.clinica.service.tipoExameService;
+import com.clinica.dto.TipoExameDTO;
+import com.clinica.service.TipoExameService;
 
 @RestController
 @RequestMapping(value = "/api-tipoExame")
-public class tipoExameController {
+public class TipoExameController {
 
 	@Autowired
-	private tipoExameService proxytipoexame;
+	private TipoExameService proxytipoexame;
 	
-	private static final Logger LOG = LoggerFactory.getLogger(tipoExameController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(TipoExameController.class);
 	
 	@GetMapping(value = "/tipo-exame")
 	public ResponseEntity<?> findAllExame() throws Exception{
 		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
-		List<tipoExameDTO> exame = proxytipoexame.findAll_TipoExame();
+		List<TipoExameDTO> exame = proxytipoexame.findAll_TipoExame();
 		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
 		return new ResponseEntity<>(exame,HttpStatus.OK);
 	}
@@ -38,19 +38,19 @@ public class tipoExameController {
 	@GetMapping(value = "/tipo-exame-id/{id}")
 	public ResponseEntity<?> findIDExame(@PathVariable int id) throws Exception{
 		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
-		tipoExameDTO exame = proxytipoexame.find_tipoExame_id(id);
+		TipoExameDTO exame = proxytipoexame.find_tipoExame_id(id);
 		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
 		return new ResponseEntity<>(exame,HttpStatus.OK);
 	}
 	
 	@PostMapping(value = "/tipo-exame")
-	public ResponseEntity<?> InsertExame(@RequestBody tipoExameDTO dto)throws Exception{
+	public ResponseEntity<?> InsertExame(@RequestBody TipoExameDTO dto)throws Exception{
 		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
 		return new  ResponseEntity<>(proxytipoexame.InsertExame(dto),HttpStatus.CREATED);
 	}
 	
 	@PutMapping(value = "/tipo-exame")
-	public  ResponseEntity<?> UpdateExame(@RequestBody tipoExameDTO dto) throws Exception{
+	public  ResponseEntity<?> UpdateExame(@RequestBody TipoExameDTO dto) throws Exception{
 		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
 		return new ResponseEntity<>(proxytipoexame.UpdateExame(dto),HttpStatus.OK);
 	}

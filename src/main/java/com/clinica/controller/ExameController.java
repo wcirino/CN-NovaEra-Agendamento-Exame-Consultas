@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.clinica.dto.exameDTO;
-import com.clinica.service.exameService;
+import com.clinica.dto.ExameDTO;
+import com.clinica.service.ExameService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,18 +26,18 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "Exame", description = "Exame medicas", tags = {"Exame Medico EndPoint"})
 @RestController
 @RequestMapping(value = "/api-exame")
-public class exameController {
+public class ExameController {
 
 	@Autowired
-	private exameService proxyExame;
+	private ExameService proxyExame;
 	
-	private static final Logger LOG = LoggerFactory.getLogger(exameController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ExameController.class);
 	
 	@ApiOperation(value = "Busca todos exames")
 	@GetMapping(value = "/exame")
 	public ResponseEntity<?> findAllExame() throws Exception{
 		LOG.info("Iniciando  controller Exame Metodo: FindAll_Exame");
-		List<exameDTO> exame = proxyExame.findAll_Exame();
+		List<ExameDTO> exame = proxyExame.findAll_Exame();
 		LOG.info("Iniciando  controller agendamento Metodo: ");
 		return new ResponseEntity<>(exame,HttpStatus.OK);
 	}
@@ -46,21 +46,21 @@ public class exameController {
 	@GetMapping(value = "/exame-id/{id}")
 	public ResponseEntity<?> findIDExame(@PathVariable int id) throws Exception{
 		LOG.info("Iniciando  controller Exame Metodo: Find_Exame_id");
-		exameDTO exame = proxyExame.find_Exame_id(id);
+		ExameDTO exame = proxyExame.find_Exame_id(id);
 		LOG.info("Iniciando  controller agendamento Metodo: ");
 		return new ResponseEntity<>(exame,HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "inserir exame")
 	@PostMapping(value = "/exame")
-	public ResponseEntity<?> InsertExame(@RequestBody exameDTO dto)throws Exception{
+	public ResponseEntity<?> InsertExame(@RequestBody ExameDTO dto)throws Exception{
 		LOG.info("Iniciando  controller Exame Metodo: Insert Exame");
 		return new  ResponseEntity<>(proxyExame.InsertExame(dto),HttpStatus.CREATED);
 	}
 	
 	@ApiOperation(value = "alterar exame")
 	@PutMapping(value = "/exame")
-	public  ResponseEntity<?> Updateconsulta(@RequestBody exameDTO dto) throws Exception{
+	public  ResponseEntity<?> Updateconsulta(@RequestBody ExameDTO dto) throws Exception{
 		LOG.info("Iniciando  controller Exame Metodo: Update Exame");
 		return new ResponseEntity<>(proxyExame.UpdateExame(dto),HttpStatus.OK);
 	}

@@ -17,17 +17,17 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.clinica.dto.tipoExameDTO;
-import com.clinica.repository.tipoExameRespository;
+import com.clinica.dto.TipoExameDTO;
+import com.clinica.repository.TipoExameRespository;
 
 @ExtendWith(SpringExtension.class)
 public class TipoExameServiceTest {
 
 	@InjectMocks
-	tipoExameService service;
+	TipoExameService service;
 	
 	@Mock
-	tipoExameRespository repository;
+	TipoExameRespository repository;
 	
 	@BeforeEach
 	public void setUp() {
@@ -37,9 +37,9 @@ public class TipoExameServiceTest {
 	@Test
 	public void devePesquisaTodosOsexames() throws Exception{
 		
-		List<tipoExameDTO> lista = this.criandoListObjeto();
+		List<TipoExameDTO> lista = this.criandoListObjeto();
 		when(repository.findAll()).thenReturn(lista);
-		List<tipoExameDTO> tipoagenda = service.findAll_TipoExame();
+		List<TipoExameDTO> tipoagenda = service.findAll_TipoExame();
 		
 		assertEquals(lista,tipoagenda);
 	}
@@ -48,25 +48,25 @@ public class TipoExameServiceTest {
 	public void devePesquisarComSucessoExameID() throws Exception
 	{
 		int id = 1;
-		tipoExameDTO agenda2 = this.criandoObjeto();
+		TipoExameDTO agenda2 = this.criandoObjeto();
 		
 		when(repository.findByidtipoexame(id)).thenReturn(agenda2);
-		tipoExameDTO agenda3 = service.find_tipoExame_id(id);
+		TipoExameDTO agenda3 = service.find_tipoExame_id(id);
 		
 		assertEquals(agenda2,agenda3);
 	}
 	
 	@Test
 	public void deveInserirExameComSucesso() throws Exception{
-		tipoExameDTO tipoagenda;
-		tipoExameDTO tipoagenda2;
+		TipoExameDTO tipoagenda;
+		TipoExameDTO tipoagenda2;
 		
 		tipoagenda2 = this.criandoObjeto();
 		tipoagenda = this.criandoObjeto();
 		
 		tipoagenda.setIdtipoexame(null);
 		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
-		tipoExameDTO tipoagenda3 = service.InsertExame(tipoagenda);
+		TipoExameDTO tipoagenda3 = service.InsertExame(tipoagenda);
 		
 		assertEquals(tipoagenda3,tipoagenda2);
 	}
@@ -74,8 +74,8 @@ public class TipoExameServiceTest {
 	
 	@Test
 	public void deveInserirExameErro() throws Exception {
-		tipoExameDTO tipoagenda;
-		tipoExameDTO tipoagenda2;
+		TipoExameDTO tipoagenda;
+		TipoExameDTO tipoagenda2;
 
 		tipoagenda2 = this.criandoObjeto();
 		tipoagenda = this.criandoObjeto();
@@ -91,23 +91,23 @@ public class TipoExameServiceTest {
 	
 	@Test
 	public void deveatualizartipoAgendamentoComSucesso() throws Exception{
-		tipoExameDTO tipoagenda;
-		tipoExameDTO tipoagenda2;
+		TipoExameDTO tipoagenda;
+		TipoExameDTO tipoagenda2;
 		
 		tipoagenda2 = this.criandoObjeto();
 		tipoagenda = this.criandoObjeto();
 		
 		
 		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
-		tipoExameDTO tipoagenda3 = service.UpdateExame(tipoagenda);
+		TipoExameDTO tipoagenda3 = service.UpdateExame(tipoagenda);
 		
 		assertEquals(tipoagenda3,tipoagenda2);
 	}
 	
 	@Test
 	public void deveUpdateErro() throws Exception {
-		tipoExameDTO tipoagenda;
-		tipoExameDTO tipoagenda2;
+		TipoExameDTO tipoagenda;
+		TipoExameDTO tipoagenda2;
 
 		tipoagenda2 = this.criandoObjetoIdNull();
 		tipoagenda = this.criandoObjetoIdNull();
@@ -122,8 +122,8 @@ public class TipoExameServiceTest {
 	
 	@Test
 	public void deveUpdateErroDtoNull() throws Exception {
-		tipoExameDTO tipoagenda;
-		tipoExameDTO tipoagenda2;
+		TipoExameDTO tipoagenda;
+		TipoExameDTO tipoagenda2;
 
 		tipoagenda2 = this.criandoObjetoNull();
 		tipoagenda = this.criandoObjetoNull();
@@ -138,8 +138,8 @@ public class TipoExameServiceTest {
 	
 	@Test
 	public void deveInserirExameErroDtoNull() throws Exception {
-		tipoExameDTO tipoagenda;
-		tipoExameDTO tipoagenda2;
+		TipoExameDTO tipoagenda;
+		TipoExameDTO tipoagenda2;
 
 		tipoagenda2 = this.criandoObjetoNull();
 		tipoagenda = this.criandoObjetoNull();
@@ -151,8 +151,8 @@ public class TipoExameServiceTest {
 		verify(repository, never()).save(tipoagenda2);
 	}
 	
-	private tipoExameDTO criandoObjeto() {
-		return tipoExameDTO.builder()
+	private TipoExameDTO criandoObjeto() {
+		return TipoExameDTO.builder()
 				.idtipoexame(1)
 				.nome_exame("vacina")
 				.valor(300)
@@ -160,8 +160,8 @@ public class TipoExameServiceTest {
 				.build();				
 	}
 	
-	private tipoExameDTO criandoObjeto2() {
-		return tipoExameDTO.builder()
+	private TipoExameDTO criandoObjeto2() {
+		return TipoExameDTO.builder()
 				.idtipoexame(1)
 				.nome_exame("vacina")
 				.valor(300)
@@ -169,8 +169,8 @@ public class TipoExameServiceTest {
 				.build();
 	}
 	
-	private tipoExameDTO criandoObjetoIdNull() {
-		return tipoExameDTO.builder()
+	private TipoExameDTO criandoObjetoIdNull() {
+		return TipoExameDTO.builder()
 				.idtipoexame(null)
 				.nome_exame("vacina")
 				.valor(300)
@@ -178,22 +178,22 @@ public class TipoExameServiceTest {
 				.build();
 	}
 		
-	private tipoExameDTO criandoObjetoNull() {
+	private TipoExameDTO criandoObjetoNull() {
 		return null;
 	}
 	
 	
-	private List<tipoExameDTO> criandoListObjeto() {
+	private List<TipoExameDTO> criandoListObjeto() {
 		return asList(
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build(),
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build(),
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build(),
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build(),
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build());
 	}
 	

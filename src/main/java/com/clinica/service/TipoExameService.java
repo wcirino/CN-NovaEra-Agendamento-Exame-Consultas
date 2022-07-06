@@ -8,46 +8,46 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.clinica.dto.tipoExameDTO;
-import com.clinica.repository.tipoExameRespository;
+import com.clinica.dto.TipoExameDTO;
+import com.clinica.repository.TipoExameRespository;
 
 
 @Service
-public class tipoExameService {
+public class TipoExameService {
 
 	@Autowired
-	private tipoExameRespository proxytipExame;
+	private TipoExameRespository proxytipExame;
 	
-	private static final Logger LOG = LoggerFactory.getLogger(tipoExameService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(TipoExameService.class);
 	
-	public List<tipoExameDTO> findAll_TipoExame() throws Exception{
+	public List<TipoExameDTO> findAll_TipoExame() throws Exception{
 		LOG.info("Iniciando Service TipoExameService: proxytipExame.findAll() ");
-		Optional<List<tipoExameDTO>> obj = Optional.ofNullable(proxytipExame.findAll());
+		Optional<List<TipoExameDTO>> obj = Optional.ofNullable(proxytipExame.findAll());
 		LOG.info("Fim Service TipoExameService: proxytipExame.findAll() ");
 		return obj.orElseThrow(() -> new Exception());
 	}
 	
-	public tipoExameDTO find_tipoExame_id(int id) throws Exception{
+	public TipoExameDTO find_tipoExame_id(int id) throws Exception{
 		LOG.info("Iniciando Service TipoExameService:proxytipExame.findByidtipoexame()");
-		Optional<tipoExameDTO> obj = Optional.ofNullable(proxytipExame.findByidtipoexame(id));
+		Optional<TipoExameDTO> obj = Optional.ofNullable(proxytipExame.findByidtipoexame(id));
 		LOG.info("Fim Service TipoExameService: proxytipExame.findByidtipoexame() ");
 		return obj.orElseThrow(() -> new Exception());
 	}
 	
-	public tipoExameDTO InsertExame(tipoExameDTO dto) throws Exception{
+	public TipoExameDTO InsertExame(TipoExameDTO dto) throws Exception{
 		LOG.info("Iniciando Service TipoExameService: InsertExame");
 		if(dto == null || dto.getIdtipoexame() != null) {
 			throw new Exception("A Consulta possui Id");
 		}
 		else {
 			LOG.info("Iniciando Service TipoExameService:");
-			tipoExameDTO obj = proxytipExame.save(dto);
+			TipoExameDTO obj = proxytipExame.save(dto);
 			LOG.info("Fim Service TipoExameService: proxytipExame.save()");
 			return obj;
 		}
 	}
 	
-	public tipoExameDTO UpdateExame(tipoExameDTO dto) throws Exception{
+	public TipoExameDTO UpdateExame(TipoExameDTO dto) throws Exception{
 		LOG.info("Iniciando Service TipoExameService: UpdateExame");
 		if(dto == null || dto.getIdtipoexame() == null) {
 			throw new Exception(""
@@ -55,7 +55,7 @@ public class tipoExameService {
 		}
 		else {
 			LOG.info("Iniciando Service TipoExameService: proxytipExame.save");
-			tipoExameDTO obj = proxytipExame.save(dto);
+			TipoExameDTO obj = proxytipExame.save(dto);
 			LOG.info("Fim Service TipoExameService: proxytipExame.save()");
 			return obj;
 		}

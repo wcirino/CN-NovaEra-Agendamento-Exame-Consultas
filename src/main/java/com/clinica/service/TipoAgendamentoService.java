@@ -8,45 +8,45 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.clinica.dto.tipoagendamentoDTO;
-import com.clinica.repository.tipoagendamentorepository;
+import com.clinica.dto.TipoAgendamentoDTO;
+import com.clinica.repository.TipoAgendamentorepository;
 
 @Service
-public class tipoagendamentoService {
+public class TipoAgendamentoService {
 
 	@Autowired
-	private tipoagendamentorepository tipoagendamentoproxy;
+	private TipoAgendamentorepository tipoagendamentoproxy;
 	
-	private static final Logger LOG = LoggerFactory.getLogger(tipoagendamentoService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(TipoAgendamentoService.class);
 	
-	public List<tipoagendamentoDTO> findAll_TipoAgendamento() throws Exception{
+	public List<TipoAgendamentoDTO> findAll_TipoAgendamento() throws Exception{
 		LOG.info("Iniciando Service tipoagendamento :tipoagendamentoproxy.findAll()");
-		Optional<List<tipoagendamentoDTO>> obj = Optional.ofNullable(tipoagendamentoproxy.findAll());
+		Optional<List<TipoAgendamentoDTO>> obj = Optional.ofNullable(tipoagendamentoproxy.findAll());
 		LOG.info("Fim Service tipoagendamento : tipoagendamentoproxy.findAll()");
 		return obj.orElseThrow(() -> new Exception());
 	}
 	
-	public tipoagendamentoDTO find_tipoAgendamento_id(int id) throws Exception{
+	public TipoAgendamentoDTO find_tipoAgendamento_id(int id) throws Exception{
 		LOG.info("Iniciando Service tipoagendamento : tipoagendamentoproxy.findByidtipoagendamento");
-		Optional<tipoagendamentoDTO> obj = Optional.ofNullable(tipoagendamentoproxy.findByidtipoagendamento(id));
+		Optional<TipoAgendamentoDTO> obj = Optional.ofNullable(tipoagendamentoproxy.findByidtipoagendamento(id));
 		LOG.info("Fim Service tipoagendamento : tipoagendamentoproxy.findByidtipoagendamento");
 		return obj.orElseThrow(() -> new Exception());
 	}
 	
-	public tipoagendamentoDTO InsertTipoAgendamento(tipoagendamentoDTO dto) throws Exception{
+	public TipoAgendamentoDTO InsertTipoAgendamento(TipoAgendamentoDTO dto) throws Exception{
 		LOG.info("Iniciando Service tipoagendamento : InsertTipoAgendamento()");
 		if(dto == null || dto.getIdtipoagendamento() != null) {
 			throw new Exception("A Consulta possui Id");
 		}
 		else {
 			LOG.info("Iniciando Service tipoagendamento : tipoagendamentoproxy.save()");
-			tipoagendamentoDTO obj = tipoagendamentoproxy.save(dto);
+			TipoAgendamentoDTO obj = tipoagendamentoproxy.save(dto);
 			LOG.info("Fim Service tipoagendamento : tipoagendamentoproxy.save");
 			return obj;
 		}
 	}
 	
-	public tipoagendamentoDTO UpdateTipoAgendamento(tipoagendamentoDTO dto) throws Exception{
+	public TipoAgendamentoDTO UpdateTipoAgendamento(TipoAgendamentoDTO dto) throws Exception{
 		// if(book == null || book.getId() == null){
 		LOG.info("Iniciando Service tipoagendamento : findAll_TipoAgendamento()");
 		if(dto == null || dto.getIdtipoagendamento() == null) {
@@ -55,7 +55,7 @@ public class tipoagendamentoService {
 		}
 		else {
 			LOG.info("Iniciando Service tipoagendamento : tipoagendamentoproxy.save()");
-			tipoagendamentoDTO obj = tipoagendamentoproxy.save(dto);
+			TipoAgendamentoDTO obj = tipoagendamentoproxy.save(dto);
 			LOG.info("Fim Service tipoagendamento : tipoagendamentoproxy.save()");
 			return obj;
 		}

@@ -1,5 +1,6 @@
 package com.clinica.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -18,35 +19,38 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Table(name = "agendamento")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class agendamentoDTO {
+@Table(name = "exame")
+public class ExameDTO implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY )
-	@Column(name = "idagendamento")
-	private Integer idagendamento;
+	@Column(name = "idexame")
+	private Integer idexame;
 	
 	@OneToOne(cascade = CascadeType.REMOVE) 
-	@JoinColumn(name = "idtipoagendamento", referencedColumnName="idtipoagendamento")
-	private tipoagendamentoDTO idtipoagendamento;
+	@JoinColumn(name = "idtipoexame", referencedColumnName="idtipoexame")
+	private TipoExameDTO idtipoexame;
 	
 	@Column(name = "idprestador")
-	private int idprestador;
+	private int idprestador; 
 	
 	@Column(name = "idbenef")
 	private int idbenef;
 	
 	@Column(name = "datasolicitacao")
-	private Date datasolicitacao;
+	private Date datasolicitacao; 
 	
 	@Column(name = "dataconsulta")
 	private Date dataconsulta;
 	
-	@Column(name = "statusAgendamento")
-	private String statusAgendamento;
+	@Column(name = "statusexame")
+	private Integer statusexame;
+
 	
 }

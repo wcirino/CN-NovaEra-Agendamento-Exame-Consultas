@@ -20,25 +20,25 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.clinica.dto.agendamentoDTO;
-import com.clinica.dto.exameDTO;
+import com.clinica.dto.AgendamentoDTO;
+import com.clinica.dto.ExameDTO;
 import com.clinica.entity.exame;
-import com.clinica.repository.exameRepository;
+import com.clinica.repository.ExameRepository;
 
 
 @ExtendWith(SpringExtension.class)
 public class ExameServiceTest {
 
 	@InjectMocks
-	exameService service;
+	ExameService service;
 	
 	@Mock
-	exameRepository repository;
+	ExameRepository repository;
 	
-	List<exameDTO> listExame; 
+	List<ExameDTO> listExame; 
 	
-	exameDTO exame;
-	exameDTO exame2;
+	ExameDTO exame;
+	ExameDTO exame2;
 	
 	@BeforeEach
 	public void setUp() {
@@ -48,9 +48,9 @@ public class ExameServiceTest {
 	@Test
 	public void devePesquisaTodosOsexames() throws Exception{
 		
-		List<exameDTO> listExame = this.criandoListObjeto();
+		List<ExameDTO> listExame = this.criandoListObjeto();
 		when(repository.findAll()).thenReturn(this.listExame);
-		List<exameDTO> exame3 = service.findAll_Exame();
+		List<ExameDTO> exame3 = service.findAll_Exame();
 		
 		assertEquals(this.listExame,exame3);
 	}
@@ -58,10 +58,10 @@ public class ExameServiceTest {
 	@Test
 	public void devePesquisaTodosOsexamesLista() throws Exception{
 		
-		List<exameDTO> listExame = this.criandoListObjeto();
+		List<ExameDTO> listExame = this.criandoListObjeto();
 		
 		when(repository.findAll()).thenReturn(this.listExame);
-		List<exameDTO> exame3 = service.findAll_Exame();
+		List<ExameDTO> exame3 = service.findAll_Exame();
 		
 		assertTrue(exame3.size() > 1);
 	}
@@ -70,7 +70,7 @@ public class ExameServiceTest {
 	public void devePesquisarComSucessoExameID() throws Exception
 	{
 		int id = 1;
-		exameDTO exame3;
+		ExameDTO exame3;
 		this.exame = this.criandoObjeto();
 		
 		when(repository.findByidexame(id)).thenReturn(this.exame);
@@ -83,7 +83,7 @@ public class ExameServiceTest {
 	public void devePesquisarComSucessoExameIDZero() throws Exception
 	{
 		int id = 0;
-		exameDTO exame3;
+		ExameDTO exame3;
 		this.exame = this.criandoObjeto();
 		
 		when(repository.findByidexame(id)).thenReturn(this.exame);
@@ -94,8 +94,8 @@ public class ExameServiceTest {
 	
 	@Test
 	public void deveInserirExameComSucesso() throws Exception{
-		exameDTO exame3;
-		exameDTO exame4;
+		ExameDTO exame3;
+		ExameDTO exame4;
 		
 		this.exame = this.criandoObjeto();
 		exame4 = this.criandoObjeto();
@@ -109,8 +109,8 @@ public class ExameServiceTest {
 	
 	@Test
 	public void deveInserirExameErro() throws Exception{
-		exameDTO exame3;
-		exameDTO exame4;
+		ExameDTO exame3;
+		ExameDTO exame4;
 		
 		this.exame = this.criandoObjeto2();
 		exame4 = this.criandoObjeto2();
@@ -126,8 +126,8 @@ public class ExameServiceTest {
 	
 	@Test
 	public void deveInserirExameErroDtoNull() throws Exception{
-		exameDTO exame3;
-		exameDTO exame4;
+		ExameDTO exame3;
+		ExameDTO exame4;
 		
 		this.exame = this.criandoObjetoNull();
 		exame4 = this.criandoObjetoNull();
@@ -143,8 +143,8 @@ public class ExameServiceTest {
 	
 	@Test
 	public void deveAtualizarExameComSucesso() throws Exception{
-		exameDTO exame3;
-		exameDTO exame4;
+		ExameDTO exame3;
+		ExameDTO exame4;
 		
 		this.exame = this.criandoObjeto();
 		exame4 = this.criandoObjeto();
@@ -161,8 +161,8 @@ public class ExameServiceTest {
 	@Test
 	public void deveAtualizarExameComSucessoNever() throws Exception{
 		
-		exameDTO exame3;
-		exameDTO exame4;
+		ExameDTO exame3;
+		ExameDTO exame4;
 		
 		this.exame = this.criandoObjeto2();
 		exame4 = this.criandoObjeto2();
@@ -176,8 +176,8 @@ public class ExameServiceTest {
 	
 	@Test
 	public void deveUpdateExameErroDtoNull() throws Exception{
-		exameDTO exame3;
-		exameDTO exame4;
+		ExameDTO exame3;
+		ExameDTO exame4;
 		
 		this.exame = this.criandoObjetoNull();
 		exame4 = this.criandoObjetoNull();
@@ -190,8 +190,8 @@ public class ExameServiceTest {
 		verify(repository,never()).save(exame);
 	}
 			
-	private exameDTO criandoObjeto() {
-		return exameDTO.builder()
+	private ExameDTO criandoObjeto() {
+		return ExameDTO.builder()
 				.idexame(1)
 				.idtipoexame(null)
 				.idprestador(1)
@@ -202,8 +202,8 @@ public class ExameServiceTest {
 				.build();
 	}
 	
-	private exameDTO criandoObjeto2() {
-		return exameDTO.builder()
+	private ExameDTO criandoObjeto2() {
+		return ExameDTO.builder()
 				.idexame(0)
 				.idtipoexame(null)
 				.idprestador(1)
@@ -214,8 +214,8 @@ public class ExameServiceTest {
 				.build();
 	}
 	
-	private agendamentoDTO criandoObjetoIdNull() {
-		return agendamentoDTO.builder()
+	private AgendamentoDTO criandoObjetoIdNull() {
+		return AgendamentoDTO.builder()
 				.idprestador(1)
 				.idtipoagendamento(null)
 				.dataconsulta(null)
@@ -224,8 +224,8 @@ public class ExameServiceTest {
 				.build();
 	}
 	
-	private exameDTO criandoObjetoParametro(int idagen,int idbenef,int idprestador,int status) {
-		return exameDTO.builder()
+	private ExameDTO criandoObjetoParametro(int idagen,int idbenef,int idprestador,int status) {
+		return ExameDTO.builder()
 				.idexame(idagen)
 				.idtipoexame(null)
 				.idprestador(idprestador)
@@ -236,22 +236,22 @@ public class ExameServiceTest {
 				.build();
 	}
 	
-	private exameDTO criandoObjetoNull() {
+	private ExameDTO criandoObjetoNull() {
 		return null;
 	}
 	
 	
-	private List<exameDTO> criandoListObjeto() {
+	private List<ExameDTO> criandoListObjeto() {
 		return asList(
-				exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-				exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-						exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-						exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-						exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build());
 	}
 	

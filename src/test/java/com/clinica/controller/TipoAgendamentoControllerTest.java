@@ -18,12 +18,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.clinica.dto.tipoagendamentoDTO;
-import com.clinica.service.tipoagendamentoService;
+import com.clinica.dto.TipoAgendamentoDTO;
+import com.clinica.service.TipoAgendamentoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = tipoagendamentoController.class)
+@WebMvcTest(controllers = TipoAgendamentoController.class)
 @AutoConfigureMockMvc
 public class TipoAgendamentoControllerTest {
 
@@ -33,13 +33,13 @@ public class TipoAgendamentoControllerTest {
 	MockMvc mvc;
 
 	@MockBean
-	tipoagendamentoService service;
+	TipoAgendamentoService service;
 	
 	@Test
 	public void findAllExame() throws Exception {
 		
-		tipoagendamentoDTO dto = this.criandoObjeto();
-			List<tipoagendamentoDTO> reponseExame =  this.criandoListObjeto();
+		TipoAgendamentoDTO dto = this.criandoObjeto();
+			List<TipoAgendamentoDTO> reponseExame =  this.criandoListObjeto();
 	        BDDMockito.given(service.findAll_TipoAgendamento()).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -60,7 +60,7 @@ public class TipoAgendamentoControllerTest {
 		
 			//cenario
 			int id = 1;
-			tipoagendamentoDTO reponseExame =  this.criandoObjeto();
+			TipoAgendamentoDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.find_tipoAgendamento_id(id)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(id);
 
@@ -77,8 +77,8 @@ public class TipoAgendamentoControllerTest {
 		
 	}
 	
-	private tipoagendamentoDTO criandoObjeto() {
-		return tipoagendamentoDTO.builder()
+	private TipoAgendamentoDTO criandoObjeto() {
+		return TipoAgendamentoDTO.builder()
 				.idtipoagendamento(1)
 				.nomeagendamento("vacina")
 				.valor(300)
@@ -102,17 +102,17 @@ public class TipoAgendamentoControllerTest {
 	 */
 	
 	
-	private List<tipoagendamentoDTO> criandoListObjeto() {
+	private List<TipoAgendamentoDTO> criandoListObjeto() {
 		return asList(
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build(),
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build(),
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build(),
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build(),
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build());
 	}
 	

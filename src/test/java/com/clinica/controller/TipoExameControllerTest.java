@@ -18,12 +18,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.clinica.dto.tipoExameDTO;
-import com.clinica.service.tipoExameService;
+import com.clinica.dto.TipoExameDTO;
+import com.clinica.service.TipoExameService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = tipoExameController.class)
+@WebMvcTest(controllers = TipoExameController.class)
 @AutoConfigureMockMvc
 public class TipoExameControllerTest {
 
@@ -33,13 +33,13 @@ public class TipoExameControllerTest {
 	MockMvc mvc;
 
 	@MockBean
-	tipoExameService service;
+	TipoExameService service;
 	
 	@Test
 	public void findAllExame() throws Exception {
 		
-		tipoExameDTO dto = this.criandoObjeto();
-			List<tipoExameDTO> reponseExame =  this.criandoListObjeto();
+		TipoExameDTO dto = this.criandoObjeto();
+			List<TipoExameDTO> reponseExame =  this.criandoListObjeto();
 	        BDDMockito.given(service.findAll_TipoExame()).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -60,7 +60,7 @@ public class TipoExameControllerTest {
 		
 			//cenario
 			int id = 1;
-			tipoExameDTO reponseExame =  this.criandoObjeto();
+			TipoExameDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.find_tipoExame_id(id)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(id);
 
@@ -81,8 +81,8 @@ public class TipoExameControllerTest {
 	public void InsertExame() throws Exception {
 		
 			//cenario
-		tipoExameDTO dto = this.criandoObjeto2();
-		tipoExameDTO reponseExame =  this.criandoObjeto2();
+		TipoExameDTO dto = this.criandoObjeto2();
+		TipoExameDTO reponseExame =  this.criandoObjeto2();
 	        BDDMockito.given(service.InsertExame(dto)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -103,8 +103,8 @@ public class TipoExameControllerTest {
 	public void UpdateExame() throws Exception {
 		
 			//cenario
-		tipoExameDTO dto = this.criandoObjeto();
-		tipoExameDTO reponseExame =  this.criandoObjeto();
+		TipoExameDTO dto = this.criandoObjeto();
+		TipoExameDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.UpdateExame(dto)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -121,8 +121,8 @@ public class TipoExameControllerTest {
 		
 	}
 	
-	private tipoExameDTO criandoObjeto() {
-		return tipoExameDTO.builder()
+	private TipoExameDTO criandoObjeto() {
+		return TipoExameDTO.builder()
 				.idtipoexame(1)
 				.nome_exame("vacina")
 				.valor(300)
@@ -130,8 +130,8 @@ public class TipoExameControllerTest {
 				.build();				
 	}
 	
-	private tipoExameDTO criandoObjeto2() {
-		return tipoExameDTO.builder()
+	private TipoExameDTO criandoObjeto2() {
+		return TipoExameDTO.builder()
 				.idtipoexame(1)
 				.nome_exame("vacina")
 				.valor(300)
@@ -148,17 +148,17 @@ public class TipoExameControllerTest {
 	 */
 	
 	
-	private List<tipoExameDTO> criandoListObjeto() {
+	private List<TipoExameDTO> criandoListObjeto() {
 		return asList(
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build(),
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build(),
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build(),
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build(),
-				tipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
+				TipoExameDTO.builder().idtipoexame(1).nome_exame("vacina").valor(300)
 		.datainsert(null).build());
 	}
 	

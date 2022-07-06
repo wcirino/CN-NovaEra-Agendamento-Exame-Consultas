@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class tipoagendamentoDTO {
+public class TipoAgendamentoDTO {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY )

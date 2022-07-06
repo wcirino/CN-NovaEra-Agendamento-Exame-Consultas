@@ -18,24 +18,24 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.clinica.dto.agendamentoDTO;
-import com.clinica.dto.tipoagendamentoDTO;
-import com.clinica.repository.tipoagendamentorepository;
+import com.clinica.dto.AgendamentoDTO;
+import com.clinica.dto.TipoAgendamentoDTO;
+import com.clinica.repository.TipoAgendamentorepository;
 
 @ExtendWith(SpringExtension.class)
 public class TipoagendamentoServiceTest {
 
 	
 	@InjectMocks
-	tipoagendamentoService service;
+	TipoAgendamentoService service;
 
 	@Mock
-	tipoagendamentorepository repository;
+	TipoAgendamentorepository repository;
 
-	List<tipoagendamentoDTO> listTipoAgendamento;
+	List<TipoAgendamentoDTO> listTipoAgendamento;
 
-	agendamentoDTO tipoagendamento;
-	agendamentoDTO tipoagendamento2;
+	AgendamentoDTO tipoagendamento;
+	AgendamentoDTO tipoagendamento2;
 	 
 	@BeforeEach
 	public void setUp() {
@@ -45,9 +45,9 @@ public class TipoagendamentoServiceTest {
 	@Test
 	public void devePesquisaTodosOsexames() throws Exception{
 		
-		List<tipoagendamentoDTO> lista = this.criandoListObjeto();
+		List<TipoAgendamentoDTO> lista = this.criandoListObjeto();
 		when(repository.findAll()).thenReturn(lista);
-		List<tipoagendamentoDTO> tipoagenda = service.findAll_TipoAgendamento();
+		List<TipoAgendamentoDTO> tipoagenda = service.findAll_TipoAgendamento();
 		
 		assertEquals(lista,tipoagenda);
 	}
@@ -56,18 +56,18 @@ public class TipoagendamentoServiceTest {
 	public void devePesquisarComSucessoExameID() throws Exception
 	{
 		int id = 1;
-		tipoagendamentoDTO agenda2 = this.criandoObjeto();
+		TipoAgendamentoDTO agenda2 = this.criandoObjeto();
 		
 		when(repository.findByidtipoagendamento(id)).thenReturn(agenda2);
-		tipoagendamentoDTO agenda3 = service.find_tipoAgendamento_id(id);
+		TipoAgendamentoDTO agenda3 = service.find_tipoAgendamento_id(id);
 		
 		assertEquals(agenda2,agenda3);
 	}
 	
 	@Test
 	public void deveInserirExameComSucesso() throws Exception{
-		tipoagendamentoDTO tipoagenda;
-		tipoagendamentoDTO tipoagenda2;
+		TipoAgendamentoDTO tipoagenda;
+		TipoAgendamentoDTO tipoagenda2;
 		
 		tipoagenda2 = this.criandoObjeto();
 		tipoagenda = this.criandoObjeto();
@@ -75,7 +75,7 @@ public class TipoagendamentoServiceTest {
 		tipoagenda.setIdtipoagendamento(null);
 		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
 		
-		tipoagendamentoDTO tipoagenda3 = service.InsertTipoAgendamento(tipoagenda);
+		TipoAgendamentoDTO tipoagenda3 = service.InsertTipoAgendamento(tipoagenda);
 		
 		assertEquals(tipoagenda3,tipoagenda2);
 	}
@@ -83,8 +83,8 @@ public class TipoagendamentoServiceTest {
 	
 	@Test
 	public void deveInserirExameErro() throws Exception {
-		tipoagendamentoDTO tipoagenda;
-		tipoagendamentoDTO tipoagenda2;
+		TipoAgendamentoDTO tipoagenda;
+		TipoAgendamentoDTO tipoagenda2;
 
 		tipoagenda2 = this.criandoObjeto();
 		tipoagenda = this.criandoObjeto();
@@ -100,23 +100,23 @@ public class TipoagendamentoServiceTest {
 	
 	@Test
 	public void deveatualizartipoAgendamentoComSucesso() throws Exception{
-		tipoagendamentoDTO tipoagenda;
-		tipoagendamentoDTO tipoagenda2;
+		TipoAgendamentoDTO tipoagenda;
+		TipoAgendamentoDTO tipoagenda2;
 		
 		tipoagenda2 = this.criandoObjeto();
 		tipoagenda = this.criandoObjeto();
 		
 		
 		when(repository.save(tipoagenda)).thenReturn(tipoagenda2);
-		tipoagendamentoDTO tipoagenda3 = service.UpdateTipoAgendamento(tipoagenda2);
+		TipoAgendamentoDTO tipoagenda3 = service.UpdateTipoAgendamento(tipoagenda2);
 		
 		assertEquals(tipoagenda3,tipoagenda2);
 	}
 	
 	@Test
 	public void deveUpdateErro() throws Exception {
-		tipoagendamentoDTO tipoagenda;
-		tipoagendamentoDTO tipoagenda2;
+		TipoAgendamentoDTO tipoagenda;
+		TipoAgendamentoDTO tipoagenda2;
 
 		tipoagenda2 = this.criandoObjetoIdNull();
 		tipoagenda = this.criandoObjetoIdNull();
@@ -131,8 +131,8 @@ public class TipoagendamentoServiceTest {
 	
 	@Test
 	public void deveUpdateErroDtoNull() throws Exception {
-		tipoagendamentoDTO tipoagenda;
-		tipoagendamentoDTO tipoagenda2;
+		TipoAgendamentoDTO tipoagenda;
+		TipoAgendamentoDTO tipoagenda2;
 
 		tipoagenda2 = this.criandoObjetoNull();
 		tipoagenda = this.criandoObjetoNull();
@@ -147,8 +147,8 @@ public class TipoagendamentoServiceTest {
 	
 	@Test
 	public void deveInserirExameErroDtoNull() throws Exception {
-		tipoagendamentoDTO tipoagenda;
-		tipoagendamentoDTO tipoagenda2;
+		TipoAgendamentoDTO tipoagenda;
+		TipoAgendamentoDTO tipoagenda2;
 
 		tipoagenda2 = this.criandoObjetoNull();
 		tipoagenda = this.criandoObjetoNull();
@@ -168,8 +168,8 @@ public class TipoagendamentoServiceTest {
 	 * 
 	 * Mockito.verify( repository, Mockito.never() ).save(book);
 	 */	
-	private tipoagendamentoDTO criandoObjeto() {
-		return tipoagendamentoDTO.builder()
+	private TipoAgendamentoDTO criandoObjeto() {
+		return TipoAgendamentoDTO.builder()
 				.idtipoagendamento(1)
 				.nomeagendamento("vacina")
 				.valor(300)
@@ -179,8 +179,8 @@ public class TipoagendamentoServiceTest {
 				.build();				
 	}
 	
-	private tipoagendamentoDTO criandoObjeto2() {
-		return tipoagendamentoDTO.builder()
+	private TipoAgendamentoDTO criandoObjeto2() {
+		return TipoAgendamentoDTO.builder()
 				.idtipoagendamento(1)
 				.nomeagendamento("vacina")
 				.valor(300)
@@ -190,8 +190,8 @@ public class TipoagendamentoServiceTest {
 				.build();
 	}
 	
-	private tipoagendamentoDTO criandoObjetoIdNull() {
-		return tipoagendamentoDTO.builder()
+	private TipoAgendamentoDTO criandoObjetoIdNull() {
+		return TipoAgendamentoDTO.builder()
 				.idtipoagendamento(null)
 				.nomeagendamento("vacina")
 				.valor(300)
@@ -201,22 +201,22 @@ public class TipoagendamentoServiceTest {
 				.build();
 	}
 		
-	private tipoagendamentoDTO criandoObjetoNull() {
+	private TipoAgendamentoDTO criandoObjetoNull() {
 		return null;
 	}
 	
 	
-	private List<tipoagendamentoDTO> criandoListObjeto() {
+	private List<TipoAgendamentoDTO> criandoListObjeto() {
 		return asList(
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build(),
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build(),
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build(),
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build(),
-				tipoagendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
+				TipoAgendamentoDTO.builder().idtipoagendamento(1).nomeagendamento("vacina").valor(300)
 						.statusAgendamento("1").tipo(1).datacriacao(null).build());
 	}
 	

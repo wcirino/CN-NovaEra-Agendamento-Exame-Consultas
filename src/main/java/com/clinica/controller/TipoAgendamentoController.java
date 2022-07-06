@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.clinica.dto.tipoagendamentoDTO;
-import com.clinica.service.tipoagendamentoService;
+import com.clinica.dto.TipoAgendamentoDTO;
+import com.clinica.service.TipoAgendamentoService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,18 +21,18 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "TipoAgendamento", description = "TipoAgendamentos medicos", tags = {"Tipo Agendamentos Medicos EndPoint"})
 @RestController
 @RequestMapping(value = "/api-tipoagendamento")
-public class tipoagendamentoController {
+public class TipoAgendamentoController {
 	
 	@Autowired
-	private tipoagendamentoService tipoAgendamentoproxy;
+	private TipoAgendamentoService tipoAgendamentoproxy;
 	
-	private static final Logger LOG = LoggerFactory.getLogger(tipoagendamentoController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(TipoAgendamentoController.class);
 	
 	@ApiOperation(value = "Busca todos TipoAgendamento")
 	@GetMapping(value = "/tipo-agendamento")
 	public ResponseEntity<?> findAllExame() throws Exception{
 		LOG.info("Iniciando  controller Exame Metodo: findAll_TipoAgendamento");
-		List<tipoagendamentoDTO> tpagenda = tipoAgendamentoproxy.findAll_TipoAgendamento();
+		List<TipoAgendamentoDTO> tpagenda = tipoAgendamentoproxy.findAll_TipoAgendamento();
 		LOG.info("Fim  controller TipoAgendamento Metodo: FindAll_Exame");
 		return new ResponseEntity<>(tpagenda,HttpStatus.OK);
 	}
@@ -41,7 +41,7 @@ public class tipoagendamentoController {
 	@GetMapping(value = "/tipo-tipoagendamento-id/{id}")
 	public ResponseEntity<?> findIDExame(@PathVariable int id) throws Exception{
 		LOG.info("Iniciando  controller Exame Metodo: find_tipoAgendamento_id");
-		tipoagendamentoDTO tpagenda = tipoAgendamentoproxy.find_tipoAgendamento_id(id);
+		TipoAgendamentoDTO tpagenda = tipoAgendamentoproxy.find_tipoAgendamento_id(id);
 		LOG.info("Fim  controller TipoAgendamento Metodo: find_tipoAgendamento_id");
 		return new ResponseEntity<>(tpagenda,HttpStatus.OK);
 	}

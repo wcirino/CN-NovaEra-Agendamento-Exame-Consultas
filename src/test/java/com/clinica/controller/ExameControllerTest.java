@@ -18,13 +18,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.clinica.dto.exameDTO;
-import com.clinica.service.exameService;
+import com.clinica.dto.ExameDTO;
+import com.clinica.service.ExameService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = exameController.class)
+@WebMvcTest(controllers = ExameController.class)
 @AutoConfigureMockMvc
 public class ExameControllerTest {
 
@@ -34,13 +34,13 @@ public class ExameControllerTest {
 	MockMvc mvc;
 
 	@MockBean
-	exameService service;
+	ExameService service;
 
 	@Test
 	public void findAllExame() throws Exception {
 		
-			exameDTO dto = this.criandoObjeto();
-			List<exameDTO> reponseExame =  this.criandoListObjeto();
+			ExameDTO dto = this.criandoObjeto();
+			List<ExameDTO> reponseExame =  this.criandoListObjeto();
 	        BDDMockito.given(service.findAll_Exame()).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -61,7 +61,7 @@ public class ExameControllerTest {
 		
 			//cenario
 			int id = 1;
-			exameDTO reponseExame =  this.criandoObjeto();
+			ExameDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.find_Exame_id(id)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(id);
 
@@ -82,8 +82,8 @@ public class ExameControllerTest {
 	public void InsertExame() throws Exception {
 		
 			//cenario
-			exameDTO dto = this.criandoObjeto2();
-			exameDTO reponseExame =  this.criandoObjeto2();
+			ExameDTO dto = this.criandoObjeto2();
+			ExameDTO reponseExame =  this.criandoObjeto2();
 	        BDDMockito.given(service.InsertExame(dto)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -104,8 +104,8 @@ public class ExameControllerTest {
 	public void UpdateExame() throws Exception {
 		
 			//cenario
-			exameDTO dto = this.criandoObjeto();
-			exameDTO reponseExame =  this.criandoObjeto();
+			ExameDTO dto = this.criandoObjeto();
+			ExameDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.UpdateExame(dto)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -122,8 +122,8 @@ public class ExameControllerTest {
 		
 	}
 	
-	private exameDTO criandoObjeto() {
-		return exameDTO.builder()
+	private ExameDTO criandoObjeto() {
+		return ExameDTO.builder()
 				.idexame(1)
 				.idtipoexame(null)
 				.idprestador(1)
@@ -134,8 +134,8 @@ public class ExameControllerTest {
 				.build();
 	}
 	
-	private exameDTO criandoObjeto2() {
-		return exameDTO.builder()
+	private ExameDTO criandoObjeto2() {
+		return ExameDTO.builder()
 				.idexame(null)
 				.idtipoexame(null)
 				.idprestador(1)
@@ -161,17 +161,17 @@ public class ExameControllerTest {
 	 */
 	
 	
-	private List<exameDTO> criandoListObjeto() {
+	private List<ExameDTO> criandoListObjeto() {
 		return asList(
-				exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-				exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-						exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-						exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-						exameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build());
 	}
 	

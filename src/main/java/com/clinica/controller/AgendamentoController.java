@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.clinica.dto.agendamentoDTO;
-import com.clinica.service.agendamentoService;
+import com.clinica.dto.AgendamentoDTO;
+import com.clinica.service.AgendamentoService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,18 +24,18 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "Agendamento", description = "agendamentos medicos", tags = {"Agendamentos Medicos EndPoint"})
 @RestController
 @RequestMapping(value ="/api-agendamento")
-public class agendamentoController {
+public class AgendamentoController {
 
 	@Autowired
-	private agendamentoService agendamentoProxy;
+	private AgendamentoService agendamentoProxy;
 	
-	private static final Logger LOG = LoggerFactory.getLogger(agendamentoController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AgendamentoController.class);
 	
 	@ApiOperation(value = "Busca todos agendamento")
 	@GetMapping(value = "/agendamento-all")
 	public ResponseEntity<?> findAllAgendamento() throws Exception{
 		LOG.info("Iniciando  controller agendamento Metodo: findAll_agendamento");
-		List<agendamentoDTO> agendamento = agendamentoProxy.findAll_agendamento();
+		List<AgendamentoDTO> agendamento = agendamentoProxy.findAll_agendamento();
 		LOG.info("Fim da chamada endpoint agendamento  : FindAll_agendamento");
 		return new ResponseEntity<>(agendamento,HttpStatus.OK);
 	}
@@ -44,21 +44,21 @@ public class agendamentoController {
 	@GetMapping(value = "/agendamento-id/{id}")
 	public ResponseEntity<?> findIDAgendamento(@PathVariable int id) throws Exception{
 		LOG.info("Iniciando  controller agendamento Metodo: findID ");
-		agendamentoDTO agendamento = agendamentoProxy.find_Agendamento_id(id);
+		AgendamentoDTO agendamento = agendamentoProxy.find_Agendamento_id(id);
 		LOG.info("Iniciando  controller agendamento Metodo: ");
 		return new ResponseEntity<>(agendamento,HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "inserir agendamento")
 	@PostMapping(value = "/agendamento")
-	public ResponseEntity<?> InsertAgendamento(@RequestBody agendamentoDTO dto)throws Exception{
+	public ResponseEntity<?> InsertAgendamento(@RequestBody AgendamentoDTO dto)throws Exception{
 		LOG.info("Iniciando  controller agendamento Metodo: inseriragendamento");
 		return new  ResponseEntity<>(agendamentoProxy.Insertagendamento(dto),HttpStatus.CREATED);
 	}
 	
 	@ApiOperation(value = "alterar agendamento")
 	@PutMapping(value = "/agendamento")
-	public  ResponseEntity<?> Updateconsulta(@RequestBody agendamentoDTO dto) throws Exception{
+	public  ResponseEntity<?> Updateconsulta(@RequestBody AgendamentoDTO dto) throws Exception{
 		LOG.info("Iniciando  controller agendamento Metodo: Updateagendamento");
 		return new ResponseEntity<>(agendamentoProxy.Updategendamento(dto),HttpStatus.OK);
 	}

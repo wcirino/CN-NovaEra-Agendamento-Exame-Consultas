@@ -3,12 +3,12 @@ package com.clinica.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.clinica.dto.agendamentoDTO;
+import com.clinica.dto.AgendamentoDTO;
 
 @Repository
-public interface AgendamentoRepository extends JpaRepository<agendamentoDTO, Integer> {
+public interface AgendamentoRepository extends JpaRepository<AgendamentoDTO, Integer> {
 
-	agendamentoDTO findByidagendamento(int id);
-	agendamentoDTO save(int id);
+	AgendamentoDTO findByidagendamento(int id);
+	AgendamentoDTO save(int id);
 	
 }

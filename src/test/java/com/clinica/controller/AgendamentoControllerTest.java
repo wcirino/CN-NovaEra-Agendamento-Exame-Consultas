@@ -18,12 +18,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.clinica.dto.agendamentoDTO;
-import com.clinica.service.agendamentoService;
+import com.clinica.dto.AgendamentoDTO;
+import com.clinica.service.AgendamentoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = agendamentoController.class)
+@WebMvcTest(controllers = AgendamentoController.class)
 @AutoConfigureMockMvc
 public class AgendamentoControllerTest {
 
@@ -33,13 +33,13 @@ public class AgendamentoControllerTest {
 	MockMvc mvc;
 
 	@MockBean
-	agendamentoService service;
+	AgendamentoService service;
 	
 	@Test
 	public void findAllExame() throws Exception {
 		
-			agendamentoDTO dto = this.criandoObjeto();
-			List<agendamentoDTO> reponseExame =  this.criandoListObjeto();
+			AgendamentoDTO dto = this.criandoObjeto();
+			List<AgendamentoDTO> reponseExame =  this.criandoListObjeto();
 	        BDDMockito.given(service.findAll_agendamento()).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -60,7 +60,7 @@ public class AgendamentoControllerTest {
 		
 			//cenario
 			int id = 1;
-			agendamentoDTO reponseExame =  this.criandoObjeto();
+			AgendamentoDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.find_Agendamento_id(id)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(id);
 
@@ -81,8 +81,8 @@ public class AgendamentoControllerTest {
 	public void InsertExame() throws Exception {
 		
 			//cenario
-			agendamentoDTO dto = this.criandoObjeto2();
-			agendamentoDTO reponseExame =  this.criandoObjeto2();
+			AgendamentoDTO dto = this.criandoObjeto2();
+			AgendamentoDTO reponseExame =  this.criandoObjeto2();
 	        BDDMockito.given(service.Insertagendamento(dto)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -103,8 +103,8 @@ public class AgendamentoControllerTest {
 	public void UpdateExame() throws Exception {
 		
 			//cenario
-			agendamentoDTO dto = this.criandoObjeto();
-			agendamentoDTO reponseExame =  this.criandoObjeto();
+			AgendamentoDTO dto = this.criandoObjeto();
+			AgendamentoDTO reponseExame =  this.criandoObjeto();
 	        BDDMockito.given(service.Updategendamento(dto)).willReturn(reponseExame);
 	        String json = new ObjectMapper().writeValueAsString(dto);
 
@@ -121,8 +121,8 @@ public class AgendamentoControllerTest {
 		
 	}
 	
-	private agendamentoDTO criandoObjeto() {
-		return agendamentoDTO.builder()
+	private AgendamentoDTO criandoObjeto() {
+		return AgendamentoDTO.builder()
 				.idagendamento(1)
 				.idbenef(1)
 				.idprestador(1)
@@ -133,8 +133,8 @@ public class AgendamentoControllerTest {
 				.build();
 	}
 	
-	private agendamentoDTO criandoObjeto2() {
-		return agendamentoDTO.builder()
+	private AgendamentoDTO criandoObjeto2() {
+		return AgendamentoDTO.builder()
 				.idagendamento(null)
 				.idbenef(1)
 				.idprestador(1)
@@ -163,18 +163,18 @@ public class AgendamentoControllerTest {
 	 */
 	
 	
-	private List<agendamentoDTO> criandoListObjeto() {
-		return asList(agendamentoDTO.builder().idagendamento(1).idbenef(1).idprestador(1).idtipoagendamento(null)
+	private List<AgendamentoDTO> criandoListObjeto() {
+		return asList(AgendamentoDTO.builder().idagendamento(1).idbenef(1).idprestador(1).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				 agendamentoDTO.builder().idagendamento(2).idbenef(2).idprestador(2).idtipoagendamento(null)
+				 AgendamentoDTO.builder().idagendamento(2).idbenef(2).idprestador(2).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				agendamentoDTO.builder().idagendamento(3).idbenef(3).idprestador(3).idtipoagendamento(null)
+				AgendamentoDTO.builder().idagendamento(3).idbenef(3).idprestador(3).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				 agendamentoDTO.builder().idagendamento(4).idbenef(4).idprestador(4).idtipoagendamento(null)
+				 AgendamentoDTO.builder().idagendamento(4).idbenef(4).idprestador(4).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				agendamentoDTO.builder().idagendamento(5).idbenef(5).idprestador(5).idtipoagendamento(null)
+				AgendamentoDTO.builder().idagendamento(5).idbenef(5).idprestador(5).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				 agendamentoDTO.builder().idagendamento(6).idbenef(6).idprestador(6).idtipoagendamento(null)
+				 AgendamentoDTO.builder().idagendamento(6).idbenef(6).idprestador(6).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build());
 	}
 	

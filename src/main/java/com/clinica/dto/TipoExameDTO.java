@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class tipoExameDTO implements Serializable{
+public class TipoExameDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	

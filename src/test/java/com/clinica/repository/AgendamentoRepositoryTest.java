@@ -17,7 +17,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.clinica.dto.agendamentoDTO;
+import com.clinica.dto.AgendamentoDTO;
 
 @RunWith(SpringRunner.class)
 //@ContextConfiguration
@@ -32,7 +32,7 @@ public class AgendamentoRepositoryTest {
 	@Mock
 	AgendamentoRepository agendamentoRepository; 
 	
-	agendamentoDTO agDto;
+	AgendamentoDTO agDto;
 	
 	String nome;
 	
@@ -48,7 +48,7 @@ public class AgendamentoRepositoryTest {
 	@Test
 	public void deveBuscarAgendamentoPorIdsucessoMock() throws Exception  {
 		
-		Mockito.when(agendamentoRepository.findByidagendamento(1)).thenReturn(agendamentoDTO.builder()
+		Mockito.when(agendamentoRepository.findByidagendamento(1)).thenReturn(AgendamentoDTO.builder()
 				.idagendamento(1)
 				.idbenef(1)
 				.idprestador(1)
@@ -65,14 +65,14 @@ public class AgendamentoRepositoryTest {
 	
 	@Test
 	public void deveBuscarAgendamentoPorIdsucesso() throws Exception  {
-		agendamentoDTO dto = criandoObjeto(); 
-		agendamentoDTO obj = agRepository.findByidagendamento(1);		
+		AgendamentoDTO dto = criandoObjeto(); 
+		AgendamentoDTO obj = agRepository.findByidagendamento(1);		
 		assertEquals(dto.getIdagendamento(),obj.getIdagendamento());
 	}
 	
 	@Test
 	public void deveBuscarTodososAgendamentosComSucesso() {
-		List<agendamentoDTO> obj = agRepository.findAll();						
+		List<AgendamentoDTO> obj = agRepository.findAll();						
 		assertTrue(obj.size() > 1);
 		
 	}
@@ -89,8 +89,8 @@ public class AgendamentoRepositoryTest {
 		assertNull(agDto);
 	}
 	
-	private agendamentoDTO criandoObjeto() {
-		return agendamentoDTO.builder()
+	private AgendamentoDTO criandoObjeto() {
+		return AgendamentoDTO.builder()
 				.idagendamento(1)
 				.idbenef(1)
 				.idprestador(1)
