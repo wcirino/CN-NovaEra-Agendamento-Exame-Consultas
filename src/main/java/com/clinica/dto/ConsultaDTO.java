@@ -9,21 +9,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
 @Table(name="consultas")
+@AllArgsConstructor
+@NoArgsConstructor
 public class ConsultaDTO {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY )
 	@Column(name = "idconsulta")
-	private int idconsulta;
+	private Integer idconsulta;
 	
 	@Column(name = "codprestador")
-	private int codprestador;
+	private Integer codprestador;
 	
 
 	@Column(name = "codbenef")
-	private int codbenef;
+	private Integer codbenef;
 	
 	@Column(name = "dataconsulta")
 	private Date dataconsulta;
@@ -32,7 +39,7 @@ public class ConsultaDTO {
 	private Date datasolicitacao;
 	
 	@Column(name = "tipoconsulta")
-	private int tipoconsulta;
+	private Integer tipoconsulta;
 	
 	@Column(name = "statusConsulta")
 	private String status;
