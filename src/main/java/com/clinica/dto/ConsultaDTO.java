@@ -10,14 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="consultas")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Table(name = "consultas")
 public class ConsultaDTO {
 
 	@Id

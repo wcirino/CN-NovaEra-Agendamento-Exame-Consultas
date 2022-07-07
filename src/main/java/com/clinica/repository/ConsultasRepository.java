@@ -24,19 +24,21 @@ public interface ConsultasRepository extends JpaRepository<ConsultaDTO, Integer>
 	
 	List<ConsultaDTO> findBydataconsultaBetween(Date dt1,Date dt2);
 	
-	@Query(value = "select * from consultas as c where  DATE_FORMAT(c.dataconsulta, '%Y-%m-%d') = '2022-02-24'", nativeQuery = true)
+	@Query(value = "select * from ConsultaDTO as c where  DATE_FORMAT(c.dataconsulta, '%Y-%m-%d') = '2022-02-24'", nativeQuery = true)
 	List<ConsultaDTO> BuscaPorData();
 	
-	@Query(value = "select * from consultas as c where  DATE_FORMAT(c.datasolicitacao, '%Y-%m-%d') = '2022-02-21'", nativeQuery = true)
+	
+	@Query(value = "select * from ConsultaDTO as c where  DATE_FORMAT(c.datasolicitacao, '%Y-%m-%d') = '2022-02-21'", nativeQuery = true)
 	List<ConsultaDTO> BuscaPorDataSolicitacao();
-	
-	@Query(value = "select c from Consultas c WHERE c.idconsulta = :id")
+
+	@Query(value = "select c from ConsultaDTO c WHERE c.idconsulta = :id")
 	List<ConsultaDTO> alterarStatusConsulta();
-	
+
 	@Transactional
 	@Modifying
-	@Query(value = "update Consultas c set c.status = :status where c.idconsulta = :id")
-	void DesativarPrestador(@Param("status") String status, @Param("id") int id);   
+	@Query(value = "update ConsultaDTO c set c.status = :status where c.idconsulta = :id")
+	void DesativarPrestador(@Param("status") String status, @Param("id") int id);
+	 
 	
 	
 //	@Query(value = "SELECT b from clienteparticularDTO b WHERE b.nome_comp like %:nomeCompleto%")
