@@ -36,7 +36,7 @@ public class ConsultasService {
 	
 	public ConsultaDTO findconsulta_id(int id) throws Exception{
 		LOG.info("Iniciando findconsulta_id()");
-		ConsultaDTO c = consulProxy.findByIdconsulta(id);
+		//ConsultaDTO c = consulProxy.findByIdconsulta(id);
 		Optional<ConsultaDTO> obj = Optional.ofNullable(consulProxy.findByIdconsulta(id));
 		LOG.info("Fim findconsulta_id()");
 		return obj.orElseThrow(() -> new Exception());

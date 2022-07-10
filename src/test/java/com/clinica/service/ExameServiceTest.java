@@ -83,7 +83,6 @@ public class ExameServiceTest {
 	public void devePesquisarComSucessoExameIDZero() throws Exception
 	{
 		int id = 0;
-		ExameDTO exame3;
 		this.exame = this.criandoObjeto();
 		
 		when(repository.findByidexame(id)).thenReturn(this.exame);
@@ -109,7 +108,6 @@ public class ExameServiceTest {
 	
 	@Test
 	public void deveInserirExameErro() throws Exception{
-		ExameDTO exame3;
 		ExameDTO exame4;
 		
 		this.exame = this.criandoObjeto2();
@@ -126,7 +124,6 @@ public class ExameServiceTest {
 	
 	@Test
 	public void deveInserirExameErroDtoNull() throws Exception{
-		ExameDTO exame3;
 		ExameDTO exame4;
 		
 		this.exame = this.criandoObjetoNull();
@@ -160,8 +157,6 @@ public class ExameServiceTest {
 	
 	@Test
 	public void deveAtualizarExameComSucessoNever() throws Exception{
-		
-		ExameDTO exame3;
 		ExameDTO exame4;
 		
 		this.exame = this.criandoObjeto2();
@@ -176,7 +171,6 @@ public class ExameServiceTest {
 	
 	@Test
 	public void deveUpdateExameErroDtoNull() throws Exception{
-		ExameDTO exame3;
 		ExameDTO exame4;
 		
 		this.exame = this.criandoObjetoNull();
@@ -213,29 +207,7 @@ public class ExameServiceTest {
 				.statusexame(0)
 				.build();
 	}
-	
-	private AgendamentoDTO criandoObjetoIdNull() {
-		return AgendamentoDTO.builder()
-				.idprestador(1)
-				.idtipoagendamento(null)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusAgendamento("1")
-				.build();
-	}
-	
-	private ExameDTO criandoObjetoParametro(int idagen,int idbenef,int idprestador,int status) {
-		return ExameDTO.builder()
-				.idexame(idagen)
-				.idtipoexame(null)
-				.idprestador(idprestador)
-				.idbenef(idbenef)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusexame(status)
-				.build();
-	}
-	
+		
 	private ExameDTO criandoObjetoNull() {
 		return null;
 	}
@@ -254,5 +226,4 @@ public class ExameServiceTest {
 						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build());
 	}
-	
 }

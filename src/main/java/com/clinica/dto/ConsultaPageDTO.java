@@ -1,8 +1,7 @@
 package com.clinica.dto;
 
+import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ConsultaPageDTO {
+public class ConsultaPageDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private List<ConsultaDTO> lista_consulta;

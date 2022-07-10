@@ -115,7 +115,6 @@ public class AgendamentoServiceTest {
 	
 	@Test
 	public void deveInserirAgendamentoErro() throws Exception{
-		AgendamentoDTO agenda3;
 		AgendamentoDTO agenda4;
 		
 		this.agendamento = this.criandoObjeto2();
@@ -132,7 +131,6 @@ public class AgendamentoServiceTest {
 	
 	@Test
 	public void deveInserirAgendamentoErroDtoNull() throws Exception{
-		AgendamentoDTO agenda3;
 		AgendamentoDTO agenda4;
 		
 		this.agendamento = this.criandoObjetoNull();
@@ -149,7 +147,6 @@ public class AgendamentoServiceTest {
 	
 	@Test
 	public void deveUpdateAgendamentoErro() throws Exception{
-		AgendamentoDTO agenda3;
 		AgendamentoDTO agenda4;
 		
 		this.agendamento = this.criandoObjeto2();
@@ -167,7 +164,6 @@ public class AgendamentoServiceTest {
 	
 	@Test
 	public void deveUpdateAgendamentoErroDtoNull() throws Exception{
-		AgendamentoDTO agenda3;
 		AgendamentoDTO agenda4;
 		
 		this.agendamento = this.criandoObjetoNull();
@@ -205,30 +201,7 @@ public class AgendamentoServiceTest {
 				.statusAgendamento("1")
 				.build();
 	}
-	
-	private AgendamentoDTO criandoObjetoIdNull() {
-		return AgendamentoDTO.builder()
-				.idbenef(1)
-				.idprestador(1)
-				.idtipoagendamento(null)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusAgendamento("1")
-				.build();
-	}
-	
-	private AgendamentoDTO criandoObjetoParametro(int idagen,int idbenef,int idprestador,String status) {
-		return AgendamentoDTO.builder()
-				.idagendamento(idagen)
-				.idbenef(idbenef)
-				.idprestador(idprestador)
-				.idtipoagendamento(null)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusAgendamento(status)
-				.build();
-	}
-	
+			
 	private AgendamentoDTO criandoObjetoNull() {
 		return null;
 	}
@@ -247,8 +220,5 @@ public class AgendamentoServiceTest {
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
 				 AgendamentoDTO.builder().idagendamento(6).idbenef(6).idprestador(6).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build());
-	}
-	
-	
-
+	}	
 }
