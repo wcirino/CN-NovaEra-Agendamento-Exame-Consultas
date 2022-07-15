@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.clinica.config.ModelMapperConfig;
 import com.clinica.dto.BeneficiarioDTO;
 import com.clinica.repository.BeneficiarioRepository;
 
@@ -17,8 +16,9 @@ public class BeneficiarioService {
 	@Autowired
 	private BeneficiarioRepository proxyBenef;
 		
-	@Autowired
-	private ModelMapperConfig modelMapper;
+	/*
+	 * @Autowired private ModelMapperConfig modelMapper;
+	 */
 	
 //	private ModelMapper m = new ModelMapper();
 	
