@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiOperation;
 
 @Api(value = "Consultas", description = "Consultas medicas", tags = {"Consultas EndPoint"})
 @RestController
-@RequestMapping(value = "api-consulta/")
+@RequestMapping(value = "/api-consulta")
 public class ConsultaController {
 
 	@Autowired
