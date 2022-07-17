@@ -38,7 +38,7 @@ public class ConsultaController {
 	
 	@ApiOperation(value = "Busca todas as consultas")
 	@GetMapping(value = "/consulta-all")
-	public ResponseEntity<?> findAllConsultas() throws Exception{
+	public ResponseEntity<List<ConsultaDTO>> findAllConsultas() throws Exception{
 		List<ConsultaDTO> consult = proxyConsult.findAll_Consultas();
 		return new ResponseEntity<>(consult,HttpStatus.OK);
 	}
