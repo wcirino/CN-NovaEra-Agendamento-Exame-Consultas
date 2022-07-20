@@ -9,8 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,17 +30,12 @@ public class BeneficiarioDTO implements Serializable{
 	@Column(name = "idbenef")
 	private int idbenef;
 		
-	@NotBlank
 	@Column(name = "nome_comp")
 	private String nome_comp;
 
-	@Size(min = 11, max = 20)
-	@NotBlank
 	@Column(name = "cpfcnpj")
 	private String cpfcnpj;
 
-	@Size(min = 11, max = 20)
-	@NotBlank
 	@Column(name = "RG")
 	private String RG;
 
@@ -55,11 +48,9 @@ public class BeneficiarioDTO implements Serializable{
 	@Column(name = "cidade")
 	private Integer cidade;
 
-	@Size(max = 15)
 	@Column(name = "telefone")
 	private String telefone;
 
-	@Size(max = 15)
 	@Column(name = "celular")
 	private String celular;
 	
