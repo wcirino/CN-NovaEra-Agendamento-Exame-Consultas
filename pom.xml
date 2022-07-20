@@ -77,10 +77,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
-		<!--<dependency> <groupId>org.springframework.hateoas</groupId> <artifactId>spring-hateoas</artifactId> 
-			</dependency> -->
-		<!-- <dependency> <groupId>io.rest-assured</groupId> <artifactId>rest-assured</artifactId> 
-			<version>4.1.1</version> </dependency> -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -94,6 +90,13 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
+<<<<<<< HEAD
+=======
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+>>>>>>> 7f989761c0f27fa99e080983e4d48c7906f22da2
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 	</dependencies>
@@ -145,4 +148,8 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+<<<<<<< HEAD
 </project>
+=======
+</project>
+>>>>>>> 7f989761c0f27fa99e080983e4d48c7906f22da2

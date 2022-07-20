@@ -64,4 +64,10 @@ public class ExameController {
 		LOG.info("Iniciando  controller Exame Metodo: Update Exame");
 		return new ResponseEntity<>(proxyExame.UpdateExame(dto),HttpStatus.OK);
 	}
+	
+	@ApiOperation(value = "Teste")
+	@GetMapping(value = "/test")
+	public ResponseEntity<?> sendhello() {
+		return new ResponseEntity<>("Olá mundo Deu Certo, Eureka funcionando",HttpStatus.OK);
+	}
 }
