@@ -141,4 +141,21 @@ public class ConsultaController {
 		return new  ResponseEntity<>(proxyConsult.AlterarStatusConsulta(dto),HttpStatus.CREATED);
 	}
 	
+	@ApiOperation(value ="Consulta paginada all")
+	@GetMapping(value = "/consulta-beneficiario-page/")
+	public ResponseEntity<?> findBeneficiarioConsultaSolicitacao_page(
+			@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "limit", defaultValue = "10") int limit,
+			@RequestParam int id
+	) throws Exception{
+		
+		String direction = "desc";
+        Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
+		
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
+		
+		ConsultaPageDTO consult = proxyConsult.findBeneficiarioPageConsultasService(pageable,id);
+		return new ResponseEntity<>(consult,HttpStatus.OK);
+	}
+	
 }

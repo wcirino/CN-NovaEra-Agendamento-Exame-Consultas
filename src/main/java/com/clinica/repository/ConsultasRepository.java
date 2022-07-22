@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -27,22 +29,20 @@ public interface ConsultasRepository extends JpaRepository<ConsultaDTO, Integer>
 	@Query(value = "select * from ConsultaDTO as c where  DATE_FORMAT(c.dataconsulta, '%Y-%m-%d') = '2022-02-24'", nativeQuery = true)
 	List<ConsultaDTO> BuscaPorData();
 	
-	
 	@Query(value = "select * from ConsultaDTO as c where  DATE_FORMAT(c.datasolicitacao, '%Y-%m-%d') = '2022-02-21'", nativeQuery = true)
 	List<ConsultaDTO> BuscaPorDataSolicitacao();
 
-	@Query(value = "select c from ConsultaDTO c WHERE c.idconsulta = :id")
-	List<ConsultaDTO> alterarStatusConsulta();
+	@Query(value = "select c from ConsultaDTO c WHERE c.codbenef = :id")
+	Page<ConsultaDTO> findPageBeneficiarioConsuta(int id, Pageable pageble);
 
+	@Query(value = "select c from ConsultaDTO c WHERE c.codbenef = :id")
+	List<ConsultaDTO> findBeneficiarioConsulta(int id);
+	
 	@Transactional
 	@Modifying
 	@Query(value = "update ConsultaDTO c set c.status = :status where c.idconsulta = :id")
 	void DesativarPrestador(@Param("status") String status, @Param("id") int id);
-	 
-	
-	
+	 	
 //	@Query(value = "SELECT b from clienteparticularDTO b WHERE b.nome_comp like %:nomeCompleto%")
-//	 public List<clienteparticularDTO> buscaPorLike(String nomeCompleto);
-
-	
+//	 public List<clienteparticularDTO> buscaPorLike(String nomeCompleto);	
 }

@@ -127,11 +127,29 @@ public class ConsultasService {
 		return obj.orElseThrow(() -> new Exception());
 	}
 	
+	public List<ConsultaDTO> findBeneficiarioConsultas(Pageable pageble) throws Exception {
+		LOG.info("inciando findAll_Consultas()");
+		Optional<List<ConsultaDTO>> obj = Optional.ofNullable(consulProxy.findAll(pageble).getContent());
+		LOG.info("Fim findAll_Consultas()");
+		return obj.orElseThrow(() -> new Exception());
+	}
+	
 	public String AlterarStatusConsulta(ConsultaDTO dto) throws Exception {
 		LOG.info("Iniciando AlterarStatusConsulta");
 		consulProxy.DesativarPrestador(dto.getStatus(),dto.getIdconsulta());
 		LOG.info("Fim AlterarStatusConsulta");
 		return "ok";
+	}
+	
+	public ConsultaPageDTO findBeneficiarioPageConsultasService(Pageable pageble,int id) throws Exception {
+		LOG.info("iniciando findAll_page_Consultas_Service()");
+		Optional<Page<ConsultaDTO>> obj = Optional.ofNullable(consulProxy.findPageBeneficiarioConsuta(id,pageble));
+		obj.orElseThrow(() -> new Exception());
+		ConsultaPageDTO dto = new ConsultaPageDTO(obj.get().getContent(), obj.get().getTotalElements(),
+												  obj.get().getTotalPages(), obj.get().getSize(),
+												  obj.get().getNumberOfElements());
+		LOG.info("Fim do metodo findAll_page_Consultas_Service");
+		return dto;
 	}
 	
 }
