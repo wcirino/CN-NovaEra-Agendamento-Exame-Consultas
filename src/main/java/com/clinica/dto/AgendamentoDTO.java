@@ -38,7 +38,7 @@ public class AgendamentoDTO {
 	private int idprestador;
 	
 	@Column(name = "idbenef")
-	private int idbenef;
+	private int codbenef;
 	
 	@Column(name = "datasolicitacao")
 	private Date datasolicitacao;

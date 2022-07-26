@@ -50,7 +50,7 @@ public class AgendamentoRepositoryTest {
 		
 		Mockito.when(agendamentoRepository.findByidagendamento(1)).thenReturn(AgendamentoDTO.builder()
 				.idagendamento(1)
-				.idbenef(1)
+				.codbenef(1)
 				.idprestador(1)
 				.idtipoagendamento(null)
 				.dataconsulta(null)
@@ -92,7 +92,7 @@ public class AgendamentoRepositoryTest {
 	private AgendamentoDTO criandoObjeto() {
 		return AgendamentoDTO.builder()
 				.idagendamento(1)
-				.idbenef(1)
+				.codbenef(1)
 				.idprestador(1)
 				.idtipoagendamento(null)
 				.dataconsulta(null)

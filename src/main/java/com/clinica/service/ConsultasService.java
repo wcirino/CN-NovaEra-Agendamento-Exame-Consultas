@@ -152,4 +152,15 @@ public class ConsultasService {
 		return dto;
 	}
 	
+	public ConsultaPageDTO findBeneficiarioPageConsultasComIDService(Pageable pageble,int id,Date dt1, Date dt2) throws Exception {
+		LOG.info("iniciando findAll_page_Consultas_Service()");
+		Optional<Page<ConsultaDTO>> obj = Optional.ofNullable(consulProxy.findPageBeneficiarioConsutaBetween(id, pageble, dt1, dt2));
+		obj.orElseThrow(() -> new Exception());
+		ConsultaPageDTO dto = new ConsultaPageDTO(obj.get().getContent(), obj.get().getTotalElements(),
+												  obj.get().getTotalPages(), obj.get().getSize(),
+												  obj.get().getNumberOfElements());
+		LOG.info("Fim do metodo findAll_page_Consultas_Service");
+		return dto;
+	}
+	
 }

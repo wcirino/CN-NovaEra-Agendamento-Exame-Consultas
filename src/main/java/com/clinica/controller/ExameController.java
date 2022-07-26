@@ -1,10 +1,15 @@
 package com.clinica.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.clinica.dto.ExameDTO;
+import com.clinica.dto.ExamePageDTO;
 import com.clinica.service.ExameService;
+import com.clinica.service.UtilService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,6 +39,9 @@ public class ExameController {
 
 	@Autowired
 	private ExameService proxyExame;
+	
+	@Autowired
+	private UtilService utilservice;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ExameController.class);
 	
@@ -69,5 +81,47 @@ public class ExameController {
 	@GetMapping(value = "/test")
 	public ResponseEntity<?> sendhello() {
 		return new ResponseEntity<>("Olá mundo Deu Certo, Eureka funcionando",HttpStatus.OK);
+	}
+	
+	@ApiOperation(value ="Consulta paginada com beneficiario e sem id all")
+	@GetMapping(value = "/exame-beneficiario-page/")
+	public ResponseEntity<?> findBeneficiarioExameComIdDataSolicitacao_page(
+			@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "limit", defaultValue = "10") int limit,
+			@RequestParam int id,
+			@RequestParam Date startdt,
+			@RequestParam Date enddt
+	) throws Exception{
+		
+		String direction = "desc";
+        Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
+        LOG.info("exame paginada com beneficiario e seu id all");
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
+		
+		ExamePageDTO consult = proxyExame.findBeneficiarioPageExameService(pageable, id, startdt, enddt);
+		LOG.info("fim exame paginada com beneficiario e seu id all");
+		return new ResponseEntity<>(consult,HttpStatus.OK);
+	}
+	
+	@ApiOperation(value ="exame paginada com beneficiario e seu id all")
+	@GetMapping(value = "/exame-beneficiario-dt-page/")
+	public ResponseEntity<?> findBeneficiarioConsultaSemIdDataSolicitacao_page(
+			@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "limit", defaultValue = "10") int limit,
+			@RequestParam String startdt,
+			@RequestParam String enddt
+	) throws Exception{
+		
+		String direction = "desc";
+        Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
+        LOG.info("exame paginada com beneficiario e sem id all");
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
+		
+		Date startdtt = utilservice.ConvertDate(startdt);
+		Date enddtt = utilservice.ConvertDate(enddt);
+		
+		ExamePageDTO consult = proxyExame.findBeneficiarioPageSemIdExameervice(pageable, startdtt, enddtt);
+		LOG.info("fim Consulta paginada com beneficiario e sem id all");
+		return new ResponseEntity<>(consult,HttpStatus.OK);
 	}
 }

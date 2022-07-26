@@ -127,7 +127,7 @@ public class ExameControllerTest {
 				.idexame(1)
 				.idtipoexame(null)
 				.idprestador(1)
-				.idbenef(1)
+				.codbenef(1)
 				.dataconsulta(null)
 				.datasolicitacao(null)
 				.statusexame(0)
@@ -139,7 +139,7 @@ public class ExameControllerTest {
 				.idexame(null)
 				.idtipoexame(null)
 				.idprestador(1)
-				.idbenef(1)
+				.codbenef(1)
 				.dataconsulta(null)
 				.datasolicitacao(null)
 				.statusexame(0)
@@ -163,15 +163,15 @@ public class ExameControllerTest {
 	
 	private List<ExameDTO> criandoListObjeto() {
 		return asList(
-				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build(),
-						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).idbenef(1).dataconsulta(null)
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
 						.datasolicitacao(null).statusexame(0).build());
 	}
 	

@@ -41,7 +41,7 @@ public class ExameDTO implements Serializable {
 	private int idprestador; 
 	
 	@Column(name = "idbenef")
-	private int idbenef;
+	private int codbenef;
 	
 	@Column(name = "datasolicitacao")
 	private Date datasolicitacao; 

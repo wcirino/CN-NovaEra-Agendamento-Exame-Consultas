@@ -32,11 +32,14 @@ public interface ConsultasRepository extends JpaRepository<ConsultaDTO, Integer>
 	@Query(value = "select * from ConsultaDTO as c where  DATE_FORMAT(c.datasolicitacao, '%Y-%m-%d') = '2022-02-21'", nativeQuery = true)
 	List<ConsultaDTO> BuscaPorDataSolicitacao();
 
-	@Query(value = "select c from ConsultaDTO c WHERE c.codbenef = :id")
-	Page<ConsultaDTO> findPageBeneficiarioConsuta(int id, Pageable pageble);
+	@Query(value = "select c from ConsultaDTO c WHERE c.codbenef = :id and dataconsulta between :startdt and :enddt")
+	Page<ConsultaDTO> findPageBeneficiarioConsutaBetween(int id, Pageable pageble, Date startdt,Date enddt );
 
 	@Query(value = "select c from ConsultaDTO c WHERE c.codbenef = :id")
 	List<ConsultaDTO> findBeneficiarioConsulta(int id);
+	
+	@Query(value = "select c from ConsultaDTO c WHERE c.codbenef = :id")
+	Page<ConsultaDTO> findPageBeneficiarioConsuta(int id, Pageable pageble);
 	
 	@Transactional
 	@Modifying

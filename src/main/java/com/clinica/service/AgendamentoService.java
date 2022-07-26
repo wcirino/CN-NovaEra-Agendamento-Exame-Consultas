@@ -1,14 +1,18 @@
 package com.clinica.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.clinica.dto.AgendamentoDTO;
+import com.clinica.dto.AgendamentoPageDTO;
 import com.clinica.repository.AgendamentoRepository;
 
 @Service
@@ -57,5 +61,27 @@ public class AgendamentoService {
 			LOG.info("Iniciando Service Agendamento: agendamentoproxy.save");
 			return obj;
 		}
-	}	
+	}
+	
+	public AgendamentoPageDTO findBeneficiarioPageExameService(Pageable pageble,int id,Date startdt,Date enddt) throws Exception {
+		LOG.info("iniciando findAll_page_Consultas_Service()");
+		Optional<Page<AgendamentoDTO>> obj = Optional.ofNullable(agendamentoproxy.findBeneficiarioagendamentoPage(id,startdt, enddt,pageble));
+		obj.orElseThrow(() -> new Exception());
+		AgendamentoPageDTO dto = new AgendamentoPageDTO(obj.get().getContent(), obj.get().getTotalElements(),
+												  obj.get().getTotalPages(), obj.get().getSize(),
+												  obj.get().getNumberOfElements());
+		LOG.info("Fim do metodo findAll_page_Consultas_Service");
+		return dto;
+	}
+	
+	public AgendamentoPageDTO findBeneficiarioPageSemIdExameervice(Pageable pageble,Date startdt,Date enddt) throws Exception {
+		LOG.info("iniciando findAll_page_Consultas_Service()");
+		Optional<Page<AgendamentoDTO>> obj = Optional.ofNullable(agendamentoproxy.findBeneficiarioagendamentoSemIDPage(startdt, enddt,pageble));
+		obj.orElseThrow(() -> new Exception());
+		AgendamentoPageDTO dto = new AgendamentoPageDTO(obj.get().getContent(), obj.get().getTotalElements(),
+												  obj.get().getTotalPages(), obj.get().getSize(),
+												  obj.get().getNumberOfElements());
+		LOG.info("Fim do metodo findAll_page_Consultas_Service");
+		return dto;
+	}
 }

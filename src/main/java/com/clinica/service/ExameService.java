@@ -1,5 +1,6 @@
 package com.clinica.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 //import java.util.stream.Collectors;
@@ -7,12 +8,15 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.clinica.repository.ExameRepository;
 //import com.clinica.config.ModelMapperConfig;
 import com.clinica.dto.ExameDTO;
 //import com.clinica.entity.exame;
+import com.clinica.dto.ExamePageDTO;
 
 @Service
 public class ExameService {
@@ -65,6 +69,27 @@ public class ExameService {
 			LOG.info("Fim service ExameService : proxyExame.save()");
 			return obj;
 		}
-	} 
+	}
 	
+	public ExamePageDTO findBeneficiarioPageExameService(Pageable pageble,int id,Date startdt,Date enddt) throws Exception {
+		LOG.info("iniciando findAll_page_Consultas_Service()");
+		Optional<Page<ExameDTO>> obj = Optional.ofNullable(proxyExame.findBeneficiarioExamePage(id,startdt, enddt,pageble));
+		obj.orElseThrow(() -> new Exception());
+		ExamePageDTO dto = new ExamePageDTO(obj.get().getContent(), obj.get().getTotalElements(),
+												  obj.get().getTotalPages(), obj.get().getSize(),
+												  obj.get().getNumberOfElements());
+		LOG.info("Fim do metodo findAll_page_Consultas_Service");
+		return dto;
+	}
+	
+	public ExamePageDTO findBeneficiarioPageSemIdExameervice(Pageable pageble,Date startdt,Date enddt) throws Exception {
+		LOG.info("iniciando findAll_page_Consultas_Service()");
+		Optional<Page<ExameDTO>> obj = Optional.ofNullable(proxyExame.findBeneficiarioExameSemIDPage(startdt, enddt,pageble));
+		obj.orElseThrow(() -> new Exception());
+		ExamePageDTO dto = new ExamePageDTO(obj.get().getContent(), obj.get().getTotalElements(),
+												  obj.get().getTotalPages(), obj.get().getSize(),
+												  obj.get().getNumberOfElements());
+		LOG.info("Fim do metodo findAll_page_Consultas_Service");
+		return dto;
+	}
 }
