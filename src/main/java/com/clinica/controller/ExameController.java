@@ -89,8 +89,8 @@ public class ExameController {
 			@RequestParam(value = "page", defaultValue = "0") int page,
 			@RequestParam(value = "limit", defaultValue = "10") int limit,
 			@RequestParam int id,
-			@RequestParam Date startdt,
-			@RequestParam Date enddt
+			@RequestParam String startdt,
+			@RequestParam String enddt
 	) throws Exception{
 		
 		String direction = "desc";
@@ -98,7 +98,10 @@ public class ExameController {
         LOG.info("exame paginada com beneficiario e seu id all");
 		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
 		
-		ExamePageDTO consult = proxyExame.findBeneficiarioPageExameService(pageable, id, startdt, enddt);
+		Date startdtt = utilservice.ConvertDate(startdt);
+		Date enddtt = utilservice.ConvertDate(enddt);
+		
+		ExamePageDTO consult = proxyExame.findBeneficiarioPageExameService(pageable, id, startdtt, enddtt);
 		LOG.info("fim exame paginada com beneficiario e seu id all");
 		return new ResponseEntity<>(consult,HttpStatus.OK);
 	}

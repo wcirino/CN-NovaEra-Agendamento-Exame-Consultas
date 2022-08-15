@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class AgendamentoPageDTO  implements Serializable{
 

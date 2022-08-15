@@ -24,6 +24,12 @@ public class ExameService {
 	@Autowired
 	private ExameRepository proxyExame;
 	
+	@Autowired 
+	private EmailService emailservice;
+	
+	@Autowired
+	private UtilService utilService;
+	
 	private static final Logger LOG = LoggerFactory.getLogger(ExameService.class);
 	
 	public List<ExameDTO> findAll_Exame() throws Exception{
@@ -52,6 +58,14 @@ public class ExameService {
 		else {
 			LOG.info("Iniciando service ExameService : proxyExame.save");
 			ExameDTO obj = proxyExame.save(dto);
+			try {
+				emailservice.EnviarEmail(utilService.dadosEmail(2));
+			}catch (Exception e) {
+				// TODO: handle exception
+			}finally {
+				if(obj != null)
+					return obj;
+			}
 			LOG.info("Fim service ExameService : proxyExame.save");
 			return obj;
 		}

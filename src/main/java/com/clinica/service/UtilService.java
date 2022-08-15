@@ -5,6 +5,8 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
+import com.clinica.dto.DadosParaEmailDTO;
+
 @Service
 public class UtilService {
 
@@ -16,5 +18,13 @@ public class UtilService {
 		
 		return d;
 	}
-	
+	public DadosParaEmailDTO dadosEmail(int id) {
+		return DadosParaEmailDTO.builder().nome("Teste MicroService")
+										  .assunto("Enviando algo clinica")
+										  .carteirinha("0000000000000000000000000")
+										  .date(null)
+										  .email("Teste@teste.com")
+										  .msg("Marcação de atendimento")
+										  .tipoemail(id).build();
+	}
 }

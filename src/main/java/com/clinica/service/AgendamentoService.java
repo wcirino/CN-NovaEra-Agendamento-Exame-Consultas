@@ -23,6 +23,12 @@ public class AgendamentoService {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(AgendamentoService.class);
 	
+	@Autowired 
+	private EmailService emailservice;
+	
+	@Autowired
+	private UtilService utilService;
+	
 	public List<AgendamentoDTO> findAll_agendamento() throws Exception{
 		LOG.info("Iniciando Service Agendamento: agendamentoproxy.findAll()");
 		Optional<List<AgendamentoDTO>> obj = Optional.ofNullable(agendamentoproxy.findAll());
@@ -45,6 +51,14 @@ public class AgendamentoService {
 		else {
 			LOG.info("Iniciando Service Agendamento: agendamentoproxy.save()");
 			AgendamentoDTO obj = agendamentoproxy.save(dto);
+			try {
+				emailservice.EnviarEmail(utilService.dadosEmail(1));
+			}catch (Exception e) {
+				// TODO: handle exception
+			}finally {
+				if(obj != null)
+					return obj;
+			}
 			LOG.info("Fim Service Agendamento: agendamentoproxy.save");
 			return obj;
 		}

@@ -17,12 +17,17 @@ import com.clinica.dto.ConsultaDTO;
 import com.clinica.dto.ConsultaPageDTO;
 import com.clinica.repository.ConsultasRepository;
 
-
 @Service
 public class ConsultasService {
 
 	@Autowired
 	private ConsultasRepository consulProxy;
+	
+	@Autowired 
+	private EmailService emailservice;
+	
+	@Autowired
+	private UtilService utilService;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ConsultasService.class);
 
@@ -71,6 +76,15 @@ public class ConsultasService {
 			LOG.info("Inserindo consulta ");
 			ConsultaDTO obj = consulProxy.save(dto);
 			LOG.info("Fim InsertConsulta()");
+			try {
+				emailservice.EnviarEmail(utilService.dadosEmail(3));
+			}catch (Exception e) {
+				// TODO: handle exception
+			}finally {
+				if(obj != null)
+				return obj;
+				
+			}
 			return obj;
 		}
 		else {
