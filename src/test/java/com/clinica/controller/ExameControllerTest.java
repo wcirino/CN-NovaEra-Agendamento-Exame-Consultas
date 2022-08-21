@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.clinica.dto.ExameDTO;
 import com.clinica.service.ExameService;
+import com.clinica.service.UtilService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -35,6 +36,9 @@ public class ExameControllerTest {
 
 	@MockBean
 	ExameService service;
+	
+	@MockBean
+	UtilService util;
 
 	@Test
 	public void findAllExame() throws Exception {

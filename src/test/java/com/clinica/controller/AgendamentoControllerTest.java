@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,6 +21,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.clinica.dto.AgendamentoDTO;
 import com.clinica.service.AgendamentoService;
+import com.clinica.service.UtilService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(SpringExtension.class)
@@ -35,6 +37,9 @@ public class AgendamentoControllerTest {
 	@MockBean
 	AgendamentoService service;
 	
+	@MockBean
+	UtilService util;
+
 	@Test
 	public void findAllExame() throws Exception {
 		
