@@ -17,6 +17,7 @@ import com.clinica.repository.ExameRepository;
 import com.clinica.dto.ExameDTO;
 //import com.clinica.entity.exame;
 import com.clinica.dto.ExamePageDTO;
+import com.clinica.mq.ExameMqPublisher;
 
 @Service
 public class ExameService {
@@ -29,6 +30,9 @@ public class ExameService {
 	
 	@Autowired
 	private UtilService utilService;
+	
+	@Autowired
+	private ExameMqPublisher exameMqPublisher;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ExameService.class);
 	
@@ -63,10 +67,13 @@ public class ExameService {
 			}catch (Exception e) {
 				// TODO: handle exception
 			}finally {
-				if(obj != null)
+				if(obj != null) {
+					exameMqPublisher.envioExame(obj);
 					return obj;
+				}
 			}
 			LOG.info("Fim service ExameService : proxyExame.save");
+			exameMqPublisher.envioExame(obj);
 			return obj;
 		}
 	}

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.clinica.dto.ConsultaDTO;
 import com.clinica.dto.ConsultaPageDTO;
+import com.clinica.mq.ConsultaMqPublisher;
 import com.clinica.repository.ConsultasRepository;
 
 @Service
@@ -28,6 +29,9 @@ public class ConsultasService {
 	
 	@Autowired
 	private UtilService utilService;
+	
+	@Autowired
+	private ConsultaMqPublisher consultaMqPublisher;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ConsultasService.class);
 
@@ -72,7 +76,7 @@ public class ConsultasService {
 			
 	public ConsultaDTO InsertConsulta(ConsultaDTO dto) throws Exception{
 		LOG.info("iniciando InsertConsulta()");
-		if(dto == null || dto.getIdconsulta() != null ) {
+		if(dto != null && dto.getIdconsulta() == null) {
 			LOG.info("Inserindo consulta ");
 			ConsultaDTO obj = consulProxy.save(dto);
 			LOG.info("Fim InsertConsulta()");
@@ -81,10 +85,14 @@ public class ConsultasService {
 			}catch (Exception e) {
 				// TODO: handle exception
 			}finally {
-				if(obj != null)
-				return obj;
+				if(obj != null) {
+					consultaMqPublisher.envioConsulta(obj);
+					return obj;
+				}
 				
 			}
+			
+			consultaMqPublisher.envioConsulta(obj);
 			return obj;
 		}
 		else {

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.clinica.dto.AgendamentoDTO;
 import com.clinica.dto.AgendamentoPageDTO;
+import com.clinica.mq.AgendamentoMqPublisher;
 import com.clinica.repository.AgendamentoRepository;
 
 @Service
@@ -25,6 +26,9 @@ public class AgendamentoService {
 	
 	@Autowired 
 	private EmailService emailservice;
+	
+	@Autowired
+	private AgendamentoMqPublisher agendamentoMqPublisher; 
 	
 	@Autowired
 	private UtilService utilService;
@@ -56,10 +60,13 @@ public class AgendamentoService {
 			}catch (Exception e) {
 				// TODO: handle exception
 			}finally {
-				if(obj != null)
+				if(obj != null) {
+					agendamentoMqPublisher.envioAgendamento(obj);
 					return obj;
+				}
 			}
 			LOG.info("Fim Service Agendamento: agendamentoproxy.save");
+			agendamentoMqPublisher.envioAgendamento(obj);
 			return obj;
 		}
 	}
