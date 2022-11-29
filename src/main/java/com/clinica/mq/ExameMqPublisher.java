@@ -29,9 +29,9 @@ public class ExameMqPublisher {
 		ExameMQ exam = this.mapperExame(exame); 
 		String json = this.convertIntoJson(exam);
 		LOG.info("Enviando dados !!");
-		LOG.info(mqserve.queueConsulta().getName());
+		LOG.info(mqserve.queueExame().getName());
 		LOG.info(json);
-		rabbitTemplate.convertAndSend(mqserve.queueConsulta().getName(),json);
+		rabbitTemplate.convertAndSend(mqserve.queueExame().getName(),json);
 		LOG.info("Enviado");
 	}
 	
