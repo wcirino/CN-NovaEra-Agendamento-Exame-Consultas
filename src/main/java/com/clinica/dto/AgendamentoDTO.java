@@ -34,11 +34,13 @@ public class AgendamentoDTO {
 	@JoinColumn(name = "idtipoagendamento", referencedColumnName="idtipoagendamento")
 	private TipoAgendamentoDTO idtipoagendamento;
 	
-	@Column(name = "idprestador")
-	private int idprestador;
+	@OneToOne(cascade = CascadeType.REMOVE) 
+	@JoinColumn(name = "idprestador", referencedColumnName="id_prest")
+	private PrestadorDTO prestador;
 	
-	@Column(name = "idbenef")
-	private int codbenef;
+	@OneToOne(cascade = CascadeType.REMOVE) 
+	@JoinColumn(name = "idbenef", referencedColumnName="idbenef")
+	private BeneficiarioDTO codbenef;
 	
 	@Column(name = "datasolicitacao")
 	private Date datasolicitacao;

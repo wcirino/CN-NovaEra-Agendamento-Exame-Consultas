@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.clinica.dto.TipoExameDTO;
+import com.clinica.repository.TipoConsultaRespository;
 import com.clinica.service.TipoExameService;
 
 @RestController
@@ -24,6 +25,9 @@ public class TipoExameController {
 
 	@Autowired
 	private TipoExameService proxytipoexame;
+	
+	@Autowired
+	private TipoConsultaRespository proxytipoconsulta;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(TipoExameController.class);
 	
@@ -53,6 +57,11 @@ public class TipoExameController {
 	public  ResponseEntity<?> UpdateExame(@RequestBody TipoExameDTO dto) throws Exception{
 		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
 		return new ResponseEntity<>(proxytipoexame.UpdateExame(dto),HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/tipo-consulta")
+	public  ResponseEntity<?> findallconsulta(){
+		return new ResponseEntity<>(proxytipoconsulta.findAll() ,HttpStatus.OK);
 	}
 	
 }

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.clinica.dto.ConsultaDTO;
 import com.clinica.dto.ConsultaPageDTO;
+import com.clinica.entity.consulta;
 import com.clinica.service.ConsultasService;
 import com.clinica.service.UtilService;
 
@@ -45,9 +46,9 @@ public class ConsultaController {
 	
 	@ApiOperation(value = "Busca todas as consultas")
 	@GetMapping(value = "/consulta-all")
-	public ResponseEntity<List<ConsultaDTO>> findAllConsultas() throws Exception{
+	public ResponseEntity<List<consulta>> findAllConsultas() throws Exception{
 		LOG.info("iniciando metodo findAll");
-		List<ConsultaDTO> consult = proxyConsult.findAll_Consultas();
+		List<consulta> consult = proxyConsult.findAll_Consultas();
 		LOG.info("Fim do metodo FindALL");
 		return new ResponseEntity<>(consult,HttpStatus.OK);
 	}
@@ -56,7 +57,7 @@ public class ConsultaController {
 	@GetMapping(value = "/consulta-id/{id}")
 	public ResponseEntity<?> findIDConsultas(@PathVariable int id) throws Exception{
 		LOG.info("Iniciando find com id");
-		ConsultaDTO consult = proxyConsult.findconsulta_id(id);
+		consulta consult = proxyConsult.findconsulta_id(id);
 		LOG.info("Fim find id");
 		return new ResponseEntity<>(consult,HttpStatus.OK);
 	}
@@ -69,7 +70,6 @@ public class ConsultaController {
 		LOG.info("Fim do metodo");
 		return new ResponseEntity<>(consult,HttpStatus.OK);
 	}
-	
 	@ApiOperation(value = "Busca todas as consultas por data da solicitação")
 	@GetMapping(value = "/consulta-data-solicitacao/")
 	public ResponseEntity<?> findDataoneSolicitacao() throws Exception{
@@ -90,6 +90,7 @@ public class ConsultaController {
 		LOG.info("Fim Busca todas as consultas entre datas between");
 		return new ResponseEntity<>(consult,HttpStatus.OK);
 	}
+	
 	
 	@ApiOperation(value ="Consulta paginada all")
 	@GetMapping(value = "/consulta-all-page/")
@@ -163,7 +164,7 @@ public class ConsultaController {
 		return new  ResponseEntity<>(proxyConsult.AlterarStatusConsulta(dto),HttpStatus.CREATED);
 	}
 	
-	@ApiOperation(value ="Consulta paginada all")
+	@ApiOperation(value ="Consulta beneficiario paginado pelo id")
 	@GetMapping(value = "/consulta-beneficiario-id-page/")
 	public ResponseEntity<?> findBeneficiarioConsultaSolicitacao_page(
 			@RequestParam(value = "page", defaultValue = "0") int page,

@@ -44,7 +44,7 @@ public class ExameMqPublisher {
 	public ExameMQ mapperExame(ExameDTO dto) {
 		return ExameMQ
 				.builder()
-				.idbenef(dto.getCodbenef())
+				.idbenef(dto.getCodbenef().getIdbenef())
 				.idexame(dto.getIdexame())
 			    .idtipoexame(dto.getIdtipoexame().getIdtipoexame())
 				.dataconsulta(dto.getDataconsulta())

@@ -44,9 +44,9 @@ public class ConsultaMqPublisher {
 	public ConsultaMQ mapperConsulta(ConsultaDTO dto) {
 		return ConsultaMQ
 				.builder()
-				.idbenef(dto.getCodbenef())
+				.idbenef(dto.getCodbenef().getIdbenef())
 				.idconsulta(dto.getIdconsulta())
-				.idtipoconsulta(dto.getTipoconsulta())
+				.idtipoconsulta(dto.getTipoconsulta().getIdtipoconsulta())
 				.dataconsulta(dto.getDataconsulta())
 				.build();
 	}

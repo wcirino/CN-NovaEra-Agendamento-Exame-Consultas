@@ -37,12 +37,14 @@ public class ExameDTO implements Serializable {
 	@JoinColumn(name = "idtipoexame", referencedColumnName="idtipoexame")
 	private TipoExameDTO idtipoexame;
 	
-	@Column(name = "idprestador")
-	private int idprestador; 
+	@OneToOne(cascade = CascadeType.REMOVE) 
+	@JoinColumn(name = "idprestador", referencedColumnName="id_prest")
+	private PrestadorDTO idprestador;
 	
-	@Column(name = "idbenef")
-	private int codbenef;
-	
+	@OneToOne(cascade = CascadeType.REMOVE) 
+	@JoinColumn(name = "idbenef", referencedColumnName="idbenef")
+	private BeneficiarioDTO codbenef;
+		
 	@Column(name = "datasolicitacao")
 	private Date datasolicitacao; 
 	

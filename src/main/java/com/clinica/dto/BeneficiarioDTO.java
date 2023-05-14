@@ -5,12 +5,17 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.clinica.dto.enums.Ativo;
+import com.clinica.dto.enums.Sexo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -69,10 +74,11 @@ public class BeneficiarioDTO implements Serializable{
 	@Column(name="data_cadas")
 	private Date data_cadas;
 	
+	@Enumerated(EnumType.ORDINAL)
 	@Column(name="sexo")
-	private int sexo;
+	private Sexo sexo;
 	
 	@Column(name="ativo")
-	private String ativo;
+	private Ativo ativo;
 		
 }

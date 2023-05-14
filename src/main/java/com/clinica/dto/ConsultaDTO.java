@@ -2,12 +2,17 @@ package com.clinica.dto;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.clinica.dto.enums.StatusConsulta;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,12 +32,13 @@ public class ConsultaDTO {
 	@Column(name = "idconsulta")
 	private Integer idconsulta;
 	
-	@Column(name = "codprestador")
-	private Integer codprestador;
+	@OneToOne(cascade = CascadeType.REMOVE) 
+	@JoinColumn(name = "codprestador", referencedColumnName="id_prest")
+	private PrestadorDTO codprestador;
 	
-
-	@Column(name = "codbenef")
-	private Integer codbenef;
+	@OneToOne(cascade = CascadeType.REMOVE) 
+	@JoinColumn(name = "codbenef", referencedColumnName="idbenef")
+	private BeneficiarioDTO codbenef;
 	
 	@Column(name = "dataconsulta")
 	private Date dataconsulta;
@@ -40,10 +46,11 @@ public class ConsultaDTO {
 	@Column(name = "datasolicitacao")
 	private Date datasolicitacao;
 	
-	@Column(name = "tipoconsulta")
-	private Integer tipoconsulta;
+	@OneToOne(cascade = CascadeType.REMOVE) 
+	@JoinColumn(name = "tipoconsulta", referencedColumnName="idtipoconsulta")
+	private TipoConsultaDTO tipoconsulta;
 	
 	@Column(name = "statusConsulta")
-	private String status;
+	private  StatusConsulta status;
 	
 }

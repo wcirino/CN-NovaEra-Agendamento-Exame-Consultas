@@ -11,7 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 //import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaClient
+//@EnableEurekaClient
 @EnableFeignClients
 @EnableRabbit
 public class ClinicaApplication extends SpringBootServletInitializer {

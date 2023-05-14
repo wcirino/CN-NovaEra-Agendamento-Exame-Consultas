@@ -44,7 +44,7 @@ public class AgendamentoMqPublisher {
 	public AgendamentoMQ mapperAgendamento(AgendamentoDTO dto) {
 		return AgendamentoMQ
 				.builder()
-				.idbenef(dto.getCodbenef())
+				.idbenef(dto.getIdagendamento())
 				.idagendamento(dto.getIdagendamento())
 			    .idtipoagendamento(dto.getIdtipoagendamento().getIdtipoagendamento())
 				.dataconsulta(dto.getDataconsulta())
