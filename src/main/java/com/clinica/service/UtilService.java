@@ -10,11 +10,11 @@ import com.clinica.dto.DadosParaEmailDTO;
 @Service
 public class UtilService {
 
-	public Date ConvertDate(String dt) throws Exception{
+	public static Date ConvertDate(String dt) throws Exception{
 		
-		dt = dt.replaceAll("-", "/");
+		//dt = dt.replaceAll("-", "/");
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd"); 
-		Date d = format.parse(dt);
+		Date d = format.parse(dt.replaceAll("-", "/"));
 		
 		return d;
 	}

@@ -127,4 +127,28 @@ public class ExameController {
 		LOG.info("fim Consulta paginada com beneficiario e sem id all");
 		return new ResponseEntity<>(consult,HttpStatus.OK);
 	}
+	
+	@ApiOperation(value ="exame paginada com beneficiario e seu id all")
+	@GetMapping(value = "/exame-beneficiario")
+	public ResponseEntity<?> findBeneficiarioExame(
+			@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "limit", defaultValue = "10") int limit,
+			@RequestParam(required = false) String carteirinha,
+			@RequestParam(required = false) Integer codbenef,
+			@RequestParam(required = false) String startdt,
+			@RequestParam(required = false) String enddt,
+			@RequestParam(required = false) Integer idexame,
+			@RequestParam(required = false) Integer tipoexame
+	) throws Exception{
+		
+		String direction = "desc";
+        Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
+        LOG.info("exame paginada com beneficiario e sem id all");
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "idbenef"));
+		
+		List<ExameDTO> lista =  proxyExame.findExameBeneficiarioSpecService(carteirinha, codbenef, startdt, enddt, idexame, tipoexame);
+//		ExamePageDTO consult = proxyExame.findBeneficiarioPageSemIdExameervice(pageable, startdtt, enddtt);
+		LOG.info("fim Consulta paginada com beneficiario e sem id all");
+		return new ResponseEntity<>(lista,HttpStatus.OK);
+	}
 }

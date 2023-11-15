@@ -23,6 +23,7 @@ public class consulta {
 	private Date dataconsulta;
 	private Date datasolicitacao;
 	private TipoConsultaDTO tipoconsulta;
-	private StatusConsulta status;
+	private String status;
+	//private StatusConsulta status;
 	
 }

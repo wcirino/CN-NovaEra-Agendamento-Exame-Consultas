@@ -12,7 +12,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.clinica.dto.ConsultaDTO;
 import com.clinica.dto.ConsultaPageDTO;
@@ -20,6 +22,7 @@ import com.clinica.entity.consulta;
 import com.clinica.entity.modalMapper.ConsultaModalMapper;
 import com.clinica.mq.ConsultaMqPublisher;
 import com.clinica.repository.ConsultasRepository;
+import com.clinica.repository.domain.Specification.ConsultaSpecifications;
 
 @Service
 public class ConsultasService {
@@ -38,6 +41,9 @@ public class ConsultasService {
 	
 	@Autowired
 	private ConsultaModalMapper ModalMapper;
+	
+	@Autowired
+	private ConsultaSpecifications consultaSpecifications;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ConsultasService.class);
 
@@ -215,4 +221,10 @@ public class ConsultasService {
 		return dto;
 	}
 	
+	//consultaSpecifications
+	public List<ConsultaDTO> findConsultasBeneficiarioSpecService(String carteirinha,Integer codbenef,String startdt,String enddt,Integer idconsulta,Integer tipoConsuilta) throws Exception {
+		Specification<ConsultaDTO> spec = ConsultaSpecifications.criarSpec(carteirinha, codbenef, startdt, enddt, idconsulta, tipoConsuilta);
+		return consulProxy.findAll(spec);
+	}
+		
 }

@@ -10,9 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.clinica.repository.ExameRepository;
+import com.clinica.repository.domain.Specification.ExameSpecifications;
 //import com.clinica.config.ModelMapperConfig;
 import com.clinica.dto.ExameDTO;
 //import com.clinica.entity.exame;
@@ -33,6 +35,9 @@ public class ExameService {
 	
 	@Autowired
 	private ExameMqPublisher exameMqPublisher;
+	
+	@Autowired
+	private ExameSpecifications exameSpecifications;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ExameService.class);
 	
@@ -112,5 +117,10 @@ public class ExameService {
 												  obj.get().getNumberOfElements());
 		LOG.info("Fim do metodo findAll_page_Consultas_Service");
 		return dto;
+	}
+	
+	public List<ExameDTO> findExameBeneficiarioSpecService(String carteirinha,Integer codbenef,String startdt,String enddt,Integer idexame,Integer tipoexame) throws Exception {
+		Specification<ExameDTO> spec = ExameSpecifications.criarSpec(carteirinha, codbenef, startdt, enddt, idexame, tipoexame);
+		return proxyExame.findAll(spec);
 	}
 }

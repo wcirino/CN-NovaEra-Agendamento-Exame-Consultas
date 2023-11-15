@@ -9,12 +9,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.clinica.dto.AgendamentoDTO;
 import com.clinica.dto.AgendamentoPageDTO;
 import com.clinica.mq.AgendamentoMqPublisher;
 import com.clinica.repository.AgendamentoRepository;
+import com.clinica.repository.domain.Specification.AgendamentoSpecifications;
 
 @Service
 public class AgendamentoService {
@@ -32,6 +34,9 @@ public class AgendamentoService {
 	
 	@Autowired
 	private UtilService utilService;
+	
+	@Autowired
+	private AgendamentoSpecifications agendamentoSpecifications;
 	
 	public List<AgendamentoDTO> findAll_agendamento() throws Exception{
 		LOG.info("Iniciando Service Agendamento: agendamentoproxy.findAll()");
@@ -104,5 +109,10 @@ public class AgendamentoService {
 												  obj.get().getNumberOfElements());
 		LOG.info("Fim do metodo findAll_page_Consultas_Service");
 		return dto;
+	}
+	
+	public List<AgendamentoDTO> findBeneficiarioAgendamentoDinamicoService(String carteirinha,Integer codbenef,String startdt,String enddt,Integer idagendamento,Integer idtipoagendamento) throws Exception {
+		Specification<AgendamentoDTO> spec = AgendamentoSpecifications.criarSpec(carteirinha, codbenef, startdt, enddt, idagendamento, idtipoagendamento);
+		return agendamentoproxy.findAll(spec);
 	}
 }

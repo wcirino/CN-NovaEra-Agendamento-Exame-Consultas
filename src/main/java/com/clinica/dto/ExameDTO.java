@@ -43,7 +43,7 @@ public class ExameDTO implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.REMOVE) 
 	@JoinColumn(name = "idbenef", referencedColumnName="idbenef")
-	private BeneficiarioDTO codbenef;
+	private BeneficiarioDTO idbenef;
 		
 	@Column(name = "datasolicitacao")
 	private Date datasolicitacao; 
@@ -52,7 +52,7 @@ public class ExameDTO implements Serializable {
 	private Date dataconsulta;
 	
 	@Column(name = "statusexame")
-	private Integer statusexame;
+	private String statusexame;
 
 	
 }

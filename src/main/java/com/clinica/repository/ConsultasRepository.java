@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -45,6 +46,9 @@ public interface ConsultasRepository extends JpaRepository<ConsultaDTO, Integer>
 	@Modifying
 	@Query(value = "update ConsultaDTO c set c.status = :status where c.idconsulta = :id")
 	void DesativarPrestador(@Param("status") String status, @Param("id") int id);
+	
+	Page<ConsultaDTO> findAll(Specification<ConsultaDTO> spec, Pageable pageable);
+	List<ConsultaDTO> findAll(Specification<ConsultaDTO> spec);
 	 	
 //	@Query(value = "SELECT b from clienteparticularDTO b WHERE b.nome_comp like %:nomeCompleto%")
 //	 public List<clienteparticularDTO> buscaPorLike(String nomeCompleto);	

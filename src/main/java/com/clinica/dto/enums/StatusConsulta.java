@@ -2,15 +2,15 @@ package com.clinica.dto.enums;
 
 public enum StatusConsulta {
 
-	NAO_REALIZADA(0,"NÃO REALIZADA"),
-	EM_ANDAMENTO(1,"EM ANDAMENTO"),
-	REALIZADA(2,"REALIZADA"),
-	CANCELADA(3,"CANCELADA");
+	NAO_REALIZADA("N","NÃO REALIZADA"),
+	EM_ANDAMENTO("E","EM ANDAMENTO"),
+	REALIZADA("S","REALIZADA"),
+	CANCELADA("C","CANCELADA");
 	
-	private int codigo;
+	private String codigo;
     private String descricao;
 
-    StatusConsulta(int codigo,String descricao) {
+    StatusConsulta(String codigo,String descricao) {
         this.descricao = descricao;
     }
 
@@ -18,7 +18,7 @@ public enum StatusConsulta {
         return descricao;
     }
 
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 	

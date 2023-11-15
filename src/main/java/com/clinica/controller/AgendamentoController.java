@@ -119,4 +119,30 @@ public class AgendamentoController {
 		return new ResponseEntity<>(consult,HttpStatus.OK);
 	}
 	
+	@ApiOperation(value ="agendamento paginada com beneficiario e seu id all")
+	@GetMapping(value = "/agendamento-beneficiario")
+	public ResponseEntity<?> findBeneficiarioAgendamento(
+			@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "limit", defaultValue = "10") int limit,
+			@RequestParam(required = false) String carteirinha,
+			@RequestParam(required = false) Integer codbenef,
+			@RequestParam(required = false) String startdt,
+			@RequestParam(required = false) String enddt,
+			@RequestParam(required = false) Integer idagendamento,
+			@RequestParam(required = false) Integer idtipoagendamento
+	) throws Exception{
+		
+		String direction = "desc";
+        Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
+        LOG.info("Consulta paginada com beneficiario e sem id all");
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
+		
+		List<AgendamentoDTO> lista = agendamentoProxy.findBeneficiarioAgendamentoDinamicoService(carteirinha, codbenef, startdt, enddt, idagendamento, idtipoagendamento);	
+		
+		//AgendamentoPageDTO consult = agendamentoProxy.findBeneficiarioPageSemIdExameervice(pageable, startdtt, enddtt);
+		LOG.info("fim Consulta paginada com beneficiario e sem id all");
+		return new ResponseEntity<>(lista,HttpStatus.OK);
+	}
+	
+	
 }
