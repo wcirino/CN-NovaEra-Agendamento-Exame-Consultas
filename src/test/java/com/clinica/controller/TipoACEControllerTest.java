@@ -23,9 +23,9 @@ import com.clinica.service.TipoExameService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = TipoExameController.class)
+@WebMvcTest(controllers = TipoACEController.class)
 @AutoConfigureMockMvc
-public class TipoExameControllerTest {
+public class TipoACEControllerTest {
 
     static String root_api = "/api-tipoExame";
 

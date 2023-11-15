@@ -21,7 +21,7 @@ import com.clinica.service.TipoExameService;
 
 @RestController
 @RequestMapping(value = "/api-tipoExame")
-public class TipoExameController {
+public class TipoACEController {
 
 	@Autowired
 	private TipoExameService proxytipoexame;
@@ -29,7 +29,7 @@ public class TipoExameController {
 	@Autowired
 	private TipoConsultaRespository proxytipoconsulta;
 	
-	private static final Logger LOG = LoggerFactory.getLogger(TipoExameController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(TipoACEController.class);
 	
 	@GetMapping(value = "/tipo-exame")
 	public ResponseEntity<?> findAllExame() throws Exception{
