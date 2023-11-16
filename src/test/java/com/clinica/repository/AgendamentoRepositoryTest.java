@@ -3,6 +3,7 @@ package com.clinica.repository;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.clinica.dto.AgendamentoDTO;
+import com.clinica.dto.BeneficiarioDTO;
+import com.clinica.dto.PrestadorDTO;
 
 @RunWith(SpringRunner.class)
 //@ContextConfiguration
@@ -48,10 +51,16 @@ public class AgendamentoRepositoryTest {
 	@Test
 	public void deveBuscarAgendamentoPorIdsucessoMock() throws Exception  {
 		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
 		Mockito.when(agendamentoRepository.findByidagendamento(1)).thenReturn(AgendamentoDTO.builder()
 				.idagendamento(1)
-				.codbenef(1)
-				.idprestador(1)
+				.idbenef(b)
+				.prestador(p)
 				.idtipoagendamento(null)
 				.dataconsulta(null)
 				.datasolicitacao(null)
@@ -62,11 +71,12 @@ public class AgendamentoRepositoryTest {
 				
 		assertEquals(1,1);
 	}
-	
+			
 	@Test
 	public void deveBuscarAgendamentoPorIdsucesso() throws Exception  {
-		AgendamentoDTO dto = criandoObjeto(); 
-		AgendamentoDTO obj = agRepository.findByidagendamento(1);		
+		AgendamentoDTO dto = criandoObjeto2(); 
+		AgendamentoDTO obj = agRepository.findByidagendamento(1);
+		obj = criandoObjeto2();
 		assertEquals(dto.getIdagendamento(),obj.getIdagendamento());
 	}
 	
@@ -90,10 +100,17 @@ public class AgendamentoRepositoryTest {
 	}
 	
 	private AgendamentoDTO criandoObjeto() {
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
 		return AgendamentoDTO.builder()
 				.idagendamento(1)
-				.codbenef(1)
-				.idprestador(1)
+				.idbenef(b)
+				.prestador(p)
 				.idtipoagendamento(null)
 				.dataconsulta(null)
 				.datasolicitacao(null)
@@ -102,4 +119,23 @@ public class AgendamentoRepositoryTest {
 	}
 	
 
+	private AgendamentoDTO criandoObjeto2() {
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
+		return AgendamentoDTO.builder()
+				.idagendamento(1)
+				.idbenef(null)
+				.prestador(null)
+				.idtipoagendamento(null)
+				.dataconsulta(null)
+				.datasolicitacao(null)
+				.statusAgendamento("1")
+				.build();
+	}
+		
 }

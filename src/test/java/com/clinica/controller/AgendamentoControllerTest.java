@@ -20,6 +20,8 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.clinica.dto.AgendamentoDTO;
+import com.clinica.dto.BeneficiarioDTO;
+import com.clinica.dto.PrestadorDTO;
 import com.clinica.service.AgendamentoService;
 import com.clinica.service.UtilService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -127,10 +129,17 @@ public class AgendamentoControllerTest {
 	}
 	
 	private AgendamentoDTO criandoObjeto() {
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
 		return AgendamentoDTO.builder()
 				.idagendamento(1)
-				.codbenef(1)
-				.idprestador(1)
+				.idbenef(b)
+				.prestador(p)
 				.idtipoagendamento(null)
 				.dataconsulta(null)
 				.datasolicitacao(null)
@@ -139,10 +148,17 @@ public class AgendamentoControllerTest {
 	}
 	
 	private AgendamentoDTO criandoObjeto2() {
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
 		return AgendamentoDTO.builder()
 				.idagendamento(null)
-				.codbenef(1)
-				.idprestador(1)
+				.idbenef(b)
+				.prestador(p)
 				.idtipoagendamento(null)
 				.dataconsulta(null)
 				.datasolicitacao(null)
@@ -152,7 +168,7 @@ public class AgendamentoControllerTest {
 	
 	/*
 	 * private agendamentoDTO criandoObjetoIdNull() { return
-	 * agendamentoDTO.builder() .idbenef(1) .idprestador(1) .idtipoagendamento(null)
+	 * agendamentoDTO.builder() .idbenef(1) .prestador(p) .idtipoagendamento(null)
 	 * .dataconsulta(null) .datasolicitacao(null) .statusAgendamento("1") .build();
 	 * }
 	 */
@@ -169,17 +185,24 @@ public class AgendamentoControllerTest {
 	
 	
 	private List<AgendamentoDTO> criandoListObjeto() {
-		return asList(AgendamentoDTO.builder().idagendamento(1).codbenef(1).idprestador(1).idtipoagendamento(null)
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
+		return asList(AgendamentoDTO.builder().idagendamento(1).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				 AgendamentoDTO.builder().idagendamento(2).codbenef(2).idprestador(2).idtipoagendamento(null)
+				 AgendamentoDTO.builder().idagendamento(2).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				AgendamentoDTO.builder().idagendamento(3).codbenef(3).idprestador(3).idtipoagendamento(null)
+				AgendamentoDTO.builder().idagendamento(3).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				 AgendamentoDTO.builder().idagendamento(4).codbenef(4).idprestador(4).idtipoagendamento(null)
+				 AgendamentoDTO.builder().idagendamento(4).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				AgendamentoDTO.builder().idagendamento(5).codbenef(5).idprestador(5).idtipoagendamento(null)
+				AgendamentoDTO.builder().idagendamento(5).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				 AgendamentoDTO.builder().idagendamento(6).codbenef(6).idprestador(6).idtipoagendamento(null)
+				 AgendamentoDTO.builder().idagendamento(6).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build());
 	}
 	

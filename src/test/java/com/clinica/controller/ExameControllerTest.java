@@ -18,7 +18,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import com.clinica.dto.BeneficiarioDTO;
 import com.clinica.dto.ExameDTO;
+import com.clinica.dto.PrestadorDTO;
 import com.clinica.service.ExameService;
 import com.clinica.service.UtilService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -127,32 +129,46 @@ public class ExameControllerTest {
 	}
 	
 	private ExameDTO criandoObjeto() {
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
 		return ExameDTO.builder()
 				.idexame(1)
 				.idtipoexame(null)
-				.idprestador(1)
-				.codbenef(1)
+				.idprestador(p)
+				.idbenef(b)
 				.dataconsulta(null)
 				.datasolicitacao(null)
-				.statusexame(0)
+				.statusexame("S")
 				.build();
 	}
 	
 	private ExameDTO criandoObjeto2() {
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
 		return ExameDTO.builder()
 				.idexame(null)
 				.idtipoexame(null)
-				.idprestador(1)
-				.codbenef(1)
+				.idprestador(p)
+				.idbenef(b)
 				.dataconsulta(null)
 				.datasolicitacao(null)
-				.statusexame(0)
+				.statusexame("S")
 				.build();
 	}
 	
 	/*
 	 * private agendamentoDTO criandoObjetoIdNull() { return
-	 * agendamentoDTO.builder() .idprestador(1) .idtipoagendamento(null)
+	 * agendamentoDTO.builder() .idprestador(p) .idtipoagendamento(null)
 	 * .dataconsulta(null) .datasolicitacao(null) .statusAgendamento("1") .build();
 	 * }
 	 * 
@@ -166,17 +182,24 @@ public class ExameControllerTest {
 	
 	
 	private List<ExameDTO> criandoListObjeto() {
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
 		return asList(
-				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build(),
-				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build(),
-						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build(),
-						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build(),
-						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(1).codbenef(1).dataconsulta(null)
-						.datasolicitacao(null).statusexame(0).build());
+				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(p).idbenef(b).dataconsulta(null)
+						.datasolicitacao(null).statusexame("S").build(),
+				ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(p).idbenef(b).dataconsulta(null)
+						.datasolicitacao(null).statusexame("S").build(),
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(p).idbenef(b).dataconsulta(null)
+						.datasolicitacao(null).statusexame("S").build(),
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(p).idbenef(b).dataconsulta(null)
+						.datasolicitacao(null).statusexame("S").build(),
+						ExameDTO.builder().idexame(1).idtipoexame(null).idprestador(p).idbenef(b).dataconsulta(null)
+						.datasolicitacao(null).statusexame("S").build());
 	}
 	
 	/*

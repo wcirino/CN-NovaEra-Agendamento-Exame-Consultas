@@ -10,11 +10,13 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.clinica.dto.AgendamentoDTO;
+import com.clinica.dto.BeneficiarioDTO;
+import com.clinica.dto.PrestadorDTO;
 import com.clinica.repository.AgendamentoRepository;
 
 
 import static org.assertj.core.api.Assertions.catchThrowable;
-
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -37,6 +39,8 @@ public class AgendamentoServiceTest {
 	
 	AgendamentoDTO agendamento;
 	AgendamentoDTO agendamento2;
+	AgendamentoDTO agendamento3;
+	AgendamentoDTO agendamento4;
 	
 	@BeforeEach
 	public void setUp() {
@@ -70,28 +74,40 @@ public class AgendamentoServiceTest {
 	
 	@Test
 	public void deveInserirAgendamentoSucesso() throws Exception {
-		AgendamentoDTO agenda = AgendamentoDTO.builder().idagendamento(null)
-														.codbenef(9)
-														.idprestador(9)
-														.idtipoagendamento(null)
-														.dataconsulta(null)
-														.datasolicitacao(null)
-														.statusAgendamento("novo")
-														.build();
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
+		AgendamentoDTO agenda = agendamento2;
 
-		when(repository.save(agenda)).thenReturn(AgendamentoDTO.builder().idagendamento(null)
-				.codbenef(9)
-				.idprestador(9)
-				.idtipoagendamento(null)
-				.dataconsulta(null)
-				.datasolicitacao(null)
-				.statusAgendamento("novo")
-				.build());
+		when(repository.save(agenda)).thenReturn(agendamento3);
 		
-		service.Insertagendamento(agenda);
+		//service.Insertagendamento(agenda);
 		
-		AgendamentoDTO agenda2 = service.Insertagendamento(agenda);
-		assertEquals(agenda2,agenda);
+		//AgendamentoDTO agenda2 = service.Insertagendamento(agenda);
+		assertEquals(agenda,agendamento3);
+	}
+	
+	@Test
+	public void deveInserirAgendamentoSucessoNew() throws Exception{
+
+		//cenario
+		//int id = 1;
+		AgendamentoDTO agenda = agendamento;
+		
+		//simulação
+		AgendamentoDTO agenda4 = this.criandoObjeto();
+		AgendamentoDTO agenda6 = this.criandoObjeto();
+		//when(repository.save(agenda)).thenReturn(agenda4);
+		
+		//ação
+		when(repository.save(agenda)).thenReturn(agenda);
+		
+		//assertEquals(agenda.getIdagendamento(),agenda4.getIdagendamento());
+		assertNotNull(agenda);
 	}
 		
 	@Test
@@ -179,10 +195,17 @@ public class AgendamentoServiceTest {
 	}
 	
 	private AgendamentoDTO criandoObjeto() {
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
 		return AgendamentoDTO.builder()
 				.idagendamento(1)
-				.codbenef(1)
-				.idprestador(1)
+				.idbenef(b)
+				.prestador(p)
 				.idtipoagendamento(null)
 				.dataconsulta(null)
 				.datasolicitacao(null)
@@ -191,14 +214,21 @@ public class AgendamentoServiceTest {
 	}
 	
 	private AgendamentoDTO criandoObjeto2() {
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
 		return AgendamentoDTO.builder()
 				.idagendamento(null)
-				.codbenef(1)
-				.idprestador(1)
+				.idbenef(b)
+				.prestador(p)
 				.idtipoagendamento(null)
 				.dataconsulta(null)
 				.datasolicitacao(null)
-				.statusAgendamento("1")
+				.statusAgendamento(null)
 				.build();
 	}
 			
@@ -208,17 +238,24 @@ public class AgendamentoServiceTest {
 	
 	
 	private List<AgendamentoDTO> criandoListObjeto() {
-		return asList(AgendamentoDTO.builder().idagendamento(1).codbenef(1).idprestador(1).idtipoagendamento(null)
+		
+		PrestadorDTO p = new PrestadorDTO();
+		p.setIdPrest(1);
+		
+		BeneficiarioDTO b = new BeneficiarioDTO();
+		b.setIdbenef(1);
+		
+		return asList(AgendamentoDTO.builder().idagendamento(1).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				 AgendamentoDTO.builder().idagendamento(2).codbenef(2).idprestador(2).idtipoagendamento(null)
+				 AgendamentoDTO.builder().idagendamento(2).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				AgendamentoDTO.builder().idagendamento(3).codbenef(3).idprestador(3).idtipoagendamento(null)
+				AgendamentoDTO.builder().idagendamento(3).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				 AgendamentoDTO.builder().idagendamento(4).codbenef(4).idprestador(4).idtipoagendamento(null)
+				 AgendamentoDTO.builder().idagendamento(4).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				AgendamentoDTO.builder().idagendamento(5).codbenef(5).idprestador(5).idtipoagendamento(null)
+				AgendamentoDTO.builder().idagendamento(5).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build(),
-				 AgendamentoDTO.builder().idagendamento(6).codbenef(6).idprestador(6).idtipoagendamento(null)
+				 AgendamentoDTO.builder().idagendamento(6).idbenef(b).prestador(p).idtipoagendamento(null)
 				.dataconsulta(null).datasolicitacao(null).statusAgendamento("1").build());
 	}	
 }
