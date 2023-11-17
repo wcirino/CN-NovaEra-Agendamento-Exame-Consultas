@@ -225,11 +225,37 @@ public class ConsultaController {
         LOG.info("Consulta paginada com beneficiario e seu id all");
 		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
 	
-		List<ConsultaDTO> lista = proxyConsult.findConsultasBeneficiarioSpecService(carteirinha, codbenef, startdt, enddt, idconsulta, tipoConsuilta);
+		Page<ConsultaDTO> lista = proxyConsult.findConsultasBeneficiarioSpecService(pageable,carteirinha, codbenef, startdt, enddt, idconsulta, tipoConsuilta);
 
 		
 		LOG.info("fim Consulta paginada com beneficiario e seu id all");
 		return new ResponseEntity<>(lista,HttpStatus.OK);
 	}
 	
+	@ApiOperation(value ="Consulta paginada com beneficiario e seu id all")
+	@GetMapping(value = "/consulta-beneficiario-all")
+	public ResponseEntity<?> find_Beneficiario_ConsultaAll(
+			@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "limit", defaultValue = "10") int limit,
+			@RequestParam(required = false) String carteirinha,
+			@RequestParam(required = false) Integer codbenef,
+			@RequestParam(required = false) String startdt,
+			@RequestParam(required = false) String enddt,
+			@RequestParam(required = false) Integer idconsulta,
+			@RequestParam(required = false) Integer tipoConsuilta
+	) throws Exception{
+		
+		
+		
+		String direction = "desc";
+        Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
+        LOG.info("Consulta paginada com beneficiario e seu id all");
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
+	
+		List<ConsultaDTO> lista = proxyConsult.findConsultasBeneficiarioSpecService(carteirinha, codbenef, startdt, enddt, idconsulta, tipoConsuilta);
+
+		
+		LOG.info("fim Consulta paginada com beneficiario e seu id all");
+		return new ResponseEntity<>(lista,HttpStatus.OK);
+	}
 }

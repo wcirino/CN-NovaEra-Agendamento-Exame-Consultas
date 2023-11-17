@@ -226,5 +226,12 @@ public class ConsultasService {
 		Specification<ConsultaDTO> spec = ConsultaSpecifications.criarSpec(carteirinha, codbenef, startdt, enddt, idconsulta, tipoConsuilta);
 		return consulProxy.findAll(spec);
 	}
+
+
+	public Page<ConsultaDTO> findConsultasBeneficiarioSpecService(Pageable pageable, String carteirinha,
+			Integer codbenef, String startdt, String enddt, Integer idconsulta, Integer tipoConsuilta) throws Exception {
+		Specification<ConsultaDTO> spec = ConsultaSpecifications.criarSpec(carteirinha, codbenef, startdt, enddt, idconsulta, tipoConsuilta);
+		return consulProxy.findAll(spec,pageable);
+	}
 		
 }

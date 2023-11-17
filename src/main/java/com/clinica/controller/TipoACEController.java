@@ -26,8 +26,8 @@ public class TipoACEController {
 	@Autowired
 	private TipoExameService proxytipoexame;
 	
-//	@Autowired
-//	private TipoConsultaRespository proxytipoconsulta;
+	@Autowired
+	private TipoConsultaRespository proxytipoconsulta;
 
 	private static final Logger LOG = LoggerFactory.getLogger(TipoACEController.class);
 	
@@ -59,9 +59,9 @@ public class TipoACEController {
 //		return new ResponseEntity<>(proxytipoexame.UpdateExame(dto),HttpStatus.OK);
 //	}
 	
-//	@GetMapping(value = "/tipo-consulta")
-//	public  ResponseEntity<?> findallconsulta(){
-//		return new ResponseEntity<>(proxytipoconsulta.findAll() ,HttpStatus.OK);
-//	}
+	@GetMapping(value = "/tipo-consulta")
+	public  ResponseEntity<?> findallconsulta(){
+		return new ResponseEntity<>(proxytipoconsulta.findAll() ,HttpStatus.OK);
+	}
 	
 }

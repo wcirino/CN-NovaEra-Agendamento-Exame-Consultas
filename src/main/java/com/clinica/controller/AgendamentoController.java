@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -135,7 +136,32 @@ public class AgendamentoController {
 		String direction = "desc";
         Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
         LOG.info("Consulta paginada com beneficiario e sem id all");
-		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "dataconsulta"));
+		
+		Page<AgendamentoDTO> lista = agendamentoProxy.findBeneficiarioAgendamentoDinamicoService(pageable,carteirinha, codbenef, startdt, enddt, idagendamento, idtipoagendamento);	
+		
+		//AgendamentoPageDTO consult = agendamentoProxy.findBeneficiarioPageSemIdExameervice(pageable, startdtt, enddtt);
+		LOG.info("fim Consulta paginada com beneficiario e sem id all");
+		return new ResponseEntity<>(lista,HttpStatus.OK);
+	}
+	
+	@ApiOperation(value ="agendamento paginada com beneficiario e seu id all")
+	@GetMapping(value = "/agendamento-beneficiario-all")
+	public ResponseEntity<?> findBeneficiarioAgendamentoAll(
+			@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "limit", defaultValue = "10") int limit,
+			@RequestParam(required = false) String carteirinha,
+			@RequestParam(required = false) Integer codbenef,
+			@RequestParam(required = false) String startdt,
+			@RequestParam(required = false) String enddt,
+			@RequestParam(required = false) Integer idagendamento,
+			@RequestParam(required = false) Integer idtipoagendamento
+	) throws Exception{
+		
+		String direction = "desc";
+        Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
+        LOG.info("Consulta paginada com beneficiario e sem id all");
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "dataconsulta"));
 		
 		List<AgendamentoDTO> lista = agendamentoProxy.findBeneficiarioAgendamentoDinamicoService(carteirinha, codbenef, startdt, enddt, idagendamento, idtipoagendamento);	
 		
@@ -143,6 +169,4 @@ public class AgendamentoController {
 		LOG.info("fim Consulta paginada com beneficiario e sem id all");
 		return new ResponseEntity<>(lista,HttpStatus.OK);
 	}
-	
-	
 }

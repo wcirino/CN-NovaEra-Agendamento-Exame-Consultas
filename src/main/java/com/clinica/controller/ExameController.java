@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -131,6 +132,30 @@ public class ExameController {
 	@ApiOperation(value ="exame paginada com beneficiario e seu id all")
 	@GetMapping(value = "/exame-beneficiario")
 	public ResponseEntity<?> findBeneficiarioExame(
+			@RequestParam(value = "page", defaultValue = "0") int page,
+			@RequestParam(value = "limit", defaultValue = "10") int limit,
+			@RequestParam(required = false) String carteirinha,
+			@RequestParam(required = false) Integer codbenef,
+			@RequestParam(required = false) String startdt,
+			@RequestParam(required = false) String enddt,
+			@RequestParam(required = false) Integer idexame,
+			@RequestParam(required = false) Integer tipoexame
+	) throws Exception{
+		
+		String direction = "desc";
+        Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
+        LOG.info("exame paginada com beneficiario e sem id all");
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "idbenef"));
+		
+		Page<ExameDTO> lista =  proxyExame.findExameBeneficiarioSpecService(pageable,carteirinha, codbenef, startdt, enddt, idexame, tipoexame);
+//		ExamePageDTO consult = proxyExame.findBeneficiarioPageSemIdExameervice(pageable, startdtt, enddtt);
+		LOG.info("fim Consulta paginada com beneficiario e sem id all");
+		return new ResponseEntity<>(lista,HttpStatus.OK);
+	}
+	
+	@ApiOperation(value ="exame paginada com beneficiario e seu id all")
+	@GetMapping(value = "/exame-beneficiario-all")
+	public ResponseEntity<?> findBeneficiarioExameAll(
 			@RequestParam(value = "page", defaultValue = "0") int page,
 			@RequestParam(value = "limit", defaultValue = "10") int limit,
 			@RequestParam(required = false) String carteirinha,
