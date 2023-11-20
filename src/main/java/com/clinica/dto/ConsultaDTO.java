@@ -31,11 +31,11 @@ public class ConsultaDTO {
 	@Column(name = "idconsulta")
 	private Integer idconsulta;
 	
-	@OneToOne(cascade = CascadeType.REMOVE) 
+	@OneToOne(cascade = CascadeType.DETACH) 
 	@JoinColumn(name = "codprestador", referencedColumnName="id_prest")
 	private PrestadorDTO codprestador;
 	
-	@OneToOne(cascade = CascadeType.REMOVE) 
+	@OneToOne(cascade = CascadeType.DETACH) 
 	@JoinColumn(name = "codbenef", referencedColumnName="idbenef")
 	private BeneficiarioDTO codbenef;
 	
@@ -45,7 +45,7 @@ public class ConsultaDTO {
 	@Column(name = "datasolicitacao")
 	private Date datasolicitacao;
 	
-	@OneToOne(cascade = CascadeType.REMOVE) 
+	@OneToOne(cascade = CascadeType.DETACH) 
 	@JoinColumn(name = "tipoconsulta", referencedColumnName="idtipoconsulta")
 	private TipoConsultaDTO tipoconsulta;
 	

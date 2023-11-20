@@ -17,6 +17,6 @@ public class AgendamentoMQ {
 	Integer idagendamento;
 	Integer idtipoagendamento;
 	Integer idbenef;
-	Date dataconsulta;
+	Date dataagendamento;
 	
 }

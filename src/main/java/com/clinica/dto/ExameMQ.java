@@ -17,6 +17,6 @@ public class ExameMQ {
 	Integer idexame;
 	Integer idtipoexame;
 	Integer idbenef;
-	Date dataconsulta;
+	Date dataexame;
 	
 }
