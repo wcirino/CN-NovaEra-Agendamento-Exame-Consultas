@@ -47,7 +47,7 @@ public class AgendamentoMqPublisher {
 				.idbenef(dto.getIdagendamento())
 				.idagendamento(dto.getIdagendamento())
 			    .idtipoagendamento(dto.getIdtipoagendamento().getIdtipoagendamento())
-				.dataconsulta(dto.getDataconsulta())
+				.dataagendamento(dto.getDataconsulta())
 				.build();
 	}
 	

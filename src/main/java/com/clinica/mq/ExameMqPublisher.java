@@ -47,7 +47,7 @@ public class ExameMqPublisher {
 				.idbenef(dto.getIdbenef().getIdbenef())
 				.idexame(dto.getIdexame())
 			    .idtipoexame(dto.getIdtipoexame().getIdtipoexame())
-				.dataconsulta(dto.getDataconsulta())
+				.dataexame(dto.getDataconsulta())
 				.build();
 	}
 	
