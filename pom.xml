@@ -13,7 +13,7 @@
 	<artifactId>cn-agendamento-exame-consulta</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cn-agendamento-exame-consulta2</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<description>Api para exames e resultados medicos</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -83,11 +83,11 @@
 			<version>4.13.1</version><!--$NO-MVN-MAN-VER$ -->
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

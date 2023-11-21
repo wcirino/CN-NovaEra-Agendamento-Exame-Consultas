@@ -14,10 +14,18 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 //@EnableEurekaClient
 @EnableFeignClients
 @EnableRabbit
-public class ClinicaApplication extends SpringBootServletInitializer {
+public class ClinicaApplication{
 
 	public static void main(String[] args) {
 		SpringApplication.run(ClinicaApplication.class, args);
 	}
 
 }
+
+//public class ClinicaApplication extends SpringBootServletInitializer {
+//
+//	public static void main(String[] args) {
+//		SpringApplication.run(ClinicaApplication.class, args);
+//	}
+//
+//}
