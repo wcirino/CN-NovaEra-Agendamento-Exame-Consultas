@@ -5008,3 +5008,162 @@
 2023-11-17 01:49:09.634 DEBUG 31444 --- [RMI TCP Connection(7)-127.0.0.1] o.s.web.client.RestTemplate              : Response 200 OK
 2023-11-17 01:49:09.634  INFO 31444 --- [RMI TCP Connection(7)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CN-AGENDAMENTO-EXAME-CONSULTA/=host.docker.internal:cn-agendamento-exame-consulta:0ded48c43a2161ef0d65bb9b8fbe24c9 - deregister  status: 200
 2023-11-17 01:49:09.638  INFO 31444 --- [RMI TCP Connection(7)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-11-20 23:29:47.913  INFO 28664 --- [restartedMain] com.clinica.ClinicaApplication           : Starting ClinicaApplication using Java 1.8.0_144 on DESKTOP-ID8DU2L with PID 28664 (E:\development\workSpace\cn\cn-clinica\CN-NovaEra-Agendamento-Exame-Consultas\target\classes started by Willyan Cirino in E:\development\workSpace\cn\cn-clinica\CN-NovaEra-Agendamento-Exame-Consultas)
+2023-11-20 23:29:47.914 DEBUG 28664 --- [restartedMain] com.clinica.ClinicaApplication           : Running with Spring Boot v2.6.3, Spring v5.3.15
+2023-11-20 23:29:47.914  INFO 28664 --- [restartedMain] com.clinica.ClinicaApplication           : No active profile set, falling back to default profiles: default
+2023-11-20 23:29:47.979  INFO 28664 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-20 23:29:47.980  INFO 28664 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-20 23:29:49.404  INFO 28664 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-20 23:29:49.615  INFO 28664 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 200 ms. Found 8 JPA repository interfaces.
+2023-11-20 23:29:49.960  INFO 28664 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4596fd15-1f74-3a56-887c-499e56c531a1
+2023-11-20 23:29:50.737  INFO 28664 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-11-20 23:29:50.751  INFO 28664 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-20 23:29:50.751  INFO 28664 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-11-20 23:29:50.909  INFO 28664 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-20 23:29:50.909  INFO 28664 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2928 ms
+2023-11-20 23:29:51.613  INFO 28664 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-20 23:29:52.572  INFO 28664 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-20 23:29:53.952  INFO 28664 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-20 23:29:54.563  WARN 28664 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-20 23:29:54.607  WARN 28664 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-11-20 23:29:54.664  INFO 28664 --- [restartedMain] o.s.c.openfeign.FeignClientFactoryBean   : For 'cn-eml' URL not provided. Will try picking an instance via load-balancing.
+2023-11-20 23:29:55.218 DEBUG 28664 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 41 mappings in 'requestMappingHandlerMapping'
+2023-11-20 23:29:55.332  INFO 28664 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-20 23:29:55.416 DEBUG 28664 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-20 23:29:55.477 DEBUG 28664 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-20 23:29:56.799  INFO 28664 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-11-20 23:29:58.148  WARN 28664 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-11-20 23:29:58.348  INFO 28664 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 62976 (http) with context path ''
+2023-11-20 23:29:58.350  INFO 28664 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 62976
+2023-11-20 23:29:58.374  INFO 28664 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-11-20 23:29:58.484  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-11-20 23:29:58.498  INFO 28664 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-20 23:29:58.545  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-11-20 23:29:58.545  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-11-20 23:29:58.545  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-11-20 23:29:58.546  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-11-20 23:29:58.546  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-11-20 23:29:58.546  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-11-20 23:29:58.546  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-11-20 23:29:58.735 DEBUG 28664 --- [restartedMain] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/
+2023-11-20 23:29:58.885 DEBUG 28664 --- [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:29:58.963 DEBUG 28664 --- [restartedMain] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:29:58.965 DEBUG 28664 --- [restartedMain] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:29:58.995  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-11-20 23:29:58.998  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2023-11-20 23:29:59.002  INFO 28664 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-11-20 23:29:59.010  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1700530199008 with initial instances count: 1
+2023-11-20 23:29:59.012  INFO 28664 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CN-AGENDAMENTO-EXAME-CONSULTA with eureka with status UP
+2023-11-20 23:29:59.013  INFO 28664 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1700530199013, current=UP, previous=STARTING]
+2023-11-20 23:29:59.015  INFO 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7: registering service...
+2023-11-20 23:29:59.029 DEBUG 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : HTTP POST http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA
+2023-11-20 23:29:59.032 DEBUG 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:29:59.058 DEBUG 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = =DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7, appName = CN-AGENDAMENTO-EXAME-CONSULTA, hostName = 172.16.48.16, status = UP, ipAddr = 172.16.48.16, port = 62976, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@65c448d] as "application/json"
+2023-11-20 23:29:59.096 DEBUG 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Response 204 NO_CONTENT
+2023-11-20 23:29:59.096  INFO 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7 - registration status: 204
+2023-11-20 23:30:00.064  INFO 28664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2023-11-20 23:30:00.087  INFO 28664 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2023-11-20 23:30:00.128  INFO 28664 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2023-11-20 23:30:00.295  INFO 28664 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: UpdateconsultaUsingPUT_1
+2023-11-20 23:30:00.342  INFO 28664 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: UpdateconsultaUsingPUT_2
+2023-11-20 23:30:00.360  INFO 28664 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllExameUsingGET_1
+2023-11-20 23:30:00.363  INFO 28664 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findAllExameUsingGET_2
+2023-11-20 23:30:00.364  INFO 28664 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: findIDExameUsingGET_1
+2023-11-20 23:30:00.391  INFO 28664 --- [restartedMain] com.clinica.ClinicaApplication           : Started ClinicaApplication in 14.123 seconds (JVM running for 15.757)
+2023-11-20 23:30:29.015 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:30:29.016 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:30:29.017 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:30:29.033 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:30:29.034 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:30:29.035 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:30:29.050 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:30:59.037 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:30:59.037 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:30:59.053 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:30:59.053 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:30:59.056 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:30:59.056 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:30:59.071 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:31:29.061 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:31:29.061 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:31:29.078 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:31:29.078 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:31:29.081 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:31:29.081 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:31:29.096 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:31:59.086 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:31:59.086 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:31:59.101 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:31:59.101 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:31:59.103 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:31:59.103 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:31:59.119 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:32:29.105 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:32:29.105 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:32:29.120 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:32:29.121 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:32:29.123 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:32:29.124 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:32:29.138 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:32:59.139 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:32:59.139 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:32:59.139 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:32:59.139 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:32:59.158 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:32:59.158 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:32:59.159 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:33:29.170 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:33:29.170 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:33:29.170 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:33:29.170 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:33:29.189 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:33:29.189 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:33:29.189 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:33:59.194 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:33:59.194 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:33:59.194 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:33:59.194 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:33:59.213 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:33:59.213 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:33:59.213 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:34:29.220 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:34:29.220 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:34:29.220 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:34:29.220 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:34:29.239 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:34:29.239 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:34:29.239 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:34:58.563  INFO 28664 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-11-20 23:34:59.252 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/delta
+2023-11-20 23:34:59.252 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : HTTP PUT http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7?status=UP&lastDirtyTimestamp=1700530199012
+2023-11-20 23:34:59.252 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:34:59.252 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:34:59.270 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:34:59.270 DEBUG 28664 --- [DiscoveryClient-HeartbeatExecutor-0] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:34:59.271 DEBUG 28664 --- [DiscoveryClient-CacheRefreshExecutor-0] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2023-11-20 23:35:04.422  INFO 28664 --- [Thread-3] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application CN-AGENDAMENTO-EXAME-CONSULTA with eureka with status DOWN
+2023-11-20 23:35:04.422  INFO 28664 --- [Thread-3] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1700530504422, current=DOWN, previous=UP]
+2023-11-20 23:35:04.422  INFO 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7: registering service...
+2023-11-20 23:35:04.422 DEBUG 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : HTTP POST http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA
+2023-11-20 23:35:04.423 DEBUG 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:35:04.423 DEBUG 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = =DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7, appName = CN-AGENDAMENTO-EXAME-CONSULTA, hostName = 172.16.48.16, status = DOWN, ipAddr = 172.16.48.16, port = 62976, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@65c448d] as "application/json"
+2023-11-20 23:35:04.434 DEBUG 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Response 204 NO_CONTENT
+2023-11-20 23:35:04.434  INFO 28664 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7 - registration status: 204
+2023-11-20 23:35:05.018  INFO 28664 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-20 23:35:05.023  INFO 28664 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-11-20 23:35:05.038  INFO 28664 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-11-20 23:35:05.039  INFO 28664 --- [Thread-3] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-11-20 23:35:07.232  INFO 3588 --- [restartedMain] com.clinica.ClinicaApplication           : Starting ClinicaApplication using Java 1.8.0_144 on DESKTOP-ID8DU2L with PID 3588 (E:\development\workSpace\cn\cn-clinica\CN-NovaEra-Agendamento-Exame-Consultas\target\classes started by Willyan Cirino in E:\development\workSpace\cn\cn-clinica\CN-NovaEra-Agendamento-Exame-Consultas)
+2023-11-20 23:35:07.233 DEBUG 3588 --- [restartedMain] com.clinica.ClinicaApplication           : Running with Spring Boot v2.6.3, Spring v5.3.15
+2023-11-20 23:35:07.233  INFO 3588 --- [restartedMain] com.clinica.ClinicaApplication           : No active profile set, falling back to default profiles: default
+2023-11-20 23:35:07.307  INFO 3588 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-20 23:35:07.307  INFO 3588 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-20 23:35:08.042  INFO 28664 --- [Thread-3] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-11-20 23:35:08.043 DEBUG 28664 --- [Thread-3] o.s.web.client.RestTemplate              : HTTP DELETE http://localhost:8761/eureka/apps/CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7
+2023-11-20 23:35:08.044 DEBUG 28664 --- [Thread-3] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2023-11-20 23:35:08.061 DEBUG 28664 --- [Thread-3] o.s.web.client.RestTemplate              : Response 200 OK
+2023-11-20 23:35:08.062  INFO 28664 --- [Thread-3] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CN-AGENDAMENTO-EXAME-CONSULTA/=DESKTOP-ID8DU2L:cn-agendamento-exame-consulta:3156c5d999521bb05435c2fa51c40ca7 - deregister  status: 200
+2023-11-20 23:35:08.069  INFO 28664 --- [Thread-3] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-11-20 23:35:08.723  INFO 3588 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-20 23:35:09.033  INFO 3588 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 294 ms. Found 8 JPA repository interfaces.
+2023-11-20 23:35:09.476  INFO 3588 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4596fd15-1f74-3a56-887c-499e56c531a1
