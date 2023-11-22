@@ -48,6 +48,7 @@ public interface ConsultasRepository extends JpaRepository<ConsultaDTO, Integer>
 	void DesativarPrestador(@Param("status") String status, @Param("id") int id);
 	
 	Page<ConsultaDTO> findAll(Specification<ConsultaDTO> spec, Pageable pageable);
+	Page<ConsultaDTO> findAll(Pageable pageable);
 	List<ConsultaDTO> findAll(Specification<ConsultaDTO> spec);
 	 	
 //	@Query(value = "SELECT b from clienteparticularDTO b WHERE b.nome_comp like %:nomeCompleto%")

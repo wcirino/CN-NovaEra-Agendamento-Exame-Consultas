@@ -25,5 +25,6 @@ public interface AgendamentoRepository extends JpaRepository<AgendamentoDTO, Int
 	Page<AgendamentoDTO> findBeneficiarioagendamentoSemIDPage(Date stardt, Date enddt,Pageable pageble);	
 	
 	Page<AgendamentoDTO> findAll(Specification<AgendamentoDTO> spec, Pageable pageable);
+	Page<AgendamentoDTO> findAll(Pageable pageable);
 	List<AgendamentoDTO> findAll(Specification<AgendamentoDTO> spec);
 }

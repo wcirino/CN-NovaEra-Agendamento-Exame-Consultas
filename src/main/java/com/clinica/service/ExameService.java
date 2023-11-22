@@ -126,7 +126,13 @@ public class ExameService {
 
 	public Page<ExameDTO> findExameBeneficiarioSpecService(Pageable pageable, String carteirinha, Integer codbenef,
 			String startdt, String enddt, Integer idexame, Integer tipoexame) throws Exception {
-		Specification<ExameDTO> spec = ExameSpecifications.criarSpec(carteirinha, codbenef, startdt, enddt, idexame, tipoexame);
-		return proxyExame.findAll(spec,pageable);
+		
+		if ( codbenef != null && startdt != null && enddt != null &&  tipoexame != null) {
+			Specification<ExameDTO> spec = ExameSpecifications.criarSpec(carteirinha, codbenef, startdt, enddt, idexame,
+					tipoexame);
+			return proxyExame.findAll(spec, pageable);
+		} else {
+			return proxyExame.findAll(pageable);
+		}
 	}
 }

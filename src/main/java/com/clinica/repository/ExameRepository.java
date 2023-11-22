@@ -29,5 +29,6 @@ public interface ExameRepository extends JpaRepository<ExameDTO,Integer> {
 	Page<ExameDTO> findBeneficiarioExameSemIDPage(Date stardt, Date enddt,Pageable pageble);
 	
 	Page<ExameDTO> findAll(Specification<ExameDTO> spec, Pageable pageable);
+	Page<ExameDTO> findAll(Pageable pageable);
 	List<ExameDTO> findAll(Specification<ExameDTO> spec);
 }

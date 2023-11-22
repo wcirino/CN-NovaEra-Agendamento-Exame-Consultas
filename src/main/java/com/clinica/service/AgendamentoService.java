@@ -118,8 +118,13 @@ public class AgendamentoService {
 
 	public Page<AgendamentoDTO> findBeneficiarioAgendamentoDinamicoService(Pageable pageable, String carteirinha,
 			Integer codbenef, String startdt, String enddt, Integer idagendamento, Integer idtipoagendamento) throws Exception {
-			Specification<AgendamentoDTO> spec = AgendamentoSpecifications.criarSpec(carteirinha, codbenef, startdt, enddt, idagendamento, idtipoagendamento);
+		if (codbenef != null && startdt != null && enddt != null && idtipoagendamento != null) {	
+		Specification<AgendamentoDTO> spec = AgendamentoSpecifications.criarSpec(carteirinha, codbenef, startdt, enddt, idagendamento, idtipoagendamento);
 			return agendamentoproxy.findAll(spec,pageable);
+		}
+		else {
+			return agendamentoproxy.findAll(pageable);
+		}
 		
 	}
 }
