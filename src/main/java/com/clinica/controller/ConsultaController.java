@@ -225,7 +225,7 @@ public class ConsultaController {
         LOG.info("Consulta paginada com beneficiario e seu id all");
 		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
 	
-		Page<ConsultaDTO> lista = proxyConsult.findConsultasBeneficiarioSpecService(pageable,carteirinha, codbenef, startdt, enddt, idconsulta, tipoConsuilta);
+		List<ConsultaDTO> lista = proxyConsult.findConsultasBeneficiarioSpecService(carteirinha, codbenef, startdt, enddt, idconsulta, tipoConsuilta);
 
 		
 		LOG.info("fim Consulta paginada com beneficiario e seu id all");

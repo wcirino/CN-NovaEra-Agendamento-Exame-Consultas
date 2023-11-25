@@ -97,7 +97,7 @@ public class ExameController {
 		String direction = "desc";
         Direction sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
         LOG.info("exame paginada com beneficiario e seu id all");
-		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "codbenef"));
+		Pageable pageable = PageRequest.of(page, limit, Sort.by(sortDirection, "idbenef"));
 		
 		Date startdtt = utilservice.ConvertDate(startdt);
 		Date enddtt = utilservice.ConvertDate(enddt);
