@@ -39,7 +39,7 @@ public class AgendamentoDTO {
 	private PrestadorDTO prestador;
 	
 	@OneToOne(cascade = CascadeType.REMOVE) 
-	@JoinColumn(name = "idbenef", referencedColumnName="idbenef")
+	@JoinColumn(name = "idbenef", referencedColumnName="codbenef")
 	private BeneficiarioDTO idbenef;
 	
 	@Column(name = "datasolicitacao")

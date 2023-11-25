@@ -38,6 +38,17 @@ public class BeneficiarioService {
 		Optional<List<BeneficiarioDTO>> obj = Optional.ofNullable(proxyBenef.findAll());
 		return obj.orElseThrow(() -> new Exception());
 	}
+	
+	public BeneficiarioDTO UpdateBenef(BeneficiarioDTO b) {
+		b.setCodbenef(b.getCidade());
+		return proxyBenef.save(b);
+	}
+	
+	public BeneficiarioDTO insertBenef(BeneficiarioDTO b) {
+		b.setCodbenef(b.getCidade());
+		b.setIdbenef(null);
+		return proxyBenef.save(b);
+	}
 					
 	/*
 	 * private benefConsultaDTO beneficiariomodelMapperOne(Beneficiario dto) {

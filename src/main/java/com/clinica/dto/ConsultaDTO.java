@@ -36,7 +36,7 @@ public class ConsultaDTO {
 	private PrestadorDTO codprestador;
 	
 	@OneToOne(cascade = CascadeType.DETACH) 
-	@JoinColumn(name = "codbenef", referencedColumnName="idbenef")
+	@JoinColumn(name = "codbenef", referencedColumnName="codbenef")
 	private BeneficiarioDTO codbenef;
 	
 	@Column(name = "dataconsulta")
