@@ -40,12 +40,12 @@ public class BeneficiarioService {
 	}
 	
 	public BeneficiarioDTO UpdateBenef(BeneficiarioDTO b) {
-		b.setCodbenef(b.getCidade());
+		b.setCodbenef(b.getIdbenef());
 		return proxyBenef.save(b);
 	}
 	
 	public BeneficiarioDTO insertBenef(BeneficiarioDTO b) {
-		b.setCodbenef(b.getCidade());
+		b.setCodbenef(b.getIdbenef());
 		b.setIdbenef(null);
 		return proxyBenef.save(b);
 	}

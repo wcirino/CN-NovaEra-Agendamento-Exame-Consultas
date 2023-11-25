@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.clinica.dto.enums.Ativo;
@@ -37,7 +38,7 @@ public class BeneficiarioDTO implements Serializable{
 	@Column(name = "idbenef")
 	private Integer idbenef;
 	
-	@NotBlank
+	@NotNull
 	@Column(name = "codbenef")
 	private Integer codbenef;
 		
