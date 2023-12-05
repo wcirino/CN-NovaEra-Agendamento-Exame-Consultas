@@ -23,5 +23,4 @@ public enum SexoPrestador {
 		return codigo;
 	}
 	
-	//-0-----------------------------------------------------
 }

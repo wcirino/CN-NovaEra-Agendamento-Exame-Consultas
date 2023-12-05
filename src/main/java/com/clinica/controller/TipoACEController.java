@@ -39,25 +39,6 @@ public class TipoACEController {
 		return new ResponseEntity<>(exame,HttpStatus.OK);
 	}
 
-//	@GetMapping(value = "/tipo-exame-id/{id}")
-//	public ResponseEntity<?> findIDExame(@PathVariable int id) throws Exception{
-//		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
-//		TipoExameDTO exame = proxytipoexame.find_tipoExame_id(id);
-//		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
-//		return new ResponseEntity<>(exame,HttpStatus.OK);
-//	}
-	
-//	@PostMapping(value = "/tipo-exame")
-//	public ResponseEntity<?> InsertExame(@RequestBody TipoExameDTO dto)throws Exception{
-//		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
-//		return new  ResponseEntity<>(proxytipoexame.InsertExame(dto),HttpStatus.CREATED);
-//	}
-	
-//	@PutMapping(value = "/tipo-exame")
-//	public  ResponseEntity<?> UpdateExame(@RequestBody TipoExameDTO dto) throws Exception{
-//		LOG.info("Iniciando  controller tipoExameController Metodo: findAll_TipoExame");
-//		return new ResponseEntity<>(proxytipoexame.UpdateExame(dto),HttpStatus.OK);
-//	}
 	
 	@GetMapping(value = "/tipo-consulta")
 	public  ResponseEntity<?> findallconsulta(){
