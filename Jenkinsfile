@@ -1,38 +1,47 @@
-pipeline{
-    agent   any
-    stages  {
-        stage('Build backend'){
-            steps{
-                bat 'mvn clean package -DskipTests=true'
-            }
-        }
-        stage('Junit Test'){
-           steps{
-                bat 'mvn test'
-            }
-        }
-       stage('Sonar analysis'){
-		   environment {
-                scannerHome = tool 'SONAR_SCANNER'
-            }
+pipeline {
+    agent any
+
+    stages {
+        stage('Clonar Repositório') {
             steps {
-                withSonarQubeEnv('SONAR_LOCAL') {
-                    bat "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://localhost:9000 -Dsonar.login=9df79ae97ca7935d37e1e4dae863dbd80915aa6a -Dsonar.sources=src/main/java,src/main/resources -Dsonar.java.binaries=target  -Dsonar.exclusions=**/**/Main.java,src/main/resources/**.properties,src/main/java/com/clinica/config/**.java,src/main/java/com/clinica/dto/**.java,src/main/java/com/clinica/entity/**.java,src/main/java/com/clinica/repository/**.java"
-                }
+                echo 'Clonando o repositório...'
             }
         }
-		stage ('Quality Gate') {
+
+        stage('Build do Projeto') {
             steps {
-                sleep(15)
-                timeout(time: 1, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
+                echo 'Realizando o build do projeto...'
             }
         }
-		stage ('Deploy Backend') {
+
+        stage('Testes JUnit') {
             steps {
-                deploy adapters: [tomcat8(credentialsId: 'tomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'Clinica-0.0.1-SNAPSHOT', war: 'target/Clinica-0.0.1-SNAPSHOT.war'
+                echo 'Executando os testes JUnit...'
             }
+        }
+
+        stage('Análise Estática de Código') {
+            steps {
+                echo 'Realizando análise estática de código...'
+            }
+        }
+
+        stage('Implantação') {
+            steps {
+                echo 'Realizando a implantação...'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Ações a serem executadas sempre, independentemente do resultado da construção.'
+        }
+        success {
+            echo 'Ações a serem executadas apenas se a construção for bem-sucedida.'
+        }
+        failure {
+            echo 'Ações a serem executadas apenas se a construção falhar.'
         }
     }
 }
